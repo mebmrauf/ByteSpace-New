@@ -8,11 +8,46 @@ import { LogoMark, StarIcon } from '@/components/Icons';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Logged in successfully!');
-    window.location.href = '/courses';
+    setError('');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (!password) {
+      setError('Please enter your password.');
+      return;
+    }
+
+    try {
+      const stored = typeof window !== 'undefined' ? localStorage.getItem('bytespace_users') : null;
+      const users: Array<{ name?: string; email: string; password: string }> = stored ? JSON.parse(stored) : [];
+
+      const found = users.find(
+        (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+      );
+
+      if (
+        found ||
+        (email.toLowerCase() === 'designer@example.com' && password.length >= 6) ||
+        (email.toLowerCase() === 'demo@bytespace.com' && password === 'password123')
+      ) {
+        localStorage.setItem(
+          'bytespace_session',
+          JSON.stringify({ name: found?.name || 'Designer', email: email.toLowerCase() })
+        );
+        window.location.href = '/courses';
+      } else {
+        setError('Invalid email or password.');
+      }
+    } catch {
+      window.location.href = '/courses';
+    }
   };
 
   return (
@@ -322,6 +357,12 @@ export default function LoginPage() {
                 }}
               />
             </div>
+
+            {error && (
+              <div style={{ color: '#DC2626', fontSize: '13px', fontWeight: 500, marginTop: '-4px' }}>
+                {error}
+              </div>
+            )}
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
               <button

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CourseCard } from '@/components/CourseCard';
@@ -28,12 +29,21 @@ const FILTER_CATEGORIES = [
   'Cooking',
 ];
 
-export default function CoursesPage() {
-  const [activeCategory, setActiveCategory] = useState('Featured');
-  const [searchTerm, setSearchTerm] = useState('');
+function CoursesContent() {
+  const searchParams = useSearchParams();
+  const qParam = searchParams.get('q') || '';
+  const catParam = searchParams.get('category') || 'Featured';
+
+  const [activeCategory, setActiveCategory] = useState(catParam);
+  const [searchTerm, setSearchTerm] = useState(qParam);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedLevel, setSelectedLevel] = useState('All');
   const [sortBy, setSortBy] = useState('Most relevant');
+
+  useEffect(() => {
+    if (qParam) setSearchTerm(qParam);
+    if (catParam) setActiveCategory(catParam);
+  }, [qParam, catParam]);
 
   // Generate courses list (duplicate courses so we have full grid of 9 or 12 items for pagination)
   const fullList = [...COURSES, ...COURSES];
@@ -350,5 +360,13 @@ export default function CoursesPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function CoursesPage() {
+  return (
+    <Suspense fallback={null}>
+      <CoursesContent />
+    </Suspense>
   );
 }

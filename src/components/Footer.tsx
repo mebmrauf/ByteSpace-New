@@ -92,8 +92,9 @@ export const Footer: React.FC = () => {
                   whiteSpace: 'nowrap',
                   transition: 'background-color 0.2s',
                 }}
+                aria-label="Subscribe to newsletter"
               >
-                {subscribed ? 'Subscribed!' : 'Search'}
+                {subscribed ? 'Subscribed!' : 'Subscribe'}
               </button>
             </form>
 
