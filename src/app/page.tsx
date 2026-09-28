@@ -33,7 +33,7 @@ export default function HomePage() {
             c.title.toLowerCase().includes(selectedCategory.toLowerCase())
         );
 
-  const displayCourses = filteredCourses.length > 0 ? filteredCourses : COURSES;
+  const displayCourses = filteredCourses;
 
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#FFFFFF' }}>
@@ -387,17 +387,30 @@ export default function HomePage() {
           </div>
 
           {/* Course Cards Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '28px',
-            }}
-          >
-            {displayCourses.map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
-          </div>
+          {displayCourses.length > 0 ? (
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+                gap: '28px',
+              }}
+            >
+              {displayCourses.map((course) => (
+                <CourseCard key={course.id} course={course} />
+              ))}
+            </div>
+          ) : (
+            <div
+              style={{
+                textAlign: 'center',
+                padding: '60px 24px',
+                color: '#666973',
+                fontSize: '15px',
+              }}
+            >
+              No courses found for &quot;{selectedCategory}&quot;.
+            </div>
+          )}
         </div>
       </section>
 

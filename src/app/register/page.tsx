@@ -9,11 +9,40 @@ export default function RegisterPage() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Account created successfully!');
-    window.location.href = '/courses';
+    setError('');
+
+    if (fullName.trim().length < 2) {
+      setError('Please enter your full name.');
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
+
+    try {
+      const stored = typeof window !== 'undefined' ? localStorage.getItem('bytespace_users') : null;
+      const users: Array<{ name: string; email: string; password: string }> = stored ? JSON.parse(stored) : [];
+      if (users.some((u) => u.email.toLowerCase() === email.toLowerCase())) {
+        setError('An account with this email already exists.');
+        return;
+      }
+      users.push({ name: fullName.trim(), email: email.toLowerCase(), password });
+      localStorage.setItem('bytespace_users', JSON.stringify(users));
+      localStorage.setItem('bytespace_session', JSON.stringify({ name: fullName.trim(), email: email.toLowerCase() }));
+      window.location.href = '/courses';
+    } catch {
+      window.location.href = '/courses';
+    }
   };
 
   return (
@@ -352,6 +381,12 @@ export default function RegisterPage() {
                 }}
               />
             </div>
+
+            {error && (
+              <div style={{ color: '#DC2626', fontSize: '13px', fontWeight: 500, marginTop: '-4px' }}>
+                {error}
+              </div>
+            )}
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
               <button

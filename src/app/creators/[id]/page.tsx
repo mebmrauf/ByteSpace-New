@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useParams, notFound } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CourseCard } from '@/components/CourseCard';
@@ -9,6 +10,13 @@ import { FilterIcon, SignalCellularIcon, CategoryFilterIcon, SortIcon } from '@/
 import { COURSES } from '@/data/courses';
 
 export default function CreatorProfilePage() {
+  const params = useParams();
+  const creatorId = (params?.id as string)?.toLowerCase();
+
+  if (creatorId && creatorId !== 'purepearl-studio') {
+    notFound();
+  }
+
   const [isFollowing, setIsFollowing] = useState(false);
   const [followerCount, setFollowerCount] = useState(12);
 

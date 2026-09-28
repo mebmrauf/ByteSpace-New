@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import {
@@ -22,7 +22,11 @@ import { COURSES } from '@/data/courses';
 export default function CourseDetailPage() {
   const params = useParams();
   const courseId = params?.id as string;
-  const course = COURSES.find((c) => c.id === courseId) || COURSES[1]; // defaults to Build Digital Asset
+  const course = COURSES.find((c, idx) => c.id === courseId || String(idx + 1) === courseId);
+
+  if (!course) {
+    notFound();
+  }
 
   const [activeTab, setActiveTab] = useState<'about' | 'lessons' | 'reviews'>('about');
   const [selectedRatingFilter, setSelectedRatingFilter] = useState('All');
