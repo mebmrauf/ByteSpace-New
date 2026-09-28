@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=clash-display@600,700&display=swap');
+
+:root {
+  /* Neutral / Black Scale */
+  --neutral-50: #f5f5f6;
+  --neutral-100: #e5e6e8;
+  --neutral-200: #ced0d3;
+  --neutral-300: #abaeb5;
+  --neutral-400: #82868e;
+  --neutral-500: #666973;
+  --neutral-600: #585a62;
+  --neutral-700: #4b4c53;
+  --neutral-800: #424348;
+  --neutral-900: #3a3b3f;
+  --neutral-950: #242528;
+  --white: #ffffff;
+
+  /* Primary Blue (Persian Blue / Electric Violet) Scale */
+  --primary-50: #e7f6ff;
+  --primary-100: #d3eeff;
+  --primary-200: #b0ddff;
+  --primary-300: #81c5ff;
+  --primary-400: #4f9dff;
+  --primary-500: #2872ff;
+  --primary-600: #0445ff;
+  --primary-700: #0043ff;
+  --primary-800: #003be2;
+  --primary-900: #0b36a4;
+  --primary-950: #071e5f;
+
+  /* Accent Lime (Electric Lime) Scale */
+  --lime-50: #fdffe4;
+  --lime-100: #faffc5;
+  --lime-200: #f2ff92;
+  --lime-300: #e4ff54;
+  --lime-400: #d4fb20;
+  --lime-500: #cbfc01;
+  --lime-600: #8cb400;
+  --lime-700: #6a8902;
+  --lime-800: #546b09;
+  --lime-900: #465a0d;
+  --lime-950: #243300;
+
+  /* Typography */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sub: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Layout Container */
+  --max-width: 1280px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: var(--neutral-950);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Custom Grid Background on Blue Sections */
+.blue-grid-bg {
+  background-color: var(--primary-800);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 120px 120px;
+  background-position: center top;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 40px;
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--lime-400);
+  color: var(--neutral-950);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--lime-500);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(212, 251, 32, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--neutral-950);
+  border: 1px solid var(--neutral-200);
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-50);
+  border-color: var(--neutral-400);
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--white);
+  color: var(--neutral-950);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-white:hover {
+  background-color: var(--neutral-50);
+  transform: translateY(-1px);
+}
+
+/* Floating Card Base */
+.floating-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 16px 20px;
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(8px); }
+}
+
+.float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* Mobile & Tablet Responsive Media Queries */
+@media (max-width: 860px) {
+  .hero-composition {
+    transform: scale(0.85);
+    transform-origin: center top;
+    margin-bottom: -50px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav,
+  .desktop-actions {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-composition {
+    transform: scale(0.68);
+    transform-origin: center top;
+    margin-bottom: -120px !important;
+  }
+
+  .floating-shapes-hero {
+    display: none !important;
+  }
+}
+
