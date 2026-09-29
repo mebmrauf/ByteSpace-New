@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/"
             style={{
-              fontSize: '15px',
+              fontSize: '16px',
               fontWeight: isHomeActive ? 600 : 500,
               color: isHomeActive ? activeTextColor : defaultTextColor,
               transition: 'all 0.2s ease',
@@ -67,8 +67,8 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/courses"
             style={{
-              fontSize: '15px',
-              fontWeight: isCoursesActive ? 600 : 500,
+              fontSize: '16px',
+              fontWeight: isCoursesActive ? 600 : 400,
               color: isCoursesActive ? activeTextColor : defaultTextColor,
               transition: 'all 0.2s ease',
             }}
@@ -78,8 +78,8 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/creators/purepearl-studio"
             style={{
-              fontSize: '15px',
-              fontWeight: isCreatorsActive ? 600 : 500,
+              fontSize: '16px',
+              fontWeight: isCreatorsActive ? 600 : 400,
               color: isCreatorsActive ? activeTextColor : defaultTextColor,
               transition: 'all 0.2s ease',
             }}
@@ -93,15 +93,15 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',
+            gap: '24px',
           }}
           className="desktop-actions"
         >
           <Link
             href="/login"
             style={{
-              fontSize: '15px',
-              fontWeight: 500,
+              fontSize: '16px',
+              fontWeight: 400,
               color: textColor,
               transition: 'opacity 0.2s',
             }}
@@ -112,16 +112,10 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/register"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#D4FB20',
-              color: '#242528',
-              fontSize: '14px',
-              fontWeight: 600,
-              padding: '10px 22px',
-              borderRadius: '9999px',
-              transition: 'all 0.2s ease',
+              fontSize: '16px',
+              fontWeight: 400,
+              color: textColor,
+              transition: 'opacity 0.2s',
             }}
           >
             Join Us
@@ -140,17 +134,6 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
             aria-label="Cart"
           >
             <ShoppingBagIcon size={22} color={textColor} />
-            <span
-              style={{
-                position: 'absolute',
-                top: '-2px',
-                right: '-4px',
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: '#D4FB20',
-              }}
-            />
           </Link>
         </div>
 
@@ -222,18 +205,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/register"
             onClick={() => setMobileMenuOpen(false)}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#D4FB20',
-              color: '#242528',
-              fontSize: '15px',
-              fontWeight: 600,
-              padding: '12px 20px',
-              borderRadius: '9999px',
-              textAlign: 'center',
-            }}
+            style={{ color: textColor, fontSize: '16px', fontWeight: 500 }}
           >
             Join Us
           </Link>

@@ -20,33 +20,35 @@ export const Footer: React.FC = () => {
     <footer
       style={{
         backgroundColor: '#FFFFFF',
-        borderTop: '1px solid #E5E6E8',
-        paddingTop: '64px',
+        borderTop: '1px solid #CED0D3',
+        paddingTop: '60px',
         paddingBottom: '32px',
         width: '100%',
       }}
     >
-      <div className="container">
-        {/* Top Grid: Newsletter on left, link columns on right */}
+      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Top Section */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
             gap: '48px',
             marginBottom: '64px',
           }}
         >
           {/* Newsletter Column */}
-          <div style={{ maxWidth: '420px' }}>
-            <Link href="/" style={{ display: 'inline-block', marginBottom: '20px' }}>
-              <ByteSpaceLogo variant="dark" width={160} height={32} />
+          <div style={{ maxWidth: '504px', flex: '1 1 360px' }}>
+            <Link href="/" style={{ display: 'inline-block', marginBottom: '16px' }}>
+              <ByteSpaceLogo variant="dark" width={171} height={37} />
             </Link>
             <p
               style={{
+                fontFamily: 'var(--font-body)',
                 fontSize: '14px',
                 lineHeight: '22px',
-                color: '#666973',
-                marginBottom: '20px',
+                color: '#242528',
+                marginBottom: '24px',
               }}
             >
               Stay Up to date with our latest features and releases by joining our newsletter.
@@ -57,8 +59,9 @@ export const Footer: React.FC = () => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                marginBottom: '12px',
+                gap: '16px',
+                marginBottom: '16px',
+                maxWidth: '504px',
               }}
             >
               <input
@@ -69,13 +72,16 @@ export const Footer: React.FC = () => {
                 required
                 style={{
                   flex: 1,
-                  padding: '12px 18px',
-                  borderRadius: '9999px',
+                  padding: '12px 24px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '24px',
                   outline: 'none',
                   backgroundColor: '#FFFFFF',
                   color: '#242528',
+                  height: '48px',
                 }}
               />
               <button
@@ -83,131 +89,148 @@ export const Footer: React.FC = () => {
                 style={{
                   backgroundColor: '#D4FB20',
                   color: '#242528',
-                  fontWeight: 600,
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 500,
+                  fontSize: '18px',
+                  lineHeight: '21.6px',
                   padding: '12px 24px',
-                  borderRadius: '9999px',
+                  borderRadius: '24px',
                   border: 'none',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
+                  height: '48px',
                   transition: 'background-color 0.2s',
                 }}
                 aria-label="Subscribe to newsletter"
               >
-                {subscribed ? 'Subscribed!' : 'Subscribe'}
+                {subscribed ? 'Subscribed!' : 'Search'}
               </button>
             </form>
 
             <p
               style={{
-                fontSize: '11px',
-                lineHeight: '16px',
-                color: '#82868E',
+                fontFamily: 'var(--font-body)',
+                fontSize: '12px',
+                lineHeight: '19px',
+                color: '#242528',
               }}
             >
               By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
             </p>
           </div>
 
-          {/* Links Columns */}
+          {/* Links Columns (3 columns: Browse, Col2, Platform) */}
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
-              gap: '32px',
-              flex: 1,
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '40px',
+              flex: '1 1 500px',
+              justifyContent: 'space-between',
             }}
           >
-            {/* Col 1 */}
-            <div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                <li>
-                  <Link href="/courses" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Featured Courses
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Featured Categories
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=Business" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Business
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=IT+%26+Software" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    IT
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=UI%2FUX+Design" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Design
-                  </Link>
-                </li>
+            {/* Col 1 - Browse */}
+            <div style={{ minWidth: '130px' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '24px',
+                  fontWeight: 500,
+                  color: '#242528',
+                  marginBottom: '24px',
+                  height: '24px',
+                }}
+              >
+                Browse
+              </div>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px', padding: 0, margin: 0 }}>
+                {['Featured Courses', 'Featured Categories', 'Business', 'IT', 'Design'].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={item === 'Featured Courses' ? '/courses' : `/courses?cat=${encodeURIComponent(item)}`}
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '14px',
+                        lineHeight: '22px',
+                        color: '#242528',
+                        textDecoration: 'none',
+                        transition: 'color 0.2s',
+                      }}
+                      className="footer-link"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Col 2 */}
-            <div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                <li>
-                  <Link href="/courses?cat=Web+Development" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Development
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=Marketing" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Marketing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=Photography" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Photography
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses?cat=Business" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Finance
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Sport
-                  </Link>
-                </li>
+            {/* Col 2 - Categories (aligned with Browse items) */}
+            <div style={{ minWidth: '130px' }}>
+              <div style={{ height: '24px', marginBottom: '24px' }}></div>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px', padding: 0, margin: 0 }}>
+                {['Development', 'Marketing', 'Photography', 'Finance', 'Sport'].map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={`/courses?cat=${encodeURIComponent(item)}`}
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '14px',
+                        lineHeight: '22px',
+                        color: '#242528',
+                        textDecoration: 'none',
+                        transition: 'color 0.2s',
+                      }}
+                      className="footer-link"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* Col 3 */}
-            <div>
-              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                <li>
-                  <Link href="/creators/purepearl-studio" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Become a Creator
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/register" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Affiliate Program
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    Help
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" style={{ fontSize: '13px', color: '#4B4C53', textDecoration: 'none' }}>
-                    About
-                  </Link>
-                </li>
+            {/* Col 3 - Platform */}
+            <div style={{ minWidth: '130px' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '24px',
+                  fontWeight: 500,
+                  color: '#242528',
+                  marginBottom: '24px',
+                  height: '24px',
+                }}
+              >
+                Platform
+              </div>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '16px', padding: 0, margin: 0 }}>
+                {[
+                  { label: 'Become a Creator', href: '/creators/purepearl-studio' },
+                  { label: 'Affiliate Program', href: '/register' },
+                  { label: 'Contact', href: '/courses' },
+                  { label: 'Help', href: '/courses' },
+                  { label: 'About', href: '/' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '14px',
+                        lineHeight: '22px',
+                        color: '#242528',
+                        textDecoration: 'none',
+                        transition: 'color 0.2s',
+                      }}
+                      className="footer-link"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -216,26 +239,28 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div
           style={{
-            borderTop: '1px solid #F5F5F6',
+            borderTop: '1px solid #CED0D3',
             paddingTop: '24px',
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '16px',
+            fontFamily: 'var(--font-body)',
             fontSize: '12px',
-            color: '#82868E',
+            lineHeight: '19px',
+            color: '#242528',
           }}
         >
-          <div>© 2023 ByteSpace. All rights reserved.</div>
+          <div>@ 2023 ByteSpace. All rights reserved.</div>
           <div style={{ display: 'flex', gap: '24px' }}>
-            <Link href="/" style={{ color: '#82868E' }}>
+            <Link href="/" style={{ color: '#242528', textDecoration: 'none' }}>
               Privacy Policy
             </Link>
-            <Link href="/" style={{ color: '#82868E' }}>
+            <Link href="/" style={{ color: '#242528', textDecoration: 'none' }}>
               Terms of Service
             </Link>
-            <Link href="/" style={{ color: '#82868E' }}>
+            <Link href="/" style={{ color: '#242528', textDecoration: 'none' }}>
               Cookies Settings
             </Link>
           </div>

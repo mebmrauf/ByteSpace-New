@@ -143,44 +143,38 @@ export const HeadsetIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 // Learning Path Icons (Category cards with lime circles)
-export const DesignIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 26L16 16M14 6l4 4-8 8H6v-4l8-8zM22 14l4-4-4-4-4 4 4 4z" stroke="#242528" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+export const DesignIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="m352-522 86-87-56-57-44 44-56-56 43-44-45-45-87 87 159 158Zm328 329 87-87-45-45-44 43-56-56 43-44-57-56-86 86 158 159Zm-31-510 56 56 56-56-57-57-55 57ZM290-120H120v-170l175-175L80-680l200-200 216 216 151-152q12-12 27-18t31-6q16 0 31 6t27 18l53 54q12 12 18 27t6 31q0 16-6 30.5T816-647L665-495l215 215L680-80 465-295 290-120Z" />
   </svg>
 );
 
-export const DevelopmentIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 10L4 16L10 22M22 10L28 16L22 22M18 6L14 26" stroke="#242528" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+export const DevelopmentIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M344-296 160-480l184-184 56 58-126 126 126 126-56 58Zm-144 16h80v40h400v-40h80v160q0 33-23.5 56.5T680-40H280q-33 0-56.5-23.5T200-120v-160Zm80-400h-80v-160q0-33 23.5-56.5T280-920h400q33 0 56.5 23.5T760-840v160h-80v-40H280v40Zm0 520v40h400v-40H280Zm0-640h400v-40H280v40Zm336 504-56-58 126-126-126-126 56-58 184 184-184 184ZM280-800v-40 40Zm0 640v40-40Z" />
   </svg>
 );
 
-export const ITSoftwareIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4" y="6" width="24" height="16" rx="2" stroke="#242528" strokeWidth="2.2"/>
-    <path d="M2 26h28M12 22v4M20 22v4" stroke="#242528" strokeWidth="2.2" strokeLinecap="round"/>
+export const ITSoftwareIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M40-120v-80h880v80H40Zm120-120q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240H160Zm0-80h640v-440H160v440Zm0 0v-440 440Z" />
   </svg>
 );
 
-export const BusinessIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="8" width="12" height="18" rx="1" stroke="#242528" strokeWidth="2.2"/>
-    <rect x="18" y="14" width="8" height="12" rx="1" stroke="#242528" strokeWidth="2.2"/>
-    <line x1="10" y1="12" x2="14" y2="12" stroke="#242528" strokeWidth="2"/>
-    <line x1="10" y1="16" x2="14" y2="16" stroke="#242528" strokeWidth="2"/>
-    <line x1="10" y1="20" x2="14" y2="20" stroke="#242528" strokeWidth="2"/>
+export const BusinessIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M80-200v-560q0-33 23.5-56.5T160-840h240q33 0 56.5 23.5T480-760v80h320q33 0 56.5 23.5T880-600v400q0 33-23.5 56.5T800-120H160q-33 0-56.5-23.5T80-200Zm80 0h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm0-160h80v-80h-80v80Zm160 480h320v-400H480v80h80v80h-80v80h80v80h-80v80Zm160-240v-80h80v80h-80Zm0 160v-80h80v80h-80Z" />
   </svg>
 );
 
-export const MarketingIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6 14v4M10 12v8M14 8v16M18 10v12M22 6v20M26 14v4" stroke="#242528" strokeWidth="2.4" strokeLinecap="round"/>
+export const MarketingIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M640-80v-90q-56-18-94-64t-44-106h80q8 43 40.5 71.5T700-240h120q25 0 42.5 17.5T880-180v100H640Zm120-200q-33 0-56.5-23.5T680-360q0-33 23.5-56.5T760-440q33 0 56.5 23.5T840-360q0 33-23.5 56.5T760-280ZM360-400q0-150 105-255t255-105v80q-117 0-198.5 81.5T440-400h-80Zm160 0q0-83 58.5-141.5T720-600v80q-50 0-85 35t-35 85h-80ZM80-520v-100q0-25 17.5-42.5T140-680h120q45 0 77.5-28.5T378-780h80q-6 60-44 106t-94 64v90H80Zm120-200q-33 0-56.5-23.5T120-800q0-33 23.5-56.5T200-880q33 0 56.5 23.5T280-800q0 33-23.5 56.5T200-720Z" />
   </svg>
 );
 
-export const PhotographyIcon = ({ size = 32 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M28 24a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h4l2-3h8l2 3h4a2 2 0 0 1 2 2v14z" stroke="#242528" strokeWidth="2.2"/>
-    <circle cx="16" cy="17" r="4.5" stroke="#242528" strokeWidth="2.2"/>
+export const PhotographyIcon = ({ size = 36, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 -960 960 960" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M320-280h320v-22q0-45-44-71.5T480-400q-72 0-116 26.5T320-302v22Zm160-160q33 0 56.5-23.5T560-520q0-33-23.5-56.5T480-600q-33 0-56.5 23.5T400-520q0 33 23.5 56.5T480-440ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" />
   </svg>
 );

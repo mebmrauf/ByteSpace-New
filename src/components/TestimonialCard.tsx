@@ -15,7 +15,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
         backgroundColor: '#FFFFFF',
         borderRadius: '24px',
         padding: '32px 28px',
-        border: '1px solid #F0F1F3',
+        border: '1px solid #CED0D3',
         boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
         display: 'flex',
         flexDirection: 'column',
@@ -47,10 +47,12 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
         <div>
           <h4
             style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '16px',
-              fontWeight: 700,
-              color: '#242528',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '20px',
+              fontWeight: 600,
+              lineHeight: '24px',
+              letterSpacing: '-0.2px',
+              color: '#040819',
               marginBottom: '2px',
             }}
           >
@@ -58,9 +60,11 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
           </h4>
           <span
             style={{
-              fontSize: '13px',
-              fontWeight: 500,
-              color: '#0445FF',
+              fontFamily: 'Satoshi, sans-serif',
+              fontSize: '18px',
+              fontWeight: 400,
+              lineHeight: '28.8px',
+              color: '#82868E',
             }}
           >
             {testimonial.role}
@@ -71,9 +75,10 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial })
       {/* Quote */}
       <p
         style={{
-          fontSize: '14px',
-          lineHeight: '23px',
-          color: '#4B4C53',
+          fontFamily: 'Satoshi, sans-serif',
+          fontSize: '18px',
+          lineHeight: '28.8px',
+          color: '#242528',
           fontStyle: 'normal',
         }}
       >

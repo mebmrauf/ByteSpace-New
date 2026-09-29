@@ -82,9 +82,11 @@ export default function RegisterPage() {
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(32px, 4vw, 44px)',
-              fontWeight: 700,
-              lineHeight: 1.2,
+              fontSize: '20px',
+              lineHeight: '24px',
+              fontWeight: 600,
+              letterSpacing: '-0.2px',
+              color: '#F5F5F6',
               marginBottom: '16px',
             }}
           >
@@ -93,12 +95,12 @@ export default function RegisterPage() {
 
           <p
             style={{
-              fontSize: '15px',
-              lineHeight: '25px',
+              fontFamily: 'var(--font-body)',
+              fontSize: '18px',
+              lineHeight: '28.8px',
               color: '#F5F5F6',
-              maxWidth: '460px',
-              marginBottom: '48px',
-              opacity: 0.9,
+              maxWidth: '475px',
+              marginBottom: '40px',
             }}
           >
             The registration process is straightforward, uncomplicated, and efficient, allowing users to sign up quickly,
@@ -162,82 +164,87 @@ export default function RegisterPage() {
             <div
               style={{
                 position: 'absolute',
-                top: '40px',
+                top: '0',
                 left: '0',
-                width: '320px',
+                width: '290px',
                 backgroundColor: '#FFFFFF',
-                borderRadius: '20px',
-                padding: '14px',
-                opacity: 0.85,
-                transform: 'scale(0.92) translateX(-20px)',
+                borderRadius: '24px',
+                padding: '16px',
+                border: '1px solid #CED0D3',
                 zIndex: 1,
               }}
             >
-              <div style={{ position: 'relative', width: '100%', height: '110px', borderRadius: '12px', overflow: 'hidden', marginBottom: '10px' }}>
-                <Image src="/courses/course-digital-asset.png" alt="Course" fill style={{ objectFit: 'cover' }} />
+              <div style={{ position: 'relative', width: '100%', height: '130px', borderRadius: '12px', overflow: 'hidden', marginBottom: '12px' }}>
+                <Image src="/courses/course-digital-assets.png" alt="Digital Asset" fill style={{ objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', bottom: '8px', left: '8px', display: 'flex', gap: '6px' }}>
+                  <span style={{ backgroundColor: 'rgba(246, 246, 246, 0.65)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '10px', fontWeight: 500, padding: '3px 8px', borderRadius: '24px' }}>17 Lessons</span>
+                  <span style={{ backgroundColor: 'rgba(246, 246, 246, 0.65)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '10px', fontWeight: 500, padding: '3px 8px', borderRadius: '24px' }}>2 hours 16 mins</span>
+                </div>
               </div>
-              <div style={{ fontSize: '14px', fontWeight: 700, color: '#242528' }}>Build Digital Asset</div>
-              <div style={{ fontSize: '11px', color: '#0445FF' }}>by purepearl studio</div>
+              <div style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', fontWeight: 600, color: '#242528', marginBottom: '4px' }}>Build Digital Asset</div>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '11px', color: '#4F4F4F' }}>by purepearl studio</div>
             </div>
 
             {/* Foreground Main Course Card (the Power of Big Data) */}
             <div
               style={{
                 position: 'absolute',
-                top: '0',
-                left: '60px',
-                width: '340px',
+                top: '60px',
+                left: '110px',
+                width: '290px',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '24px',
                 padding: '16px',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.25)',
+                border: '1px solid #CED0D3',
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
                 zIndex: 2,
               }}
             >
-              <div style={{ position: 'relative', width: '100%', height: '130px', borderRadius: '14px', overflow: 'hidden', marginBottom: '12px' }}>
+              <div style={{ position: 'relative', width: '100%', height: '130px', borderRadius: '12px', overflow: 'hidden', marginBottom: '12px' }}>
                 <Image src="/courses/course-big-data.png" alt="Big Data" fill style={{ objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', bottom: '8px', left: '8px', display: 'flex', gap: '6px' }}>
-                  <span style={{ backgroundColor: 'rgba(36, 37, 40, 0.65)', color: '#fff', fontSize: '10px', padding: '3px 8px', borderRadius: '9999px' }}>17 Lessons</span>
-                  <span style={{ backgroundColor: 'rgba(36, 37, 40, 0.65)', color: '#fff', fontSize: '10px', padding: '3px 8px', borderRadius: '9999px' }}>2 hours 16 mins</span>
-                  <span style={{ backgroundColor: 'rgba(36, 37, 40, 0.65)', color: '#fff', fontSize: '10px', padding: '3px 8px', borderRadius: '9999px' }}>59 Comments</span>
+                  <span style={{ backgroundColor: 'rgba(246, 246, 246, 0.65)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '10px', fontWeight: 500, padding: '3px 8px', borderRadius: '24px' }}>17 Lessons</span>
+                  <span style={{ backgroundColor: 'rgba(246, 246, 246, 0.65)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '10px', fontWeight: 500, padding: '3px 8px', borderRadius: '24px' }}>2 hours 16 mins</span>
                 </div>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#242528' }}>the Power of Big Data</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2px', fontSize: '12px', fontWeight: 700, color: '#242528' }}>
+                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '15px', fontWeight: 600, color: '#242528' }}>the Power of Big Data</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '2px', fontSize: '12px', fontWeight: 600, color: '#4F4F4F' }}>
                   <span>4.5</span>
-                  <StarIcon size={12} color="#CBFC01" />
+                  <StarIcon size={12} color="#003BE2" />
                 </div>
               </div>
-              <div style={{ fontSize: '11px', color: '#0445FF', marginBottom: '10px' }}>by purepearl studio</div>
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '11px', color: '#4F4F4F', marginBottom: '10px' }}>by purepearl studio</div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #F5F5F6', paddingTop: '10px' }}>
-                <div style={{ fontSize: '12px', color: '#666973' }}>Beginner</div>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: '#4F4F4F' }}>Beginner</div>
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-                  <span style={{ fontSize: '16px', fontWeight: 700, color: '#003BE2' }}>$25</span>
-                  <span style={{ fontSize: '10px', color: '#82868E' }}>/lifetime</span>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: '16px', fontWeight: 600, color: '#300B6A' }}>$25</span>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', color: '#4F4F4F' }}>/lifetime</span>
                 </div>
               </div>
             </div>
 
-            {/* Bottom Card: Happy Students (Lime Green Box) */}
+            {/* Bottom Card: Happy Students (White background in Figma) */}
             <div
               style={{
                 position: 'absolute',
                 bottom: '10px',
                 left: '120px',
-                backgroundColor: '#D4FB20',
+                backgroundColor: '#FFFFFF',
                 borderRadius: '16px',
-                padding: '12px 18px',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+                padding: '16px',
+                border: '1px solid #CED0D3',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
                 zIndex: 3,
                 color: '#242528',
+                width: '258px',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '8px' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700 }}>Happy Students</span>
-                <span style={{ fontSize: '11px', fontWeight: 600 }}>4.5 (240) ★</span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 500, color: '#242528' }}>Happy Students</span>
+                <span style={{ fontFamily: 'var(--font-body)', fontSize: '10px', color: '#424348' }}>4.5 (240) ★</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 {[
@@ -252,26 +259,31 @@ export default function RegisterPage() {
                     key={i}
                     style={{
                       position: 'relative',
-                      width: '24px',
-                      height: '24px',
+                      width: '32px',
+                      height: '32px',
                       borderRadius: '50%',
                       overflow: 'hidden',
-                      marginLeft: i > 0 ? '-6px' : '0',
-                      border: '1.5px solid #D4FB20',
+                      marginLeft: i > 0 ? '-10px' : '0',
+                      border: '1.5px solid #FFFFFF',
                     }}
                   >
-                    <Image src={src} alt="Student" fill sizes="24px" style={{ objectFit: 'cover' }} />
+                    <Image src={src} alt="Student" fill sizes="32px" style={{ objectFit: 'cover' }} />
                   </div>
                 ))}
                 <span
                   style={{
                     backgroundColor: '#242528',
-                    color: '#FFFFFF',
-                    fontSize: '9px',
+                    color: '#F5F5F6',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
                     fontWeight: 700,
-                    padding: '3px 6px',
-                    borderRadius: '9999px',
-                    marginLeft: '-4px',
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: '-10px',
                     zIndex: 7,
                   }}
                 >
@@ -283,41 +295,58 @@ export default function RegisterPage() {
         </div>
 
         {/* ============================================================ */}
-        {/* Right Column: Register Modal Card Form                       */}
+        {/* Right Column: Register Modal Card Form (579px, 24px radius)  */}
         {/* ============================================================ */}
         <div
           style={{
             backgroundColor: '#FFFFFF',
             color: '#242528',
-            borderRadius: '36px',
-            padding: '56px 48px',
+            borderRadius: '24px',
+            padding: '48px 48px',
             boxShadow: '0 30px 60px rgba(0, 0, 0, 0.25)',
-            maxWidth: '540px',
+            maxWidth: '579px',
             width: '100%',
             justifySelf: 'center',
           }}
         >
-          <div style={{ fontSize: '15px', fontWeight: 500, color: '#0445FF', marginBottom: '8px' }}>
+          <div
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '18px',
+              lineHeight: '21.6px',
+              fontWeight: 400,
+              color: '#003BE2',
+              marginBottom: '8px',
+            }}
+          >
             Create an Account
           </div>
           <h2
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '36px',
-              fontWeight: 700,
+              fontSize: '44px',
+              lineHeight: '52.8px',
+              fontWeight: 600,
+              letterSpacing: '-0.44px',
               color: '#242528',
-              lineHeight: 1.15,
-              marginBottom: '36px',
+              marginBottom: '40px',
             }}
           >
-            Welcome to
-            <br />
-            ByteSpace
+            Welcome to ByteSpace
           </h2>
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#242528', marginBottom: '8px' }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  color: '#242528',
+                  marginBottom: '8px',
+                }}
+              >
                 Full Name
               </label>
               <input
@@ -328,10 +357,12 @@ export default function RegisterPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '14px 18px',
+                  height: '48px',
+                  padding: '12px 16px',
                   borderRadius: '12px',
                   border: '1px solid #CED0D3',
-                  fontSize: '15px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
                   color: '#242528',
                   outline: 'none',
                 }}
@@ -339,7 +370,16 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#242528', marginBottom: '8px' }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  color: '#242528',
+                  marginBottom: '8px',
+                }}
+              >
                 Email
               </label>
               <input
@@ -350,10 +390,12 @@ export default function RegisterPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '14px 18px',
+                  height: '48px',
+                  padding: '12px 16px',
                   borderRadius: '12px',
                   border: '1px solid #CED0D3',
-                  fontSize: '15px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
                   color: '#242528',
                   outline: 'none',
                 }}
@@ -361,7 +403,16 @@ export default function RegisterPage() {
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '13px', fontWeight: 500, color: '#242528', marginBottom: '8px' }}>
+              <label
+                style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  color: '#242528',
+                  marginBottom: '8px',
+                }}
+              >
                 Password
               </label>
               <input
@@ -372,10 +423,12 @@ export default function RegisterPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '14px 18px',
+                  height: '48px',
+                  padding: '12px 16px',
                   borderRadius: '12px',
                   border: '1px solid #CED0D3',
-                  fontSize: '15px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
                   color: '#242528',
                   outline: 'none',
                 }}
@@ -383,34 +436,58 @@ export default function RegisterPage() {
             </div>
 
             {error && (
-              <div style={{ color: '#DC2626', fontSize: '13px', fontWeight: 500, marginTop: '-4px' }}>
+              <div
+                style={{
+                  color: '#DC2626',
+                  fontSize: '14px',
+                  padding: '10px 14px',
+                  backgroundColor: '#FEE2E2',
+                  borderRadius: '8px',
+                }}
+              >
                 {error}
               </div>
             )}
 
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '10px' }}>
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: '#D4FB20',
-                  color: '#242528',
-                  fontWeight: 700,
-                  fontSize: '15px',
-                  padding: '14px 36px',
-                  borderRadius: '9999px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
-              >
-                Continue
-              </button>
-            </div>
+            <button
+              type="submit"
+              style={{
+                width: '100%',
+                height: '48px',
+                backgroundColor: '#D4FB20',
+                color: '#242528',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 500,
+                fontSize: '18px',
+                borderRadius: '24px',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                marginTop: '8px',
+              }}
+            >
+              Continue
+            </button>
           </form>
 
-          <div style={{ textAlign: 'center', marginTop: '48px', fontSize: '14px', color: '#666973' }}>
+          <div
+            style={{
+              textAlign: 'center',
+              marginTop: '40px',
+              fontFamily: 'var(--font-body)',
+              fontSize: '16px',
+              color: '#4B4C53',
+            }}
+          >
             Already have an account?{' '}
-            <Link href="/login" style={{ color: '#0445FF', fontWeight: 600 }}>
+            <Link
+              href="/login"
+              style={{
+                color: '#003BE2',
+                textDecoration: 'none',
+                fontWeight: 500,
+              }}
+            >
               Login
             </Link>
           </div>
