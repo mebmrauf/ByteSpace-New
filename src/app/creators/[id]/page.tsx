@@ -39,27 +39,27 @@ export default function CreatorProfilePage() {
         className="blue-grid-bg"
         style={{
           color: '#FFFFFF',
-          paddingBottom: '60px',
+          paddingBottom: '82px',
           position: 'relative',
         }}
       >
         <Header variant="light" />
 
-        <div className="container" style={{ paddingTop: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="header-inner" style={{ paddingTop: '52px', width: '1440px', maxWidth: '100%', margin: '0', padding: '0 120px', boxSizing: 'border-box' }}>
           {/* Creator Profile Top Bar */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
             <div
               style={{
                 position: 'relative',
-                width: '104px',
-                height: '104px',
+                width: '96px',
+                height: '96px',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 backgroundColor: '#FFFFFF',
                 flexShrink: 0,
               }}
             >
-              <Image src="/images/creator-purepearl.png" alt="PurePearl Studio" fill style={{ objectFit: 'cover' }} priority />
+              <Image src="/images/creator-purepearl.png" alt="PurePearl Studio" fill sizes="96px" style={{ objectFit: 'cover' }} priority />
             </div>
 
             <div>
@@ -85,8 +85,13 @@ export default function CreatorProfilePage() {
                     fontSize: '16px',
                     lineHeight: '19.2px',
                     fontWeight: 500,
-                    padding: '8px 16px',
+                    padding: '8px 24px',
+                    height: '35px',
                     borderRadius: '24px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxSizing: 'border-box',
                   }}
                 >
                   Creator
@@ -113,18 +118,12 @@ export default function CreatorProfilePage() {
               fontSize: '18px',
               lineHeight: '28.8px',
               color: '#F5F5F6',
-              maxWidth: '902px',
+              maxWidth: '1198px',
               marginBottom: '40px',
+              whiteSpace: 'pre-line',
             }}
           >
-            <p style={{ margin: '0 0 12px 0' }}>
-              Welcome to the creative world of PurePearl Studio. Here, you&apos;ll discover the passion, expertise, and
-              inspiration that drive my creative journey. Let&apos;s explore and learn together!
-            </p>
-            <p style={{ margin: 0 }}>
-              Dive into my creative portfolio, showcasing a glimpse of my artistic endeavors. From digital designs to
-              multimedia projects, each piece tells a unique story. Explore the world of creativity with me.
-            </p>
+            {`Welcome to the creative world of [Creator's Name]. Here, you'll discover the passion, expertise, and inspiration that drive my creative journey. Let's explore and learn together!\nive into my creative portfolio, showcasing a glimpse of my artistic endeavors. From digital designs to multimedia projects, each piece tells a unique story. Explore the world of creativity with me.`}
           </div>
 
           {/* Stats & Actions */}
@@ -144,12 +143,14 @@ export default function CreatorProfilePage() {
                   padding: '12px 24px',
                   height: '46px',
                   borderRadius: '24px',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
                   fontFamily: 'var(--font-body)',
                   fontSize: '18px',
+                  lineHeight: '21.6px',
                   fontWeight: 500,
+                  boxSizing: 'border-box',
                 }}
               >
                 <span style={{ color: '#003BE2' }}>3</span>
@@ -161,12 +162,14 @@ export default function CreatorProfilePage() {
                   padding: '12px 24px',
                   height: '46px',
                   borderRadius: '24px',
-                  display: 'flex',
+                  display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
                   fontFamily: 'var(--font-body)',
                   fontSize: '18px',
+                  lineHeight: '21.6px',
                   fontWeight: 500,
+                  boxSizing: 'border-box',
                 }}
               >
                 <span style={{ color: '#003BE2' }}>{followerCount}</span>
@@ -181,6 +184,7 @@ export default function CreatorProfilePage() {
                 color: '#040819',
                 fontFamily: 'var(--font-body)',
                 fontSize: '18px',
+                lineHeight: '21.6px',
                 fontWeight: 500,
                 padding: '12px 24px',
                 height: '46px',
@@ -188,6 +192,10 @@ export default function CreatorProfilePage() {
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
+                boxSizing: 'border-box',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               {isFollowing ? 'Following' : 'Follow'}
@@ -200,7 +208,7 @@ export default function CreatorProfilePage() {
       {/* 2. CREATOR COURSES CATALOG                                   */}
       {/* ============================================================ */}
       <section style={{ padding: '60px 0 80px' }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
           {/* Filter Bar: 48px height, 24px radius, 12px 16px padding */}
           <div
             style={{
@@ -229,9 +237,10 @@ export default function CreatorProfilePage() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <FilterIcon size={20} />
+                <FilterIcon size={24} color="#242528" />
                 <span>Filter</span>
               </button>
 
@@ -251,9 +260,10 @@ export default function CreatorProfilePage() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <SignalCellularIcon size={20} color="#4B4C53" />
+                <SignalCellularIcon size={24} color="#242528" />
                 <span>Level</span>
               </button>
 
@@ -273,9 +283,10 @@ export default function CreatorProfilePage() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <CategoryFilterIcon size={20} />
+                <CategoryFilterIcon size={24} color="#242528" />
                 <span>Category</span>
               </button>
             </div>
@@ -297,19 +308,21 @@ export default function CreatorProfilePage() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <SortIcon size={20} />
+                <SortIcon size={24} color="#242528" />
                 <span>Most relevant</span>
               </button>
             </div>
           </div>
 
-          {/* Courses Grid: exactly 3 columns with 40px gap */}
+          {/* Courses Grid: exactly 3 columns of 373px with 40px gap */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+              gridTemplateColumns: 'repeat(3, 373px)',
+              justifyContent: 'space-between',
               gap: '40px',
             }}
           >
@@ -324,3 +337,4 @@ export default function CreatorProfilePage() {
     </main>
   );
 }
+

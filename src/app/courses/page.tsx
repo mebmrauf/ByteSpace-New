@@ -74,7 +74,7 @@ function CoursesContent() {
       >
         <Header variant="light" />
 
-        <div className="container" style={{ textAlign: 'center', paddingTop: '20px', maxWidth: '1200px' }}>
+        <div className="header-inner" style={{ textAlign: 'center', paddingTop: '20px', width: '1440px', maxWidth: '100%', margin: '0', padding: '0 120px' }}>
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
@@ -165,20 +165,26 @@ function CoursesContent() {
 
       {/* Main Filter & Course Catalog */}
       <section style={{ padding: '72px 0 80px' }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div
+          className="courses-catalog-container"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            width: '100%',
+          }}
+        >
           {/* Top Filter Bar */}
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
-              gap: '16px',
+              height: '48px',
               marginBottom: '32px',
             }}
           >
             {/* Left Filter Buttons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <button
                 className="btn-secondary"
                 style={{
@@ -196,9 +202,10 @@ function CoursesContent() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <FilterIcon size={20} />
+                <FilterIcon size={24} color="#242528" />
                 <span>Filter</span>
               </button>
 
@@ -220,10 +227,11 @@ function CoursesContent() {
                   fontWeight: 500,
                   color: '#4B4C53',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <SignalCellularIcon size={20} color="#4B4C53" />
-                <span>Level {selectedLevel !== 'All' ? `(${selectedLevel})` : ''}</span>
+                <SignalCellularIcon size={24} color="#242528" />
+                <span>Level{selectedLevel !== 'All' ? ` (${selectedLevel})` : ''}</span>
               </button>
 
               <button
@@ -243,9 +251,10 @@ function CoursesContent() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <CategoryFilterIcon size={20} />
+                <CategoryFilterIcon size={24} color="#242528" />
                 <span>Category</span>
               </button>
             </div>
@@ -269,21 +278,24 @@ function CoursesContent() {
                   color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
                   cursor: 'pointer',
+                  boxSizing: 'border-box',
                 }}
               >
-                <SortIcon size={20} />
+                <SortIcon size={24} color="#242528" />
                 <span>{sortBy}</span>
               </button>
             </div>
           </div>
 
-          {/* Categories Pills */}
+          {/* Categories Pills: Exactly 1200px width, space-between matching 55:1819 */}
           <div
             style={{
               display: 'flex',
-              gap: '16px',
-              flexWrap: 'wrap',
-              marginBottom: '40px',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%',
+              marginBottom: '77px',
+              overflowX: 'auto',
             }}
           >
             {FILTER_CATEGORIES.map((cat) => {
@@ -304,6 +316,8 @@ function CoursesContent() {
                     borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                    boxSizing: 'border-box',
                     transition: 'all 0.15s ease',
                   }}
                 >
@@ -313,12 +327,14 @@ function CoursesContent() {
             })}
           </div>
 
-          {/* Courses Grid: exactly 3 columns matching Frame 8 */}
+          {/* Courses Grid: exactly 3 columns of 373px with 40px gap matching Frame 8 */}
           <div
+            className="courses-grid"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+              gridTemplateColumns: 'repeat(3, 373px)',
               gap: '40px',
+              justifyContent: 'space-between',
               marginBottom: '72px',
             }}
           >

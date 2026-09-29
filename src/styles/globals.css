@@ -86,10 +86,10 @@ input, select, textarea {
 .blue-grid-bg {
   background-color: var(--primary-800);
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.12) 2px, transparent 2px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 2px, transparent 2px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 120px 120px;
-  background-position: calc(50% - 660px) top;
+  background-position: left top;
 }
 
 /* Container */
@@ -210,10 +210,9 @@ input, select, textarea {
 .hero-canvas {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 0;
   width: 1440px;
   height: 1024px;
-  transform: translateX(-50%);
   pointer-events: none;
 }
 
@@ -429,8 +428,9 @@ input, select, textarea {
     height: 1024px;
   }
   .hero-canvas {
-    transform: translateX(-50%) scale(1);
-    transform-origin: center top;
+    left: 0;
+    transform: none;
+    transform-origin: left top;
   }
 }
 
@@ -439,8 +439,9 @@ input, select, textarea {
     height: 940px;
   }
   .hero-canvas {
-    transform: translateX(-50%) scale(0.915);
-    transform-origin: center top;
+    left: 0;
+    transform: scale(0.915);
+    transform-origin: left top;
   }
 }
 
@@ -449,8 +450,9 @@ input, select, textarea {
     height: 820px;
   }
   .hero-canvas {
-    transform: translateX(-50%) scale(0.8);
-    transform-origin: center top;
+    left: 0;
+    transform: scale(0.8);
+    transform-origin: left top;
   }
 }
 
@@ -459,8 +461,9 @@ input, select, textarea {
     height: 700px;
   }
   .hero-canvas {
-    transform: translateX(-50%) scale(0.68);
-    transform-origin: center top;
+    left: 0;
+    transform: scale(0.68);
+    transform-origin: left top;
   }
 }
 
@@ -469,8 +472,9 @@ input, select, textarea {
     height: 600px;
   }
   .hero-canvas {
-    transform: translateX(-50%) scale(0.58);
-    transform-origin: center top;
+    left: 0;
+    transform: scale(0.58);
+    transform-origin: left top;
   }
 }
 
@@ -628,5 +632,122 @@ input, select, textarea {
   }
 }
 
+/* Testimonials Section Responsive Grid */
+.testimonials-container {
+  padding: 0;
+}
+
+@media (max-width: 1252px) {
+  .testimonials-container {
+    padding: 0 24px;
+  }
+}
+
+.testimonials-grid {
+  grid-template-columns: repeat(3, 374px);
+  align-items: flex-start;
+}
+
+@media (max-width: 1204px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  }
+}
+
+/* Header Section Responsive Styles */
+.header-inner {
+  padding: 0 120px;
+}
+
+@media (max-width: 1440px) {
+  .header-inner {
+    padding: 0 clamp(20px, 8.33vw, 120px) !important;
+  }
+}
+
+/* Footer Section Responsive Styles */
+.footer-container {
+  padding: 0;
+}
+
+@media (max-width: 1252px) {
+  .footer-container {
+    padding: 0 24px !important;
+  }
+}
+
+.footer-link:hover {
+  color: #003BE2 !important;
+}
+
+@media (max-width: 640px) {
+  .footer-links-container {
+    flex-wrap: wrap !important;
+    gap: 32px !important;
+  }
+  .footer-form {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .footer-form input {
+    width: 100% !important;
+  }
+  .footer-form button {
+    width: 100% !important;
+  }
+}
+
+
+/* Value prop 2-column grids collapse on mobile */
+.value-prop-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+
+@media (max-width: 900px) {
+  .value-prop-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.value-props-container {
+  width: 100%;
+  max-width: 1258px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1306px) {
+  .value-props-container {
+    padding: 0;
+  }
+}
+
+.creator-cta-banner {
+  background-size: 100% 100% !important;
+}
+
+/* Courses Catalog Page */
+.courses-catalog-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1240px) {
+  .courses-catalog-container {
+    padding: 0 20px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    justify-content: center !important;
+  }
+}
 
 

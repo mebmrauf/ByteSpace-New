@@ -28,24 +28,22 @@ export const SearchIcon = ({ size = 20, color = 'currentColor' }: { size?: numbe
 );
 
 export const ShoppingBagIcon = ({ size = 24, color = 'currentColor' }: { size?: number; color?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <path d="M16 10a4 4 0 0 1-8 0"></path>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z" />
   </svg>
 );
 
-export const StarIcon = ({ size = 16, color = '#CBFC01' }: { size?: number; color?: string }) => (
+export const StarIcon = ({ size = 24, color = '#CED0D3' }: { size?: number; color?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27z"/>
   </svg>
 );
 
-export const SignalCellularIcon = ({ size = 16, color = '#666973' }: { size?: number; color?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 22h20V2L2 22zm18-2H4.41L20 4.41V20z"/>
-    <rect x="4" y="16" width="3" height="4" rx="0.5" fill={color} />
-    <rect x="9" y="12" width="3" height="8" rx="0.5" fill={color} />
+export const SignalCellularIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4.5" y="14" width="3" height="6" rx="1.2" fill={color} />
+    <rect x="10.5" y="9" width="3" height="11" rx="1.2" fill={color} />
+    <rect x="16.5" y="4" width="3" height="16" rx="1.2" fill={color} />
   </svg>
 );
 
@@ -56,26 +54,23 @@ export const CheckCircleIcon = ({ size = 20, color = '#0445FF' }: { size?: numbe
   </svg>
 );
 
-export const FilterIcon = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+export const FilterIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" clipRule="evenodd" d="M4 4h16l-6 8v8h-4v-8L4 4zm2.8 2L12 12.6 17.2 6H6.8z"/>
   </svg>
 );
 
-export const CategoryFilterIcon = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="7" height="7"></rect>
-    <rect x="14" y="3" width="7" height="7"></rect>
-    <rect x="14" y="14" width="7" height="7"></rect>
-    <rect x="3" y="14" width="7" height="7"></rect>
+export const CategoryFilterIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="m12 2-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/>
   </svg>
 );
 
-export const SortIcon = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="4" y1="6" x2="20" y2="6"></line>
-    <line x1="4" y1="12" x2="14" y2="12"></line>
-    <line x1="4" y1="18" x2="8" y2="18"></line>
+export const SortIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="6" width="18" height="2" fill={color} />
+    <rect x="3" y="11" width="12" height="2" fill={color} />
+    <rect x="3" y="16" width="6" height="2" fill={color} />
   </svg>
 );
 
