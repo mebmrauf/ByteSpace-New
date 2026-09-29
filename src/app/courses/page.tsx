@@ -74,7 +74,7 @@ function CoursesContent() {
       >
         <Header variant="light" />
 
-        <div className="header-inner" style={{ textAlign: 'center', paddingTop: '20px', width: '1440px', maxWidth: '100%', margin: '0', padding: '0 120px' }}>
+        <div className="header-inner" style={{ textAlign: 'center', paddingTop: '20px', width: '1440px', maxWidth: '100%', margin: '0 auto', padding: '0 120px' }}>
           <h1
             style={{
               fontFamily: 'var(--font-heading)',

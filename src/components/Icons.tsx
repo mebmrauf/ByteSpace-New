@@ -23,6 +23,7 @@ export const ByteSpaceLogo = ({ variant = 'light', width = 171, height = 35 }: {
 export const SearchIcon = ({ size = 20, color = 'currentColor' }: { size?: number; color?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"></circle>
+    
     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
   </svg>
 );
@@ -40,10 +41,14 @@ export const StarIcon = ({ size = 24, color = '#CED0D3' }: { size?: number; colo
 );
 
 export const SignalCellularIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="4.5" y="14" width="3" height="6" rx="1.2" fill={color} />
-    <rect x="10.5" y="9" width="3" height="11" rx="1.2" fill={color} />
-    <rect x="16.5" y="4" width="3" height="16" rx="1.2" fill={color} />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 3H17V21H19V3ZM12 9H10V21H12V9ZM5 15H3V21H5V15Z" />
+  </svg>
+);
+
+export const UsersIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.67 13.13C18.04 14.06 19 15.32 19 17v3h4v-3c0-2.18-3.57-3.47-6.33-3.87zM9 13c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm-5 5c.22-.72 3.31-2 5-2 1.7 0 4.78 1.28 5 2H4zm5-7c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm6.5 4c1.66 0 3-1.34 3-3s-1.34-3-3-3c-.34 0-.66.07-.96.18.61.79.96 1.78.96 2.82s-.35 2.03-.96 2.82c.3.11.62.18.96.18z" />
   </svg>
 );
 
@@ -92,48 +97,39 @@ export const ChevronRight = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
-export const ShareIcon = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="18" cy="5" r="3"></circle>
-    <circle cx="6" cy="12" r="3"></circle>
-    <circle cx="18" cy="19" r="3"></circle>
-    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+export const ShareIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
   </svg>
 );
 
-export const PlayIcon = ({ size = 48 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="32" cy="32" r="32" fill="#ffffff" fillOpacity="0.85"/>
-    <polygon points="26,20 46,32 26,44" fill="#003BE2"/>
+export const PlayIcon = ({ size = 60 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="22,14 44,30 22,46" fill="#F5F2FF"/>
   </svg>
 );
 
-export const VideoCameraIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="23 7 16 12 23 17 23 7"></polygon>
-    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+export const VideoCameraIcon = ({ size = 24, color = '#242528' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM15 16H5V8h10v8z" />
   </svg>
 );
 
-export const BookOpenIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+export const BookOpenIcon = ({ size = 24, color = '#003BE2' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10zm-6-8H6v2h8v-2zm-3 4H6v2h5v-2z" />
   </svg>
 );
 
-export const CertificateIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="8" r="6"></circle>
-    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+export const CertificateIcon = ({ size = 24, color = '#003BE2' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 7h-5V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9-3h2v5h-2V4zm9 16H4V9h5v2h6V9h5v11zm-8-7c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 1.5c-1.67 0-5 .83-5 2.5V18h10v-1c0-1.67-3.33-2.5-5-2.5z" />
   </svg>
 );
 
-export const HeadsetIcon = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+export const HeadsetIcon = ({ size = 24, color = '#003BE2' }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 14c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zm6.5 4.5c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm0-4c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1zM20 18.5c0-.85-.39-1.6-1-2.11-.92.65-2.04 1.05-3.25 1.11H15.5c-1.5 0-2.81-.61-3.75-1.59C10.81 16.89 9.5 17.5 8 17.5c-2.33 0-7 1.17-7 3.5V23h14v-2h-7v-.5c0-.73 2.71-1.5 4-1.5h.5c1.65 0 3-.66 3.99-1.74.83.47 1.51 1.15 1.51 1.74V21h4v-2.5z" />
   </svg>
 );
 
@@ -173,3 +169,44 @@ export const PhotographyIcon = ({ size = 36, color = '#242528' }: { size?: numbe
     <path d="M320-280h320v-22q0-45-44-71.5T480-400q-72 0-116 26.5T320-302v22Zm160-160q33 0 56.5-23.5T560-520q0-33-23.5-56.5T480-600q-33 0-56.5 23.5T400-520q0 33 23.5 56.5T480-440ZM160-120q-33 0-56.5-23.5T80-200v-480q0-33 23.5-56.5T160-760h126l74-80h240l74 80h126q33 0 56.5 23.5T880-680v480q0 33-23.5 56.5T800-120H160Zm0-80h640v-480H638l-73-80H395l-73 80H160v480Zm320-240Z" />
   </svg>
 );
+
+export const FacebookIcon = ({ size = 40 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M20 3.333c-9.205 0-16.667 7.462-16.667 16.667 0 8.318 6.096 15.213 14.063 16.465v-11.648h-4.232v-4.817h4.232v-3.671c0-4.177 2.488-6.484 6.294-6.484 1.823 0 3.73.326 3.73.326v4.101h-2.102c-2.07 0-2.716 1.285-2.716 2.602v3.126h4.622l-.739 4.817h-3.883v11.648C30.57 35.213 36.667 28.318 36.667 20 36.667 10.795 29.205 3.333 20 3.333z"
+      fill="#000000"
+    />
+  </svg>
+);
+
+export const GoogleIcon = ({ size = 40 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M36.312 20.354c0-1.183-.106-2.32-.303-3.417H20v6.463h9.144c-.394 2.128-1.593 3.931-3.398 5.139v4.271h5.504c3.22-2.964 5.062-7.329 5.062-12.456z"
+      fill="#000000"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M20 36.667c4.5 0 8.277-1.492 11.036-4.037l-5.504-4.271c-1.493 1-3.403 1.593-5.532 1.593-4.256 0-7.86-2.875-9.146-6.737H5.166v4.409C7.905 33.067 13.524 36.667 20 36.667z"
+      fill="#000000"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M10.854 23.215c-.328-.985-.515-2.037-.515-3.215 0-1.178.187-2.23.515-3.215V12.376H5.166A16.634 16.634 0 003.687 20c0 2.688.647 5.234 1.479 7.624l5.688-4.409z"
+      fill="#000000"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M20 9.715c2.448 0 4.647.842 6.377 2.493l4.782-4.782C28.27 4.735 24.493 3.333 20 3.333c-6.476 0-12.095 3.6-14.834 9.043l5.688 4.409c1.286-3.862 4.89-6.737 9.146-6.737z"
+      fill="#000000"
+    />
+  </svg>
+);
+

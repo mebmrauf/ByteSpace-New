@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Course } from '@/data/courses';
 import { StarIcon, SignalCellularIcon } from './Icons';
 
@@ -11,6 +12,7 @@ interface CourseCardProps {
 }
 
 export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
+  const router = useRouter();
   return (
     <div
       style={{
@@ -61,7 +63,13 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               gap: '12px',
             }}
           >
-            <span
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                router.push(`/courses/${course.id}/lessons`);
+              }}
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
                 backdropFilter: 'blur(8px)',
@@ -80,10 +88,22 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                 justifyContent: 'center',
                 whiteSpace: 'nowrap',
                 flexShrink: 0,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
               }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(212, 251, 32, 0.9)';
+                e.currentTarget.style.color = '#242528';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(246, 246, 246, 0.6)';
+                e.currentTarget.style.color = '#4F4F4F';
+              }}
+              title={`View ${course.lessons} lessons for ${course.title}`}
             >
               {course.lessons} Lessons
-            </span>
+            </button>
             <span
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
@@ -107,7 +127,13 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
             >
               {course.duration}
             </span>
-            <span
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                router.push(`/courses/${course.id}/reviews`);
+              }}
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
                 backdropFilter: 'blur(8px)',
@@ -126,10 +152,22 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                 justifyContent: 'center',
                 whiteSpace: 'nowrap',
                 flexShrink: 0,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
               }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(212, 251, 32, 0.9)';
+                e.currentTarget.style.color = '#242528';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(246, 246, 246, 0.6)';
+                e.currentTarget.style.color = '#4F4F4F';
+              }}
+              title={`View ${course.comments} reviews for ${course.title}`}
             >
               {course.comments} Comments
-            </span>
+            </button>
           </div>
         </div>
 
@@ -174,6 +212,11 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
 
             {/* Rating */}
             <div
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                router.push(`/courses/${course.id}/reviews`);
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -183,7 +226,9 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                 lineHeight: '28.8px',
                 color: '#4F4F4F',
                 flexShrink: 0,
+                cursor: 'pointer',
               }}
+              title={`View reviews for ${course.title}`}
             >
               <span>{course.rating.toFixed(1)}&nbsp;</span>
               <StarIcon size={24} color="#CED0D3" />
@@ -303,13 +348,6 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </div>
         </div>
       </Link>
-
-      <style jsx>{`
-        .course-card-hover:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-        }
-      `}</style>
     </div>
   );
 };

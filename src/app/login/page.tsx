@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { LogoMark, StarIcon } from '@/components/Icons';
+import { LogoMark, StarIcon, SignalCellularIcon, FacebookIcon, GoogleIcon } from '@/components/Icons';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -55,38 +55,56 @@ export default function LoginPage() {
       className="blue-grid-bg"
       style={{
         minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '60px 24px',
+        width: '100%',
         position: 'relative',
-        overflow: 'hidden',
-        color: '#FFFFFF',
+        overflowX: 'hidden',
+        overflowY: 'auto',
+        backgroundColor: '#003BE2',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       }}
     >
+      {/* 1440px x 1024px Canvas Container */}
       <div
+        className="auth-canvas"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 579px',
-          gap: '60px',
-          alignItems: 'center',
-          maxWidth: '1200px',
-          width: '100%',
-          zIndex: 10,
           position: 'relative',
+          width: '1440px',
+          minHeight: '1024px',
+          height: '1024px',
+          flexShrink: 0,
         }}
-        className="login-grid"
       >
         {/* ============================================================ */}
-        {/* Left Column: Visual Showcase & Cards                         */}
+        {/* Header Logo (x = 122px, y = 35px)                             */}
         {/* ============================================================ */}
-        <div style={{ position: 'relative', minHeight: '760px' }}>
-          {/* Logo */}
-          <Link href="/" style={{ display: 'inline-block', marginBottom: '16px' }}>
-            <LogoMark size={40} />
-          </Link>
+        <Link
+          href="/"
+          style={{
+            position: 'absolute',
+            left: '122px',
+            top: '35px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            zIndex: 30,
+          }}
+        >
+          <LogoMark size={29} />
+        </Link>
 
-          {/* Heading */}
+        {/* ============================================================ */}
+        {/* Left Column Text (x = 122px, y = 120px)                      */}
+        {/* ============================================================ */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '122px',
+            top: '120px',
+            width: '475px',
+            zIndex: 20,
+          }}
+        >
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
@@ -95,272 +113,791 @@ export default function LoginPage() {
               fontWeight: 600,
               letterSpacing: '-0.2px',
               color: '#F5F5F6',
-              marginBottom: '16px',
+              margin: '0 0 16px 0',
             }}
           >
             Sign in with ease
           </h1>
-
-          {/* Subtext */}
           <p
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: '18px',
               lineHeight: '28.8px',
+              fontWeight: 400,
               color: '#F5F5F6',
-              maxWidth: '475px',
-              marginBottom: '0',
+              margin: 0,
             }}
           >
             Experience a seamless and efficient sign-in process that grants you instant access to a world of knowledge.
           </p>
+        </div>
 
-          {/* ── Overlapping Cards + Shapes composition ── */}
-          {/* Back course card (card 1 – shifted up-left) */}
+        {/* ============================================================ */}
+        {/* Visual Stage: Overlapping Cards & 3D Shapes                  */}
+        {/* ============================================================ */}
+
+        {/* 3D Shape: Lime Torus (x = 151px, y = 320px, 146x146px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '151px',
+            top: '320px',
+            width: '146px',
+            height: '146px',
+            zIndex: 10,
+            pointerEvents: 'none',
+          }}
+        >
+          <Image
+            src="/shapes/auth-torus-lime.png"
+            alt=""
+            width={146}
+            height={146}
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            priority
+          />
+        </div>
+
+        {/* Card 1: Back Card - Build Digital Asset (x = 122px, y = 394px, 373x384px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '122px',
+            top: '394px',
+            width: '373px',
+            height: '384px',
+            backgroundColor: '#FFFFFF',
+            borderRadius: '24px',
+            border: '1px solid #CED0D3',
+            padding: '16px',
+            boxSizing: 'border-box',
+            zIndex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          }}
+        >
+          {/* Thumbnail */}
           <div
             style={{
-              position: 'absolute',
-              top: '305px',
-              left: '122px',
-              width: '373px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '24px',
-              border: '1px solid #CED0D3',
-              padding: '16px',
-              zIndex: 1,
+              position: 'relative',
+              width: '341px',
+              height: '195px',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              backgroundColor: '#443131',
             }}
           >
-            <MiniCourseCard
-              image="/courses/course-digital-asset.png"
-              title="Build Digital Asset"
-              author="purepearl studio"
-              level="Beginner"
-              price={25}
-              rating={4.5}
-            />
-          </div>
-
-          {/* Front course card (card 2 – shifted right/up) */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '216px',
-              left: '233px',
-              width: '373px',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '24px',
-              border: '1px solid #CED0D3',
-              padding: '16px',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18)',
-              zIndex: 2,
-            }}
-          >
-            <MiniCourseCard
-              image="/courses/course-big-data.png"
-              title="Learn Figma from Scratch"
-              author="purepearl studio"
-              level="Beginner"
-              price={25}
-              rating={4.5}
-            />
-          </div>
-
-          {/* Coil / spring shape – positioned right of cards */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '537px',
-              left: '470px',
-              width: '175px',
-              height: '175px',
-              zIndex: 4,
-              pointerEvents: 'none',
-            }}
-            className="float-slow"
-          >
-            <Image src="/shapes/hero-shape-coil-lime.png" alt="" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          {/* Cone top-left of cards */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '231px',
-              left: '151px',
-              width: '146px',
-              height: '146px',
-              zIndex: 5,
-              pointerEvents: 'none',
-            }}
-            className="float-reverse"
-          >
-            <Image src="/shapes/hero-shape-cone-white.png" alt="" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          {/* Cone bottom-left */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '613px',
-              left: '97px',
-              width: '188px',
-              height: '188px',
-              zIndex: 0,
-              pointerEvents: 'none',
-            }}
-            className="float-slow"
-          >
-            <Image src="/shapes/hero-shape-cone-white.png" alt="" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          {/* Happy Students Card */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '651px',
-              left: '348px',
-              width: '258px',
-              backgroundColor: '#D4FB20',
-              borderRadius: '16px',
-              padding: '16px',
-              zIndex: 6,
-              color: '#242528',
-            }}
-          >
-            {/* Top row: label + rating */}
-            <div style={{ marginBottom: '8px' }}>
+            <Link href="/courses/build-digital-asset" style={{ display: 'block', width: '100%', height: '100%' }}>
+              <Image
+                src="/courses/course-digital-asset.png"
+                alt="Build Digital Asset"
+                fill
+                sizes="341px"
+                style={{ objectFit: 'cover' }}
+              />
+            </Link>
+            {/* Pill badges */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '12px',
+                bottom: '12px',
+                display: 'flex',
+                gap: '12px',
+                zIndex: 2,
+              }}
+            >
+              <Link
+                href="/courses/build-digital-asset/lessons"
+                style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.15s ease',
+                }}
+                title="View course lessons"
+              >
+                17 Lessons
+              </Link>
               <div
                 style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
                   fontFamily: 'var(--font-body)',
-                  fontSize: '16px',
+                  fontSize: '12px',
                   fontWeight: 500,
-                  lineHeight: '24px',
-                  color: '#242528',
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
                 }}
               >
-                Happy Students
+                2 hours 16 mins
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              <Link
+                href="/courses/build-digital-asset/reviews"
+                style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.15s ease',
+                }}
+                title="View course reviews"
+              >
+                59 Comments
+              </Link>
+            </div>
+          </div>
+
+          {/* Card Meta */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {/* Row 1: Title & Author & Rating */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <Link
+                  href="/courses/build-digital-asset"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '20px',
+                    fontWeight: 600,
+                    lineHeight: '28px',
+                    letterSpacing: '-0.2px',
+                    color: '#000000',
+                    textDecoration: 'none',
+                    display: 'block',
+                  }}
+                  title="View course details"
+                >
+                  Build Digital Asset
+                </Link>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
+                    lineHeight: '20px',
+                    color: '#4F4F4F',
+                  }}
+                >
+                  by purepearl studio
+                </div>
+              </div>
+
+              {/* Rating */}
+              <Link
+                href="/courses/build-digital-asset/reviews"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '3px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                }}
+                title="View course reviews"
+              >
                 <span
                   style={{
                     fontFamily: 'var(--font-body)',
-                    fontSize: '10px',
-                    fontWeight: 400,
-                    lineHeight: '15px',
-                    color: '#82868E',
+                    fontSize: '18px',
+                    fontWeight: 500,
+                    lineHeight: '28px',
+                    color: '#4F4F4F',
                   }}
                 >
-                  4.5 (240)
+                  4.5
                 </span>
-                <StarIcon size={16} color="#003BE2" />
-              </div>
+                <StarIcon size={20} color="#D4FB20" />
+              </Link>
             </div>
 
-            {/* Avatar stack */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
-              {[
-                '/images/student-stack-1.png',
-                '/images/student-stack-2.png',
-                '/images/student-stack-3.png',
-                '/images/student-stack-4.png',
-                '/images/student-stack-5.png',
-                '/images/student-stack-6.png',
-                '/images/student-stack-7.png',
-              ].map((src, i) => (
+            {/* Row 2: Level badge + Avatars */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  backgroundColor: '#F5F5F6',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4B4C53',
+                }}
+              >
+                <SignalCellularIcon size={16} color="#4B4C53" />
+                Beginner
+              </div>
+
+              {/* Avatars */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {['/images/auth_avatars/card_1.png', '/images/auth_avatars/card_2.png', '/images/auth_avatars/card_3.png', '/images/auth_avatars/card_4.png'].map(
+                  (src, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        position: 'relative',
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        marginLeft: i > 0 ? '-8px' : '0',
+                        border: '1.5px solid #FFFFFF',
+                        zIndex: i + 1,
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Image src={src} alt="Student" fill sizes="32px" style={{ objectFit: 'cover' }} />
+                    </div>
+                  )
+                )}
                 <div
-                  key={i}
                   style={{
-                    position: 'relative',
-                    width: '43px',
-                    height: '43px',
+                    width: '32px',
+                    height: '32px',
                     borderRadius: '50%',
-                    overflow: 'hidden',
-                    marginLeft: i > 0 ? '-16px' : '0',
-                    border: '2px solid #FFFFFF',
+                    backgroundColor: '#000000',
+                    border: '1.5px solid #FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: '-8px',
+                    zIndex: 6,
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    lineHeight: '20px',
+                    color: '#FFFFFF',
                     flexShrink: 0,
                   }}
                 >
-                  <Image src={src} alt="Student" fill sizes="43px" style={{ objectFit: 'cover' }} />
+                  26+
                 </div>
-              ))}
-              {/* 2K+ badge */}
+              </div>
+            </div>
+
+            {/* Row 3: Price */}
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '20px',
+                  fontWeight: 600,
+                  lineHeight: '28px',
+                  letterSpacing: '-0.2px',
+                  color: '#003BE2',
+                }}
+              >
+                $25
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                }}
+              >
+                /lifetime
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 2: Front Card - the Power of Big Data (x = 233px, y = 305px, 373x384px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '233px',
+            top: '305px',
+            width: '373px',
+            height: '384px',
+            backgroundColor: '#FFFFFF',
+            borderRadius: '24px',
+            border: '1px solid #CED0D3',
+            padding: '16px',
+            boxSizing: 'border-box',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
+            zIndex: 2,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          }}
+        >
+          {/* Thumbnail */}
+          <div
+            style={{
+              position: 'relative',
+              width: '341px',
+              height: '195px',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              backgroundColor: '#443131',
+            }}
+          >
+            <Link href="/courses/the-power-of-big-data" style={{ display: 'block', width: '100%', height: '100%' }}>
+              <Image
+                src="/courses/course-big-data.png"
+                alt="the Power of Big Data"
+                fill
+                sizes="341px"
+                style={{ objectFit: 'cover' }}
+              />
+            </Link>
+            {/* Pill badges */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '12px',
+                bottom: '12px',
+                display: 'flex',
+                gap: '12px',
+                zIndex: 2,
+              }}
+            >
+              <Link
+                href="/courses/the-power-of-big-data/lessons"
+                style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.15s ease',
+                }}
+                title="View course lessons"
+              >
+                17 Lessons
+              </Link>
               <div
+                style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                }}
+              >
+                2 hours 16 mins
+              </div>
+              <Link
+                href="/courses/the-power-of-big-data/reviews"
+                style={{
+                  backgroundColor: 'rgba(246, 246, 246, 0.6)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.15s ease',
+                }}
+                title="View course reviews"
+              >
+                59 Comments
+              </Link>
+            </div>
+          </div>
+
+          {/* Card Meta */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {/* Row 1: Title & Author & Rating */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+              <div>
+                <Link
+                  href="/courses/the-power-of-big-data"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '20px',
+                    fontWeight: 600,
+                    lineHeight: '28px',
+                    letterSpacing: '-0.2px',
+                    color: '#000000',
+                    textDecoration: 'none',
+                    display: 'block',
+                  }}
+                  title="View course details"
+                >
+                  the Power of Big Data
+                </Link>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
+                    lineHeight: '20px',
+                    color: '#4F4F4F',
+                  }}
+                >
+                  by purepearl studio
+                </div>
+              </div>
+
+              {/* Rating */}
+              <Link
+                href="/courses/the-power-of-big-data/reviews"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '3px',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                }}
+                title="View course reviews"
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '18px',
+                    fontWeight: 500,
+                    lineHeight: '28px',
+                    color: '#4F4F4F',
+                  }}
+                >
+                  4.5
+                </span>
+                <StarIcon size={20} color="#D4FB20" />
+              </Link>
+            </div>
+
+            {/* Row 2: Level badge + Avatars */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  backgroundColor: '#F5F5F6',
+                  borderRadius: '24px',
+                  padding: '6px 12px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  fontWeight: 500,
+                  lineHeight: '20px',
+                  color: '#4B4C53',
+                }}
+              >
+                <SignalCellularIcon size={16} color="#4B4C53" />
+                Beginner
+              </div>
+
+              {/* Avatars */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {['/images/auth_avatars/card_1.png', '/images/auth_avatars/card_2.png', '/images/auth_avatars/card_3.png', '/images/auth_avatars/card_4.png'].map(
+                  (src, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        position: 'relative',
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        overflow: 'hidden',
+                        marginLeft: i > 0 ? '-8px' : '0',
+                        border: '1.5px solid #FFFFFF',
+                        zIndex: i + 1,
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Image src={src} alt="Student" fill sizes="32px" style={{ objectFit: 'cover' }} />
+                    </div>
+                  )
+                )}
+                <div
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    backgroundColor: '#000000',
+                    border: '1.5px solid #FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: '-8px',
+                    zIndex: 6,
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    lineHeight: '20px',
+                    color: '#FFFFFF',
+                    flexShrink: 0,
+                  }}
+                >
+                  26+
+                </div>
+              </div>
+            </div>
+
+            {/* Row 3: Price */}
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '2px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '20px',
+                  fontWeight: 600,
+                  lineHeight: '28px',
+                  letterSpacing: '-0.2px',
+                  color: '#003BE2',
+                }}
+              >
+                $25
+              </span>
+              <span
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '12px',
+                  lineHeight: '20px',
+                  color: '#4F4F4F',
+                }}
+              >
+                /lifetime
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* 3D Shape: White Zigzag Ribbon (x = 470px, y = 626px, 175x175px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '470px',
+            top: '626px',
+            width: '175px',
+            height: '175px',
+            zIndex: 10,
+            pointerEvents: 'none',
+          }}
+        >
+          <Image
+            src="/shapes/auth-zigzag-white.png"
+            alt=""
+            width={175}
+            height={175}
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            priority
+          />
+        </div>
+
+        {/* Happy Students Card (x = 348px, y = 740px, 258x123px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '348px',
+            top: '740px',
+            width: '258px',
+            height: '123px',
+            backgroundColor: '#D4FB20',
+            borderRadius: '16px',
+            padding: '16px',
+            boxSizing: 'border-box',
+            zIndex: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+          }}
+        >
+          {/* Top row */}
+          <div>
+            <div
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '16px',
+                fontWeight: 500,
+                lineHeight: '24px',
+                color: '#242528',
+              }}
+            >
+              Happy Students
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '10px',
+                  fontWeight: 400,
+                  lineHeight: '15px',
+                  color: '#82868E',
+                }}
+              >
+                4.5 (240)
+              </span>
+              <StarIcon size={14} color="#003BE2" />
+            </div>
+          </div>
+
+          {/* Student Avatars Stack */}
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {[
+              '/images/auth_avatars/hs_1.png',
+              '/images/auth_avatars/hs_2.png',
+              '/images/auth_avatars/hs_3.png',
+              '/images/auth_avatars/hs_4.png',
+              '/images/auth_avatars/hs_5.png',
+              '/images/auth_avatars/hs_6.png',
+              '/images/auth_avatars/hs_7.png',
+            ].map((src, i) => (
+              <div
+                key={i}
                 style={{
                   position: 'relative',
                   width: '43px',
                   height: '43px',
                   borderRadius: '50%',
-                  backgroundColor: '#242528',
-                  marginLeft: '-16px',
+                  overflow: 'hidden',
+                  marginLeft: i > 0 ? '-16px' : '0',
                   border: '2px solid #FFFFFF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  zIndex: i + 1,
                   flexShrink: 0,
-                  zIndex: 8,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    lineHeight: '18px',
-                    color: '#F5F5F6',
-                  }}
-                >
-                  2K+
-                </span>
+                <Image src={src} alt="Student" fill sizes="43px" style={{ objectFit: 'cover' }} />
               </div>
+            ))}
+            <div
+              style={{
+                width: '43px',
+                height: '43px',
+                borderRadius: '50%',
+                backgroundColor: '#242528',
+                border: '2px solid #FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: '-16px',
+                zIndex: 10,
+                flexShrink: 0,
+                fontFamily: 'var(--font-body)',
+                fontSize: '12px',
+                fontWeight: 700,
+                lineHeight: '18px',
+                color: '#F5F5F6',
+              }}
+            >
+              2K+
             </div>
           </div>
         </div>
 
+        {/* 3D Shape: Lime Cone (x = 97px, y = 702px, 188x188px) */}
+        <div
+          style={{
+            position: 'absolute',
+            left: '97px',
+            top: '702px',
+            width: '188px',
+            height: '188px',
+            zIndex: 10,
+            pointerEvents: 'none',
+          }}
+        >
+          <Image
+            src="/shapes/auth-cone-lime.png"
+            alt=""
+            width={188}
+            height={188}
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            priority
+          />
+        </div>
+
         {/* ============================================================ */}
-        {/* Right Column: Login Form Card                                */}
+        {/* Right Column: Login Form Modal Card (x = 741px, y = 120px)   */}
         {/* ============================================================ */}
         <div
           style={{
+            position: 'absolute',
+            left: '741px',
+            top: '120px',
+            width: '579px',
+            height: '784px',
             backgroundColor: '#FFFFFF',
-            color: '#242528',
             borderRadius: '24px',
-            padding: '48px',
-            boxShadow: '0 30px 60px rgba(0, 0, 0, 0.25)',
-            width: '100%',
+            boxShadow: '0 30px 60px rgba(0, 0, 0, 0.12)',
+            padding: '61px 63px 40px 63px',
+            boxSizing: 'border-box',
+            zIndex: 20,
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
-          {/* Sign In label */}
-          <div
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '18px',
-              lineHeight: '28.8px',
-              fontWeight: 400,
-              color: '#003BE2',
-              marginBottom: '8px',
-            }}
-          >
-            Sign In
+          {/* Subheading Tag + Heading Block (h = 82px) */}
+          <div style={{ marginBottom: '40px' }}>
+            <div
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '18px',
+                lineHeight: '28.8px',
+                fontWeight: 400,
+                color: '#003BE2',
+                marginBottom: '0px',
+              }}
+            >
+              Sign In
+            </div>
+
+            <h2
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '44px',
+                lineHeight: '52.8px',
+                fontWeight: 600,
+                letterSpacing: '-0.44px',
+                color: '#242528',
+                margin: 0,
+              }}
+            >
+              Welcome Back
+            </h2>
           </div>
 
-          {/* Welcome Back heading */}
-          <h2
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '44px',
-              lineHeight: '52.8px',
-              fontWeight: 600,
-              letterSpacing: '-0.44px',
-              color: '#242528',
-              marginBottom: '40px',
-            }}
-          >
-            Welcome Back
-          </h2>
-
-          {/* Form */}
+          {/* Form (h = 248px) */}
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            {/* Email */}
+            {/* Email Field (h = 77px) */}
             <div>
               <label
                 style={{
@@ -388,17 +925,18 @@ export default function LoginPage() {
                   padding: '12px 24px',
                   borderRadius: '12px',
                   border: '1px solid #E5E6E8',
+                  boxSizing: 'border-box',
                   fontFamily: 'var(--font-body)',
                   fontSize: '18px',
                   lineHeight: '28.8px',
-                  color: '#82868E',
+                  color: '#242528',
                   outline: 'none',
                   backgroundColor: '#FFFFFF',
                 }}
               />
             </div>
 
-            {/* Password */}
+            {/* Password Field (h = 77px) */}
             <div>
               <label
                 style={{
@@ -416,7 +954,7 @@ export default function LoginPage() {
               <input
                 type="password"
                 id="login-password"
-                placeholder="••••••••"
+                placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -426,10 +964,11 @@ export default function LoginPage() {
                   padding: '12px 24px',
                   borderRadius: '12px',
                   border: '1px solid #E5E6E8',
+                  boxSizing: 'border-box',
                   fontFamily: 'var(--font-body)',
                   fontSize: '18px',
                   lineHeight: '28.8px',
-                  color: '#82868E',
+                  color: '#242528',
                   outline: 'none',
                   backgroundColor: '#FFFFFF',
                 }}
@@ -442,7 +981,7 @@ export default function LoginPage() {
                   color: '#DC2626',
                   fontFamily: 'var(--font-body)',
                   fontSize: '14px',
-                  padding: '10px 14px',
+                  padding: '8px 14px',
                   backgroundColor: '#FEE2E2',
                   borderRadius: '8px',
                 }}
@@ -451,40 +990,41 @@ export default function LoginPage() {
               </div>
             )}
 
-            {/* Sign In button */}
-            <button
-              id="login-submit"
-              type="submit"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: '46px',
-                padding: '12px 24px',
-                backgroundColor: '#D4FB20',
-                color: '#242528',
-                fontFamily: 'var(--font-body)',
-                fontWeight: 500,
-                fontSize: '18px',
-                lineHeight: '21.6px',
-                borderRadius: '24px',
-                border: 'none',
-                cursor: 'pointer',
-                alignSelf: 'flex-start',
-                transition: 'background-color 0.2s',
-              }}
-            >
-              Sign In
-            </button>
+            {/* Right-aligned Sign In Button (w = 104px, h = 46px) */}
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <button
+                id="login-submit"
+                type="submit"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '104px',
+                  height: '46px',
+                  backgroundColor: '#D4FB20',
+                  color: '#242528',
+                  fontFamily: 'var(--font-body)',
+                  fontWeight: 500,
+                  fontSize: '18px',
+                  lineHeight: '21.6px',
+                  borderRadius: '24px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'background-color 0.2s, transform 0.1s',
+                }}
+              >
+                Sign In
+              </button>
+            </div>
           </form>
 
-          {/* Social Logins Divider */}
+          {/* Social Logins Divider (gap from button = 73px, h = 29px) */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              margin: '40px 0 24px',
-              gap: '16px',
+              marginTop: '73px',
+              height: '29px',
             }}
           >
             <div style={{ flex: 1, height: '1px', backgroundColor: '#D1D1D1' }} />
@@ -494,6 +1034,7 @@ export default function LoginPage() {
                 fontSize: '18px',
                 lineHeight: '28.8px',
                 color: '#888888',
+                padding: '0 16px',
               }}
             >
               or
@@ -501,8 +1042,17 @@ export default function LoginPage() {
             <div style={{ flex: 1, height: '1px', backgroundColor: '#D1D1D1' }} />
           </div>
 
-          {/* Social Buttons */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
+          {/* Social Buttons (gap from divider = 40px, h = 72px) */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '16px',
+              marginTop: '40px',
+              height: '72px',
+            }}
+          >
+            {/* Facebook Button */}
             <button
               type="button"
               style={{
@@ -510,20 +1060,18 @@ export default function LoginPage() {
                 height: '72px',
                 borderRadius: '24px',
                 border: '1px solid #D1D1D1',
-                backgroundColor: '#D9D9D9',
+                backgroundColor: '#FFFFFF',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
+                transition: 'border-color 0.2s, background-color 0.2s',
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
-                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
-              </svg>
+              <FacebookIcon size={40} />
             </button>
+
+            {/* Google Button */}
             <button
               type="button"
               style={{
@@ -531,22 +1079,22 @@ export default function LoginPage() {
                 height: '72px',
                 borderRadius: '24px',
                 border: '1px solid #D1D1D1',
-                backgroundColor: '#D9D9D9',
+                backgroundColor: '#FFFFFF',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
+                transition: 'border-color 0.2s, background-color 0.2s',
               }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#242528">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8.93-2.85-.9.04-1.98.6-2.62 1.35-.57.65-1.07 1.71-.93 2.73 1 .08 2.01-.48 2.62-1.23z" />
-              </svg>
+              <GoogleIcon size={40} />
             </button>
           </div>
 
-          {/* Switch to register */}
+          {/* Bottom Switcher (gap from buttons = 73px, h = 26px) */}
           <div
             style={{
+              marginTop: '73px',
               textAlign: 'center',
               fontFamily: 'var(--font-body)',
               fontSize: '16px',
@@ -570,69 +1118,13 @@ export default function LoginPage() {
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .login-grid {
-            grid-template-columns: 1fr !important;
+        @media (max-width: 1439px) {
+          .auth-canvas {
+            transform: scale(calc(100vw / 1440));
+            transform-origin: top center;
           }
         }
       `}</style>
     </main>
-  );
-}
-
-/* ─── Mini Course Card ─────────────────────────────────────────── */
-interface MiniCourseCardProps {
-  image: string;
-  title: string;
-  author: string;
-  level: string;
-  price: number;
-  rating: number;
-}
-
-function MiniCourseCard({ image, title, author, level, price, rating }: MiniCourseCardProps) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-      {/* Thumbnail */}
-      <div style={{ position: 'relative', width: '100%', height: '195px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#F5F5F6' }}>
-        <Image src={image} alt={title} fill sizes="341px" style={{ objectFit: 'cover' }} />
-        {/* Badges */}
-        <div style={{ position: 'absolute', bottom: '12px', left: '13px', display: 'flex', gap: '12px' }}>
-          <span style={{ backgroundColor: 'rgba(246,246,246,0.6)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>17 Lessons</span>
-          <span style={{ backgroundColor: 'rgba(246,246,246,0.6)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>2 hours 16 mins</span>
-        </div>
-      </div>
-
-      {/* Body */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {/* Title + Rating row */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px' }}>
-          <div style={{ minWidth: 0, flex: 1 }}>
-            <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, color: '#040819', lineHeight: '28px', letterSpacing: '-0.2px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {title}
-            </div>
-            <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px', marginTop: '4px' }}>
-              by {author}
-            </div>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, color: '#4F4F4F', flexShrink: 0 }}>
-            <span>{rating.toFixed(1)}</span>
-            <StarIcon size={20} color="#D4FB20" />
-          </div>
-        </div>
-
-        {/* Level + Price row */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#F5F5F6', borderRadius: '24px', padding: '6px 12px', fontFamily: 'Satoshi, sans-serif', fontSize: '12px', fontWeight: 500, color: '#4B4C53' }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M1 22V8.5M1 8.5L12 2L23 8.5M1 8.5L8 12.5M23 22V8.5M23 8.5L16 12.5M8 22V12.5M16 22V12.5M8 12.5L12 15L16 12.5" stroke="#4B4C53" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            {level}
-          </div>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
-            <span style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, color: '#040819', lineHeight: '28px' }}>${price}</span>
-            <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px' }}>/lifetime</span>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
