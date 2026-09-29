@@ -178,9 +178,9 @@ export const Footer: React.FC = () => {
             <div style={{ width: '167px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               {[
                 { label: 'Featured Courses', href: '/courses' },
-                { label: 'Featured Categories', href: '/courses' },
-                { label: 'Business', href: '/courses?cat=Business' },
-                { label: 'IT', href: '/courses?cat=IT' },
+                { label: 'Course Details', href: '/courses/details' },
+                { label: 'Course Lessons', href: '/courses/lessons' },
+                { label: 'Course Reviews', href: '/courses/reviews' },
                 { label: 'Design', href: '/courses?cat=Design' },
               ].map((item) => (
                 <Link

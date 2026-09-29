@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -11,83 +10,22 @@ export default function NotFound() {
     <main style={{ minHeight: '100vh', backgroundColor: '#FFFFFF', display: 'flex', flexDirection: 'column' }}>
       {/* 404 Hero Section */}
       <section
-        className="blue-grid-bg"
+        className="blue-grid-bg not-found-section"
         style={{
-          flex: 1,
+          width: '100%',
+          minHeight: '957px',
+          height: '100vh',
+          maxHeight: '1024px',
           color: '#FFFFFF',
-          paddingBottom: '120px',
           position: 'relative',
           overflow: 'hidden',
           display: 'flex',
           flexDirection: 'column',
-          minHeight: '800px',
         }}
       >
-        {/* Floating 3D Shapes */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '149px',
-            left: '-76px',
-            width: '332px',
-            height: '331px',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-          className="float-slow"
-        >
-          <Image src="/shapes/shape-404-top-left.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '140px',
-            left: '34px',
-            width: '188px',
-            height: '188px',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-          className="float-reverse"
-        >
-          <Image src="/shapes/shape-404-bottom-left.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            top: '169px',
-            right: '57px',
-            width: '222px',
-            height: '222px',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-          className="float-reverse"
-        >
-          <Image src="/shapes/shape-404-top-right.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '30px',
-            right: '-131px',
-            width: '357px',
-            height: '356px',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-          className="float-slow"
-        >
-          <Image src="/shapes/shape-404-bottom-right.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
-        </div>
-
         <Header variant="light" />
 
         <div
-          className="container"
           style={{
             flex: 1,
             display: 'flex',
@@ -96,55 +34,65 @@ export default function NotFound() {
             justifyContent: 'center',
             textAlign: 'center',
             position: 'relative',
-            paddingTop: '20px',
-            paddingBottom: '80px',
-            zIndex: 2,
+            paddingBottom: '50px',
+            width: '1440px',
+            maxWidth: '100%',
+            margin: '0 auto',
+            boxSizing: 'border-box',
           }}
         >
-          {/* Giant 404 Backdrop Text */}
+          {/* Giant 404 Backdrop Text (480px height, 920px width in Figma id 63:643) */}
           <div
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(200px, 33.3vw, 480px)',
+              fontSize: '480px',
               fontWeight: 600,
-              lineHeight: 1,
-              letterSpacing: '-0.01em',
-              background: 'linear-gradient(180deg, #D4FB20 0%, rgba(212, 251, 32, 0.96) 25%, rgba(212, 251, 32, 0.81) 50.5%, rgba(212, 251, 32, 0.61) 68%, rgba(255, 255, 255, 0) 100%)',
+              lineHeight: '480px',
+              letterSpacing: '-4.8px',
+              background:
+                'linear-gradient(180deg, #D4FB20 0%, rgba(212, 251, 32, 0.96) 25%, rgba(212, 251, 32, 0.81) 50.5%, rgba(212, 251, 32, 0.61) 68%, rgba(212, 251, 32, 0) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               userSelect: 'none',
               textAlign: 'center',
+              width: '920px',
+              height: '480px',
+              margin: '0 auto',
             }}
+            className="not-found-giant-num"
           >
             404
           </div>
 
-          {/* Frame 1 Content overlapping bottom of 404 */}
+          {/* Overlay Content Frame (Figma Frame 1 id 63:638, y=2269 overlapping lower half of 404) */}
           <div
             style={{
-              marginTop: '-120px',
+              marginTop: '-165px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               gap: '32px',
               maxWidth: '935px',
               width: '100%',
-              zIndex: 3,
+              zIndex: 2,
             }}
+            className="not-found-content"
           >
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(36px, 5vw, 72px)',
+                fontSize: '72px',
                 fontWeight: 600,
-                lineHeight: 1.2,
-                letterSpacing: '-0.01em',
+                lineHeight: '86.4px',
+                letterSpacing: '-0.72px',
                 color: '#FFFFFF',
                 textAlign: 'center',
                 margin: 0,
+                maxWidth: '935px',
               }}
+              className="not-found-title"
             >
-              The page you are looking for doesn’t exist
+              The page you are looking<br />for doesn’t exist
             </h1>
 
             <p
@@ -156,8 +104,9 @@ export default function NotFound() {
                 color: '#E5E6E8',
                 textAlign: 'center',
                 margin: 0,
-                maxWidth: '650px',
+                maxWidth: '486px',
               }}
+              className="not-found-subtitle"
             >
               Try to use a correct url or go back to homepage to start again
             </p>
@@ -179,6 +128,7 @@ export default function NotFound() {
                 borderRadius: '24px',
                 textDecoration: 'none',
                 transition: 'transform 0.2s, opacity 0.2s',
+                boxSizing: 'border-box',
               }}
             >
               Back to Home
@@ -189,6 +139,30 @@ export default function NotFound() {
 
       {/* Footer */}
       <Footer />
+
+      <style>{`
+        @media (max-width: 992px) {
+          .not-found-giant-num {
+            font-size: clamp(160px, 24vw, 320px) !important;
+            line-height: 1 !important;
+            width: auto !important;
+            height: auto !important;
+          }
+          .not-found-content {
+            margin-top: -60px !important;
+            gap: 20px !important;
+            padding: 0 20px !important;
+          }
+          .not-found-title {
+            font-size: clamp(32px, 5vw, 48px) !important;
+            line-height: 1.2 !important;
+          }
+          .not-found-subtitle {
+            font-size: 16px !important;
+            line-height: 24px !important;
+          }
+        }
+      `}</style>
     </main>
   );
 }

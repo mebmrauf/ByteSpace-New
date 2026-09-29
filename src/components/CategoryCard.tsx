@@ -88,14 +88,6 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ id, name }) => {
       >
         {name}
       </span>
-
-      <style jsx>{`
-        .category-card-hover:hover {
-          transform: translateY(-4px);
-          border-color: #d4fb20;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-        }
-      `}</style>
     </Link>
   );
 };

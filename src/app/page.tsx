@@ -514,22 +514,81 @@ export default function HomePage() {
                   }}
                 >
                   <div style={{ position: 'relative', width: '100%', height: '195px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#443131' }}>
-                    <Image src="/courses/course-figma.png" alt="Course" fill style={{ objectFit: 'cover' }} />
-                    <div style={{ position: 'absolute', bottom: '12px', left: '12px', display: 'flex', gap: '12px' }}>
-                      <span style={{ backgroundColor: 'rgba(246,246,246,0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>17 Lessons</span>
+                    <Link href="/courses/learn-figma-from-basic" style={{ display: 'block', width: '100%', height: '100%' }}>
+                      <Image src="/courses/course-figma.png" alt="Learn Figma from Basic" fill style={{ objectFit: 'cover' }} />
+                    </Link>
+                    <div style={{ position: 'absolute', bottom: '12px', left: '12px', display: 'flex', gap: '12px', zIndex: 2 }}>
+                      <Link
+                        href="/courses/learn-figma-from-basic/lessons"
+                        style={{
+                          backgroundColor: 'rgba(246,246,246,0.85)',
+                          backdropFilter: 'blur(8px)',
+                          WebkitBackdropFilter: 'blur(8px)',
+                          color: '#4F4F4F',
+                          fontSize: '12px',
+                          fontWeight: 500,
+                          lineHeight: '20px',
+                          padding: '6px 12px',
+                          borderRadius: '24px',
+                          fontFamily: 'Satoshi, sans-serif',
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = 'rgba(212, 251, 32, 0.9)';
+                          e.currentTarget.style.color = '#242528';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'rgba(246,246,246,0.85)';
+                          e.currentTarget.style.color = '#4F4F4F';
+                        }}
+                        title="View Course Lessons"
+                      >
+                        17 Lessons
+                      </Link>
                       <span style={{ backgroundColor: 'rgba(246,246,246,0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>2 hours 16 mins</span>
                     </div>
                   </div>
                   <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                       <div>
-                        <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, color: '#000000', lineHeight: '28px' }}>Learn Figma from Basic</div>
+                        <Link
+                          href="/courses/learn-figma-from-basic"
+                          style={{
+                            fontFamily: 'Poppins, sans-serif',
+                            fontSize: '20px',
+                            fontWeight: 600,
+                            color: '#000000',
+                            lineHeight: '28px',
+                            textDecoration: 'none',
+                            display: 'block',
+                          }}
+                          title="View Course Details"
+                        >
+                          Learn Figma from Basic
+                        </Link>
                         <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px' }}>by purepearl studio</div>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, color: '#4F4F4F', flexShrink: 0 }}>
+                      <Link
+                        href="/courses/learn-figma-from-basic/reviews"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontFamily: 'Satoshi, sans-serif',
+                          fontSize: '18px',
+                          fontWeight: 500,
+                          color: '#4F4F4F',
+                          flexShrink: 0,
+                          textDecoration: 'none',
+                          cursor: 'pointer',
+                        }}
+                        title="View Course Reviews"
+                      >
                         <span>4.5</span>
                         <StarIcon size={16} color="#D4FB20" />
-                      </div>
+                      </Link>
                     </div>
                     {/* Beginner badge + Avatars */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>

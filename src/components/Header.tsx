@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
         style={{
           width: '1440px',
           maxWidth: '100%',
-          margin: '0',
+          margin: '0 auto',
           padding: '0 120px',
           display: 'flex',
           alignItems: 'center',
