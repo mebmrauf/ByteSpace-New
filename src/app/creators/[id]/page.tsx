@@ -45,18 +45,17 @@ export default function CreatorProfilePage() {
       >
         <Header variant="light" />
 
-        <div className="container" style={{ paddingTop: '30px' }}>
+        <div className="container" style={{ paddingTop: '20px', maxWidth: '1200px', margin: '0 auto' }}>
           {/* Creator Profile Top Bar */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '24px' }}>
             <div
               style={{
                 position: 'relative',
-                width: '88px',
-                height: '88px',
+                width: '104px',
+                height: '104px',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 backgroundColor: '#FFFFFF',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
                 flexShrink: 0,
               }}
             >
@@ -64,12 +63,15 @@ export default function CreatorProfilePage() {
             </div>
 
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <h1
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(24px, 3.5vw, 36px)',
-                    fontWeight: 700,
+                    fontSize: '36px',
+                    lineHeight: '43.2px',
+                    fontWeight: 600,
+                    letterSpacing: '-0.36px',
+                    color: '#F5F5F6',
                     margin: 0,
                   }}
                 >
@@ -79,35 +81,47 @@ export default function CreatorProfilePage() {
                   style={{
                     backgroundColor: '#D4FB20',
                     color: '#242528',
-                    fontSize: '12px',
-                    fontWeight: 700,
-                    padding: '4px 14px',
-                    borderRadius: '9999px',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '19.2px',
+                    fontWeight: 500,
+                    padding: '8px 16px',
+                    borderRadius: '24px',
                   }}
                 >
                   Creator
                 </span>
               </div>
-              <p style={{ fontSize: '15px', color: '#F5F5F6', opacity: 0.9 }}>Passionate UI/UX, Web designer</p>
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  lineHeight: '28.8px',
+                  color: '#F5F5F6',
+                  margin: 0,
+                }}
+              >
+                Passionate UI/UX, Web designer
+              </p>
             </div>
           </div>
 
           {/* Bio text */}
           <div
             style={{
-              fontSize: '15px',
-              lineHeight: '25px',
+              fontFamily: 'var(--font-body)',
+              fontSize: '18px',
+              lineHeight: '28.8px',
               color: '#F5F5F6',
-              maxWidth: '820px',
-              marginBottom: '36px',
-              opacity: 0.92,
+              maxWidth: '902px',
+              marginBottom: '40px',
             }}
           >
-            <p style={{ marginBottom: '10px' }}>
+            <p style={{ margin: '0 0 12px 0' }}>
               Welcome to the creative world of PurePearl Studio. Here, you&apos;ll discover the passion, expertise, and
               inspiration that drive my creative journey. Let&apos;s explore and learn together!
             </p>
-            <p>
+            <p style={{ margin: 0 }}>
               Dive into my creative portfolio, showcasing a glimpse of my artistic endeavors. From digital designs to
               multimedia projects, each piece tells a unique story. Explore the world of creativity with me.
             </p>
@@ -123,42 +137,54 @@ export default function CreatorProfilePage() {
               gap: '16px',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <span
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div
                 style={{
                   backgroundColor: '#FFFFFF',
-                  color: '#242528',
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  padding: '8px 20px',
-                  borderRadius: '9999px',
+                  padding: '12px 24px',
+                  height: '46px',
+                  borderRadius: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  fontWeight: 500,
                 }}
               >
-                3 Products
-              </span>
-              <span
+                <span style={{ color: '#003BE2' }}>3</span>
+                <span style={{ color: '#242528' }}>Products</span>
+              </div>
+              <div
                 style={{
                   backgroundColor: '#FFFFFF',
-                  color: '#242528',
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  padding: '8px 20px',
-                  borderRadius: '9999px',
+                  padding: '12px 24px',
+                  height: '46px',
+                  borderRadius: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  fontWeight: 500,
                 }}
               >
-                {followerCount} Followers
-              </span>
+                <span style={{ color: '#003BE2' }}>{followerCount}</span>
+                <span style={{ color: '#242528' }}>Followers</span>
+              </div>
             </div>
 
             <button
               onClick={handleFollowToggle}
               style={{
                 backgroundColor: isFollowing ? '#FFFFFF' : '#D4FB20',
-                color: '#242528',
-                fontSize: '14px',
-                fontWeight: 700,
-                padding: '10px 32px',
-                borderRadius: '9999px',
+                color: '#040819',
+                fontFamily: 'var(--font-body)',
+                fontSize: '18px',
+                fontWeight: 500,
+                padding: '12px 24px',
+                height: '46px',
+                borderRadius: '24px',
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
@@ -173,9 +199,9 @@ export default function CreatorProfilePage() {
       {/* ============================================================ */}
       {/* 2. CREATOR COURSES CATALOG                                   */}
       {/* ============================================================ */}
-      <section style={{ padding: '40px 0 80px' }}>
-        <div className="container">
-          {/* Filter Bar */}
+      <section style={{ padding: '60px 0 80px' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          {/* Filter Bar: 48px height, 24px radius, 12px 16px padding */}
           <div
             style={{
               display: 'flex',
@@ -183,25 +209,29 @@ export default function CreatorProfilePage() {
               alignItems: 'center',
               justifyContent: 'space-between',
               gap: '16px',
-              marginBottom: '36px',
+              marginBottom: '40px',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <button
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <FilterIcon size={16} />
+                <FilterIcon size={20} />
                 <span>Filter</span>
               </button>
 
@@ -209,17 +239,21 @@ export default function CreatorProfilePage() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <SignalCellularIcon size={16} color="#242528" />
+                <SignalCellularIcon size={20} color="#4B4C53" />
                 <span>Level</span>
               </button>
 
@@ -227,17 +261,21 @@ export default function CreatorProfilePage() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <CategoryFilterIcon size={16} />
+                <CategoryFilterIcon size={20} />
                 <span>Category</span>
               </button>
             </div>
@@ -247,28 +285,32 @@ export default function CreatorProfilePage() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <SortIcon size={16} />
+                <SortIcon size={20} />
                 <span>Most relevant</span>
               </button>
             </div>
           </div>
 
-          {/* Courses Grid */}
+          {/* Courses Grid: exactly 3 columns with 40px gap */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '28px',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+              gap: '40px',
             }}
           >
             {COURSES.map((course) => (

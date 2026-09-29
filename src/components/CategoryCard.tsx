@@ -20,19 +20,19 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ id, name }) => {
   const renderIcon = () => {
     switch (id) {
       case 'design':
-        return <DesignIcon size={24} />;
+        return <DesignIcon size={36} />;
       case 'development':
-        return <DevelopmentIcon size={24} />;
+        return <DevelopmentIcon size={36} />;
       case 'it-software':
-        return <ITSoftwareIcon size={24} />;
+        return <ITSoftwareIcon size={36} />;
       case 'business':
-        return <BusinessIcon size={24} />;
+        return <BusinessIcon size={36} />;
       case 'marketing':
-        return <MarketingIcon size={24} />;
+        return <MarketingIcon size={36} />;
       case 'photography':
-        return <PhotographyIcon size={24} />;
+        return <PhotographyIcon size={36} />;
       default:
-        return <DesignIcon size={24} />;
+        return <DesignIcon size={36} />;
     }
   };
 
@@ -44,11 +44,15 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ id, name }) => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '16px',
+        gap: '12px',
         backgroundColor: '#FFFFFF',
-        border: '1px solid #E5E6E8',
-        borderRadius: '20px',
-        padding: '32px 16px',
+        border: '1px solid #CED0D3',
+        borderRadius: '24px',
+        padding: '20px 8px',
+        aspectRatio: '1 / 1',
+        maxWidth: '167px',
+        width: '100%',
+        margin: '0 auto',
         textDecoration: 'none',
         transition: 'all 0.2s ease',
       }}
@@ -57,8 +61,8 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ id, name }) => {
       {/* Lime Circle Icon Holder */}
       <div
         style={{
-          width: '56px',
-          height: '56px',
+          width: '60px',
+          height: '60px',
           borderRadius: '50%',
           backgroundColor: '#D4FB20',
           display: 'flex',
@@ -72,10 +76,14 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ id, name }) => {
 
       <span
         style={{
-          fontSize: '15px',
-          fontWeight: 600,
+          fontFamily: 'Satoshi, sans-serif',
+          fontSize: 'clamp(14px, 1.35vw, 20px)',
+          fontWeight: 500,
+          lineHeight: '24px',
           color: '#242528',
           textAlign: 'center',
+          whiteSpace: 'nowrap',
+          maxWidth: '100%',
         }}
       >
         {name}

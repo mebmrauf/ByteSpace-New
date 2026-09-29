@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,10 +27,10 @@ export default function NotFound() {
         <div
           style={{
             position: 'absolute',
-            top: '80px',
-            left: '-60px',
-            width: '280px',
-            height: '280px',
+            top: '149px',
+            left: '-76px',
+            width: '332px',
+            height: '331px',
             pointerEvents: 'none',
             zIndex: 1,
           }}
@@ -40,10 +42,10 @@ export default function NotFound() {
         <div
           style={{
             position: 'absolute',
-            bottom: '120px',
-            left: '40px',
-            width: '160px',
-            height: '160px',
+            bottom: '140px',
+            left: '34px',
+            width: '188px',
+            height: '188px',
             pointerEvents: 'none',
             zIndex: 1,
           }}
@@ -55,10 +57,10 @@ export default function NotFound() {
         <div
           style={{
             position: 'absolute',
-            top: '90px',
-            right: '40px',
-            width: '190px',
-            height: '190px',
+            top: '169px',
+            right: '57px',
+            width: '222px',
+            height: '222px',
             pointerEvents: 'none',
             zIndex: 1,
           }}
@@ -70,10 +72,10 @@ export default function NotFound() {
         <div
           style={{
             position: 'absolute',
-            bottom: '80px',
-            right: '-60px',
-            width: '300px',
-            height: '300px',
+            bottom: '30px',
+            right: '-131px',
+            width: '357px',
+            height: '356px',
             pointerEvents: 'none',
             zIndex: 1,
           }}
@@ -94,97 +96,94 @@ export default function NotFound() {
             justifyContent: 'center',
             textAlign: 'center',
             position: 'relative',
-            paddingTop: '60px',
-            paddingBottom: '60px',
+            paddingTop: '20px',
+            paddingBottom: '80px',
             zIndex: 2,
           }}
         >
           {/* Giant 404 Backdrop Text */}
           <div
             style={{
-              position: 'relative',
-              width: '100%',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(200px, 33.3vw, 480px)',
+              fontWeight: 600,
+              lineHeight: 1,
+              letterSpacing: '-0.01em',
+              background: 'linear-gradient(180deg, #D4FB20 0%, rgba(212, 251, 32, 0.96) 25%, rgba(212, 251, 32, 0.81) 50.5%, rgba(212, 251, 32, 0.61) 68%, rgba(255, 255, 255, 0) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              userSelect: 'none',
+              textAlign: 'center',
+            }}
+          >
+            404
+          </div>
+
+          {/* Frame 1 Content overlapping bottom of 404 */}
+          <div
+            style={{
+              marginTop: '-120px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
+              gap: '32px',
+              maxWidth: '935px',
+              width: '100%',
+              zIndex: 3,
             }}
           >
-            <div
+            <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(180px, 32vw, 380px)',
-                fontWeight: 800,
-                lineHeight: 0.85,
-                background: 'linear-gradient(180deg, #D4FB20 0%, rgba(212, 251, 32, 0.3) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                userSelect: 'none',
-                opacity: 0.85,
+                fontSize: 'clamp(36px, 5vw, 72px)',
+                fontWeight: 600,
+                lineHeight: 1.2,
+                letterSpacing: '-0.01em',
+                color: '#FFFFFF',
+                textAlign: 'center',
+                margin: 0,
               }}
             >
-              404
-            </div>
+              The page you are looking for doesn’t exist
+            </h1>
 
-            {/* Overlay Headline */}
-            <div
+            <p
               style={{
-                position: 'absolute',
-                top: '55%',
-                transform: 'translateY(-50%)',
-                width: '100%',
-                maxWidth: '780px',
-                zIndex: 2,
+                fontFamily: 'var(--font-body)',
+                fontSize: '18px',
+                fontWeight: 400,
+                lineHeight: '28.8px',
+                color: '#E5E6E8',
+                textAlign: 'center',
+                margin: 0,
+                maxWidth: '650px',
               }}
             >
-              <h1
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(28px, 4.5vw, 48px)',
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                  color: '#FFFFFF',
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                The page you are looking
-                <br />
-                for doesn&apos;t exist
-              </h1>
-            </div>
+              Try to use a correct url or go back to homepage to start again
+            </p>
+
+            <Link
+              href="/"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#D4FB20',
+                color: '#242528',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 500,
+                fontSize: '18px',
+                lineHeight: '21.6px',
+                height: '46px',
+                padding: '12px 24px',
+                borderRadius: '24px',
+                textDecoration: 'none',
+                transition: 'transform 0.2s, opacity 0.2s',
+              }}
+            >
+              Back to Home
+            </Link>
           </div>
-
-          <p
-            style={{
-              fontSize: '15px',
-              color: '#F5F5F6',
-              opacity: 0.9,
-              marginTop: '40px',
-              marginBottom: '28px',
-              maxWidth: '500px',
-            }}
-          >
-            Try to use a correct url or go back to homepage to start again
-          </p>
-
-          <Link
-            href="/"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#D4FB20',
-              color: '#242528',
-              fontWeight: 700,
-              fontSize: '15px',
-              padding: '14px 36px',
-              borderRadius: '9999px',
-              transition: 'all 0.2s',
-              textDecoration: 'none',
-            }}
-          >
-            Back to Home
-          </Link>
         </div>
       </section>
 

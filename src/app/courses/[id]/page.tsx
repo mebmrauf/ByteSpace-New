@@ -46,7 +46,7 @@ export default function CourseDetailPage() {
       >
         <Header variant="light" />
 
-        <div className="container" style={{ paddingTop: '20px' }}>
+        <div className="container" style={{ paddingTop: '20px', maxWidth: '1200px' }}>
           {/* Top Title & Meta */}
           <div
             style={{
@@ -54,7 +54,7 @@ export default function CourseDetailPage() {
               flexWrap: 'wrap',
               justifyContent: 'space-between',
               alignItems: 'flex-start',
-              gap: '20px',
+              gap: '24px',
               marginBottom: '40px',
             }}
           >
@@ -62,54 +62,63 @@ export default function CourseDetailPage() {
               <h1
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(28px, 4vw, 42px)',
-                  fontWeight: 700,
-                  marginBottom: '10px',
-                  letterSpacing: '-0.01em',
+                  fontSize: '36px',
+                  lineHeight: '43.2px',
+                  fontWeight: 600,
+                  letterSpacing: '-0.36px',
+                  color: '#F5F5F6',
+                  marginBottom: '8px',
                 }}
               >
                 {course.title}: A Comprehensive Guide
               </h1>
               <p
                 style={{
-                  fontSize: '16px',
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '20px',
+                  lineHeight: '24px',
+                  fontWeight: 600,
+                  letterSpacing: '-0.2px',
                   color: '#F5F5F6',
-                  opacity: 0.9,
-                  marginBottom: '12px',
+                  marginBottom: '24px',
                 }}
               >
                 Unlock the Power of Digital Creation with Expert Guidance
               </p>
               <div
                 style={{
-                  fontSize: '14px',
-                  color: '#D4FB20',
-                  fontWeight: 600,
-                  marginBottom: '20px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  lineHeight: '21.6px',
+                  fontWeight: 500,
+                  color: '#F1F4FE',
+                  marginBottom: '24px',
                 }}
               >
                 by{' '}
-                <Link href="/creators/purepearl-studio" style={{ textDecoration: 'underline' }}>
+                <Link href="/creators/purepearl-studio" style={{ color: '#F1F4FE', textDecoration: 'none' }}>
                   {course.author}
                 </Link>
               </div>
 
-              {/* Meta Badges */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              {/* Meta Badges: 40px height, 24px radius, 8px 24px padding */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <span
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
+                    gap: '8px',
                     backgroundColor: '#FFFFFF',
                     color: '#242528',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    padding: '8px 24px',
+                    height: '40px',
+                    borderRadius: '24px',
                   }}
                 >
-                  <SignalCellularIcon size={14} color="#242528" />
+                  <SignalCellularIcon size={18} color="#242528" />
                   <span>Intermediate</span>
                 </span>
 
@@ -117,16 +126,18 @@ export default function CourseDetailPage() {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
+                    gap: '8px',
                     backgroundColor: '#FFFFFF',
                     color: '#242528',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    padding: '8px 24px',
+                    height: '40px',
+                    borderRadius: '24px',
                   }}
                 >
-                  <StarIcon size={14} color="#003BE2" />
+                  <StarIcon size={18} color="#003BE2" />
                   <span>4.8 (172 reviews)</span>
                 </span>
 
@@ -134,21 +145,23 @@ export default function CourseDetailPage() {
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '6px',
+                    gap: '8px',
                     backgroundColor: '#FFFFFF',
                     color: '#242528',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    padding: '8px 24px',
+                    height: '40px',
+                    borderRadius: '24px',
                   }}
                 >
-                  <span>👥 199 Students</span>
+                  <span>199 Students</span>
                 </span>
               </div>
             </div>
 
-            {/* Share Button */}
+            {/* Share Button: White background, 24px radius, 40px height */}
             <button
               onClick={() => {
                 if (navigator.share) {
@@ -162,26 +175,28 @@ export default function CourseDetailPage() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                backgroundColor: '#D4FB20',
+                backgroundColor: '#FFFFFF',
                 color: '#242528',
-                fontSize: '14px',
-                fontWeight: 600,
-                padding: '10px 24px',
-                borderRadius: '9999px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '16px',
+                fontWeight: 500,
+                padding: '8px 24px',
+                height: '40px',
+                borderRadius: '24px',
                 border: 'none',
                 cursor: 'pointer',
               }}
             >
-              <ShareIcon size={16} />
+              <ShareIcon size={18} />
               <span>Share</span>
             </button>
           </div>
 
-          {/* Large Video Preview Container */}
+          {/* Large Video Preview Container & Right Sidebar */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) 380px',
+              gridTemplateColumns: 'minmax(0, 1fr) 412px',
               gap: '40px',
               alignItems: 'flex-start',
             }}
@@ -192,11 +207,10 @@ export default function CourseDetailPage() {
               style={{
                 position: 'relative',
                 width: '100%',
-                height: '480px',
+                height: '479px',
                 borderRadius: '24px',
                 overflow: 'hidden',
                 backgroundColor: '#1E293B',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25)',
               }}
             >
               <Image
@@ -214,65 +228,119 @@ export default function CourseDetailPage() {
                   left: '50%',
                   transform: 'translate(-50%, -50%)',
                   cursor: 'pointer',
+                  width: '104px',
+                  height: '104px',
+                  borderRadius: '24px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                  backdropFilter: 'blur(10px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   transition: 'transform 0.2s ease',
                 }}
                 className="play-btn-hover"
               >
-                <PlayIcon size={64} />
+                <PlayIcon size={60} />
               </div>
             </div>
 
-            {/* Sticky Sidebar Enrollment Card */}
+            {/* Sticky Sidebar Enrollment Card: 412px width, 40px padding, 24px radius, 1px border */}
             <div
               style={{
                 backgroundColor: '#FFFFFF',
                 color: '#242528',
                 borderRadius: '24px',
-                padding: '32px 28px',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.12)',
+                padding: '40px',
+                border: '1px solid #CED0D3',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '24px',
               }}
             >
+              {/* Lessons Title & Preview */}
               <div>
                 <h3
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '18px',
-                    fontWeight: 700,
-                    marginBottom: '16px',
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    fontWeight: 600,
+                    letterSpacing: '-0.2px',
+                    color: '#242528',
+                    marginBottom: '24px',
                   }}
                 >
                   112 Lessons (24 hours)
                 </h3>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span style={{ color: '#242528' }}>01 Introduction to Digital Assets</span>
-                    <span style={{ color: '#003BE2', fontWeight: 500 }}>12 mins</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 500, color: '#242528' }}>
+                      01 Introduction to Digital Assets
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#003BE2' }}>12 mins</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span style={{ color: '#242528' }}>02 Design Principles for Impacts</span>
-                    <span style={{ color: '#003BE2', fontWeight: 500 }}>21 mins</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 500, color: '#242528' }}>
+                      02 Design Principles for Impacts
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#003BE2' }}>21 mins</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px' }}>
-                    <span style={{ color: '#242528' }}>03 Advanced Techniques in Digital Creation</span>
-                    <span style={{ color: '#003BE2', fontWeight: 500 }}>16 mins</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 500, color: '#242528' }}>
+                      03 Advanced Techniques in Digital Creation
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#003BE2' }}>16 mins</span>
                   </div>
                 </div>
 
-                <div style={{ fontSize: '12px', color: '#82868E', marginTop: '10px' }}>99 more videos</div>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    color: '#4B4C53',
+                    marginTop: '12px',
+                  }}
+                >
+                  99 more videos
+                </div>
               </div>
 
-              <div style={{ borderTop: '1px solid #E5E6E8', paddingTop: '20px' }}>
-                <p style={{ fontSize: '13px', color: '#666973', lineHeight: '20px', marginBottom: '14px' }}>
+              {/* Ready & Price & Enroll Button */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '26px',
+                    color: '#4B4C53',
+                    margin: 0,
+                  }}
+                >
                   Ready to Dive In? Enroll Now and Start Building Your Digital Future!
                 </p>
 
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', marginBottom: '16px' }}>
-                  <span style={{ fontSize: '28px', fontWeight: 700, color: '#003BE2' }}>${course.price}</span>
-                  <span style={{ fontSize: '13px', color: '#82868E' }}>/lifetime</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '36px',
+                      lineHeight: '38px',
+                      fontWeight: 600,
+                      color: '#003BE2',
+                    }}
+                  >
+                    ${course.price}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      color: '#4B4C53',
+                    }}
+                  >
+                    /lifetime
+                  </span>
                 </div>
 
                 <button
@@ -280,13 +348,14 @@ export default function CourseDetailPage() {
                     width: '100%',
                     backgroundColor: '#D4FB20',
                     color: '#242528',
-                    fontWeight: 700,
-                    fontSize: '15px',
-                    padding: '14px',
-                    borderRadius: '9999px',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 500,
+                    fontSize: '18px',
+                    height: '46px',
+                    borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
-                    transition: 'all 0.2s',
+                    transition: 'background-color 0.2s',
                   }}
                 >
                   Enroll Now
@@ -294,66 +363,117 @@ export default function CourseDetailPage() {
               </div>
 
               {/* Course Includes */}
-              <div style={{ borderTop: '1px solid #E5E6E8', paddingTop: '20px' }}>
-                <h4 style={{ fontSize: '14px', fontWeight: 700, marginBottom: '14px' }}>This course include</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13px', color: '#4B4C53' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <BookOpenIcon size={18} />
-                    <span>Learning Resources</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <VideoCameraIcon size={18} />
-                    <span>Quality Lesson Videos</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <CertificateIcon size={18} />
-                    <span>Certificate of Completion</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <HeadsetIcon size={18} />
-                    <span>Private Consultation</span>
-                  </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: '20px',
+                    lineHeight: '24px',
+                    fontWeight: 600,
+                    letterSpacing: '-0.2px',
+                    color: '#242528',
+                    margin: 0,
+                  }}
+                >
+                  This course include
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {[
+                    { label: 'Learning Resources', icon: <BookOpenIcon size={20} /> },
+                    { label: 'Quality Lesson Videos', icon: <VideoCameraIcon size={20} /> },
+                    { label: 'Certificate of Completion', icon: <CertificateIcon size={20} /> },
+                    { label: 'Private Consultation', icon: <HeadsetIcon size={20} /> },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '16px',
+                        color: '#4B4C53',
+                      }}
+                    >
+                      {item.icon}
+                      <span>{item.label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
+              {/* Divider Line */}
+              <div style={{ height: '1px', backgroundColor: '#CED0D3', width: '100%' }}></div>
+
               {/* Creator Profile Link Box */}
-              <div style={{ borderTop: '1px solid #E5E6E8', paddingTop: '20px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                   <div
                     style={{
                       position: 'relative',
-                      width: '44px',
-                      height: '44px',
+                      width: '52px',
+                      height: '52px',
                       borderRadius: '50%',
                       overflow: 'hidden',
                       backgroundColor: '#F5F5F6',
+                      flexShrink: 0,
                     }}
                   >
                     <Image src="/images/instructor-purepearl.png" alt="PurePearl Studio" fill style={{ objectFit: 'cover' }} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '14px', fontWeight: 700, color: '#242528' }}>PurePearl Studio</div>
-                    <div style={{ fontSize: '12px', color: '#82868E' }}>Professional Creator</div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '18px',
+                        lineHeight: '22px',
+                        fontWeight: 500,
+                        color: '#242528',
+                      }}
+                    >
+                      PurePearl Studio
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '16px',
+                        color: '#4B4C53',
+                      }}
+                    >
+                      Professional Creator
+                    </div>
                   </div>
                 </div>
-                <p style={{ fontSize: '12px', color: '#666973', marginBottom: '14px' }}>
+
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '26px',
+                    color: '#4B4C53',
+                    margin: 0,
+                  }}
+                >
                   Ready to Dive In? Enroll Now and Start Building Your Digital Future!
                 </p>
+
                 <Link
                   href="/creators/purepearl-studio"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '100%',
-                    padding: '10px',
-                    borderRadius: '9999px',
+                    padding: '8px 16px',
+                    height: '35px',
+                    borderRadius: '24px',
                     border: '1px solid #CED0D3',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    color: '#242528',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    color: '#4B4C53',
                     textDecoration: 'none',
                     textAlign: 'center',
+                    width: 'fit-content',
                   }}
                 >
                   See Full Profile
@@ -368,38 +488,41 @@ export default function CourseDetailPage() {
       {/* 2. MAIN TABS CONTENT AREA                                    */}
       {/* ============================================================ */}
       <section style={{ padding: '60px 0 100px', backgroundColor: '#FFFFFF' }}>
-        <div className="container">
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) 380px',
+              gridTemplateColumns: 'minmax(0, 1fr) 412px',
               gap: '40px',
             }}
             className="course-layout-grid"
           >
-            {/* Left Content Area */}
+            {/* Left Content Area (723px in Figma) */}
             <div>
-              {/* Tab Switcher Pills */}
+              {/* Tab Switcher Pills: 43px height, 24px radius, 12px 16px padding */}
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
-                  marginBottom: '48px',
+                  gap: '16px',
+                  marginBottom: '40px',
                 }}
               >
                 <button
                   onClick={() => setActiveTab('about')}
                   style={{
                     backgroundColor: activeTab === 'about' ? '#D4FB20' : '#F5F5F6',
-                    color: '#242528',
-                    fontSize: '14px',
-                    fontWeight: activeTab === 'about' ? 700 : 500,
-                    padding: '10px 24px',
-                    borderRadius: '9999px',
+                    color: activeTab === 'about' ? '#242528' : '#4B4C53',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '19.2px',
+                    fontWeight: 500,
+                    padding: '12px 16px',
+                    height: '43px',
+                    borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
-                    transition: 'all 0.15s',
+                    transition: 'all 0.15s ease',
                   }}
                 >
                   About
@@ -408,14 +531,17 @@ export default function CourseDetailPage() {
                   onClick={() => setActiveTab('lessons')}
                   style={{
                     backgroundColor: activeTab === 'lessons' ? '#D4FB20' : '#F5F5F6',
-                    color: '#242528',
-                    fontSize: '14px',
-                    fontWeight: activeTab === 'lessons' ? 700 : 500,
-                    padding: '10px 24px',
-                    borderRadius: '9999px',
+                    color: activeTab === 'lessons' ? '#242528' : '#4B4C53',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '19.2px',
+                    fontWeight: 500,
+                    padding: '12px 16px',
+                    height: '43px',
+                    borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
-                    transition: 'all 0.15s',
+                    transition: 'all 0.15s ease',
                   }}
                 >
                   Lesson
@@ -424,14 +550,17 @@ export default function CourseDetailPage() {
                   onClick={() => setActiveTab('reviews')}
                   style={{
                     backgroundColor: activeTab === 'reviews' ? '#D4FB20' : '#F5F5F6',
-                    color: '#242528',
-                    fontSize: '14px',
-                    fontWeight: activeTab === 'reviews' ? 700 : 500,
-                    padding: '10px 24px',
-                    borderRadius: '9999px',
+                    color: activeTab === 'reviews' ? '#242528' : '#4B4C53',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '19.2px',
+                    fontWeight: 500,
+                    padding: '12px 16px',
+                    height: '43px',
+                    borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
-                    transition: 'all 0.15s',
+                    transition: 'all 0.15s ease',
                   }}
                 >
                   Reviews
@@ -440,42 +569,46 @@ export default function CourseDetailPage() {
 
               {/* TAB 1: ABOUT */}
               {activeTab === 'about' && (
-                <div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      marginBottom: '16px',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
                     }}
                   >
                     Description
                   </h3>
                   <div
                     style={{
-                      fontSize: '15px',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
                       lineHeight: '26px',
                       color: '#4B4C53',
                       display: 'flex',
                       flexDirection: 'column',
                       gap: '16px',
-                      marginBottom: '48px',
+                      marginBottom: '16px',
                     }}
                   >
-                    <p>
+                    <p style={{ margin: 0 }}>
                       Embark on an enlightening exploration into the world of digital creation with our comprehensive
                       course, &quot;Build Digital Assets: A Comprehensive Guide.&quot; This transformative learning experience invites
                       you to delve deep into the intricacies of crafting impactful digital content. From laying the groundwork
                       with foundational concepts to mastering advanced techniques, this guide is meticulously curated to
                       empower you with the skills essential for navigating the dynamic landscape of digital asset creation.
                     </p>
-                    <p>
+                    <p style={{ margin: 0 }}>
                       In the initial modules, you&apos;ll establish a solid foundation by immersing yourself in the foundational
                       concepts that form the backbone of digital asset creation. Understand the fundamental elements that
                       constitute compelling digital content and gain proficiency in leveraging these elements to communicate
                       effectively in the digital realm.
                     </p>
-                    <p>
+                    <p style={{ margin: 0 }}>
                       As you progress through the course, you&apos;ll ascend to higher levels of expertise, delving into the nuances
                       of design principles that drive impactful creations. Uncover the secrets behind effective visual
                       communication, exploring color theory, typography, and layout strategies that elevate your digital assets
@@ -488,9 +621,12 @@ export default function CourseDetailPage() {
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      marginBottom: '20px',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
                     }}
                   >
                     Sneak Peak
@@ -499,8 +635,8 @@ export default function CourseDetailPage() {
                     style={{
                       display: 'grid',
                       gridTemplateColumns: 'repeat(4, 1fr)',
-                      gap: '16px',
-                      marginBottom: '48px',
+                      gap: '40px',
+                      marginBottom: '16px',
                     }}
                   >
                     {[
@@ -513,8 +649,8 @@ export default function CourseDetailPage() {
                         key={i}
                         style={{
                           position: 'relative',
-                          height: '120px',
-                          borderRadius: '12px',
+                          height: '125px',
+                          borderRadius: '16px',
                           overflow: 'hidden',
                           backgroundColor: '#F5F5F6',
                         }}
@@ -528,14 +664,17 @@ export default function CourseDetailPage() {
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      marginBottom: '20px',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
                     }}
                   >
                     Key Points
                   </h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
                       'Foundational Concepts',
                       'Design Principles Mastery',
@@ -548,7 +687,9 @@ export default function CourseDetailPage() {
                     ].map((point, index) => (
                       <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <CheckCircleIcon size={20} color="#0445FF" />
-                        <span style={{ fontSize: '15px', color: '#242528', fontWeight: 500 }}>{point}</span>
+                        <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: '#242528', fontWeight: 500 }}>
+                          {point}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -557,25 +698,48 @@ export default function CourseDetailPage() {
 
               {/* TAB 2: LESSONS */}
               {activeTab === 'lessons' && (
-                <div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      marginBottom: '10px',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
                     }}
                   >
                     Explore the Modules
                   </h3>
-                  <p style={{ fontSize: '15px', color: '#666973', marginBottom: '32px' }}>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      lineHeight: '26px',
+                      color: '#4B4C53',
+                      margin: 0,
+                    }}
+                  >
                     Immerse yourself in the course content as we break down each module into comprehensive lessons,
                     providing practical insights and hands-on experiences.
                   </p>
 
-                  <h4 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '20px' }}>Lesson List</h4>
+                  <h4
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
+                    }}
+                  >
+                    Lesson List
+                  </h4>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     {[
                       {
                         title: 'Module 1: Introduction to Digital Assets',
@@ -602,81 +766,157 @@ export default function CourseDetailPage() {
                         desc: "Adapt your digital creations for 'Mobile Platforms' and optimize for 'Social Media.' Ensure widespread accessibility and engagement across diverse digital landscapes.",
                       },
                     ].map((mod, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+                      <div
+                        key={idx}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '13px',
+                          padding: '12px 16px',
+                          borderRadius: '24px',
+                          backgroundColor: '#FFFFFF',
+                          border: '1px solid #CED0D3',
+                        }}
+                      >
                         <div
                           style={{
-                            width: '44px',
-                            height: '44px',
-                            borderRadius: '12px',
-                            backgroundColor: '#D4FB20',
+                            width: '48px',
+                            height: '48px',
+                            borderRadius: '24px',
+                            backgroundColor: '#F5F5F6',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             flexShrink: 0,
                           }}
                         >
-                          <VideoCameraIcon size={20} />
+                          <VideoCameraIcon size={24} />
                         </div>
-                        <div>
-                          <div style={{ fontSize: '15px', fontWeight: 700, color: '#242528', marginBottom: '4px' }}>
+                        <div style={{ flex: 1 }}>
+                          <div
+                            style={{
+                              fontFamily: 'var(--font-body)',
+                              fontSize: '16px',
+                              fontWeight: 500,
+                              color: '#242528',
+                              marginBottom: '2px',
+                            }}
+                          >
                             {mod.title}
                           </div>
-                          <div style={{ fontSize: '13px', color: '#666973', lineHeight: '20px' }}>{mod.desc}</div>
+                          <div
+                            style={{
+                              fontFamily: 'var(--font-body)',
+                              fontSize: '14px',
+                              color: '#82868E',
+                              lineHeight: '20px',
+                            }}
+                          >
+                            {mod.desc}
+                          </div>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <h4 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>Lesson Content</h4>
-                  <p style={{ fontSize: '14px', color: '#666973', lineHeight: '22px', marginBottom: '32px' }}>
+                  <h4
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
+                    }}
+                  >
+                    Lesson Content
+                  </h4>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      color: '#4B4C53',
+                      lineHeight: '26px',
+                      margin: 0,
+                    }}
+                  >
                     Engage with each lesson through captivating video content, detailed textual explanations, and
                     interactive elements. Download resources, complete assignments, and test your understanding with
                     quizzes.
                   </p>
 
-                  <h4 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>
+                  <h4
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
+                    }}
+                  >
                     Lesson Progress Tracking
                   </h4>
-                  <p style={{ fontSize: '14px', color: '#666973', lineHeight: '22px', marginBottom: '20px' }}>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      color: '#4B4C53',
+                      lineHeight: '26px',
+                      margin: 0,
+                    }}
+                  >
                     Witness your growth as you complete lessons, with an intuitive progress tracking feature guiding you
                     through your learning journey.
                   </p>
 
+                  {/* Progress Box in Figma: 723x116, padding 16px, cornerRadius 16px, background #F5F5F6 */}
                   <div
                     style={{
-                      border: '1px solid #E5E6E8',
+                      backgroundColor: '#F5F5F6',
                       borderRadius: '16px',
-                      padding: '24px',
-                      maxWidth: '520px',
+                      padding: '16px 24px',
                     }}
                   >
-                    <div style={{ fontSize: '12px', color: '#82868E', marginBottom: '6px' }}>Learning Progress</div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        color: '#242528',
+                        marginBottom: '8px',
+                      }}
+                    >
+                      Learning Progress
+                    </div>
                     <div
                       style={{
                         fontFamily: 'var(--font-heading)',
-                        fontSize: '36px',
-                        fontWeight: 700,
+                        fontSize: '20px',
+                        fontWeight: 600,
                         color: '#242528',
-                        marginBottom: '12px',
+                        marginBottom: '8px',
                       }}
                     >
-                      55%
+                      10%
                     </div>
                     <div
                       style={{
                         width: '100%',
                         height: '8px',
-                        backgroundColor: '#E5E6E8',
-                        borderRadius: '9999px',
+                        backgroundColor: '#CED0D3',
+                        borderRadius: '24px',
                         overflow: 'hidden',
                       }}
                     >
                       <div
                         style={{
-                          width: '55%',
+                          width: '10%',
                           height: '100%',
-                          backgroundColor: '#D4FB20',
-                          borderRadius: '9999px',
+                          backgroundColor: '#003BE2',
+                          borderRadius: '24px',
                         }}
                       />
                     </div>
@@ -686,49 +926,70 @@ export default function CourseDetailPage() {
 
               {/* TAB 3: REVIEWS */}
               {activeTab === 'reviews' && (
-                <div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: '24px',
-                      fontWeight: 700,
-                      marginBottom: '10px',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
                     }}
                   >
                     What Learners Are Saying
                   </h3>
-                  <p style={{ fontSize: '15px', color: '#666973', marginBottom: '32px' }}>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '16px',
+                      lineHeight: '26px',
+                      color: '#4B4C53',
+                      margin: 0,
+                    }}
+                  >
                     Discover what our learners have to say about their experience with &apos;Build Digital Assets: A
                     Comprehensive Guide.&apos; Read reviews and ratings from individuals who have embarked on the
                     transformative journey of mastering digital asset creation.
                   </p>
 
-                  {/* Rating Breakdown Card */}
+                  {/* Rating Breakdown Card: border 1px solid #CED0D3, borderRadius 16px, padding 40px */}
                   <div
                     style={{
-                      border: '1px solid #E5E6E8',
-                      borderRadius: '20px',
-                      padding: '28px',
+                      border: '1px solid #CED0D3',
+                      borderRadius: '16px',
+                      padding: '40px',
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '36px',
-                      marginBottom: '40px',
+                      gap: '24px',
+                      backgroundColor: '#FFFFFF',
                     }}
                   >
                     <div
                       style={{
                         backgroundColor: '#D4FB20',
-                        borderRadius: '16px',
-                        padding: '24px 28px',
+                        borderRadius: '8px',
+                        padding: '24px 32px',
                         textAlign: 'center',
                       }}
                     >
-                      <div style={{ fontSize: '12px', fontWeight: 600, color: '#242528' }}>Ratings</div>
+                      <div
+                        style={{
+                          fontFamily: 'var(--font-body)',
+                          fontSize: '14px',
+                          fontWeight: 500,
+                          color: '#242528',
+                          marginBottom: '4px',
+                        }}
+                      >
+                        Ratings
+                      </div>
                       <div
                         style={{
                           fontFamily: 'var(--font-heading)',
-                          fontSize: '44px',
-                          fontWeight: 700,
+                          fontSize: '36px',
+                          fontWeight: 600,
                           color: '#242528',
                           lineHeight: 1,
                         }}
@@ -750,9 +1011,9 @@ export default function CourseDetailPage() {
                           <div
                             style={{
                               flex: 1,
-                              height: '6px',
+                              height: '8px',
                               backgroundColor: '#E5E6E8',
-                              borderRadius: '9999px',
+                              borderRadius: '24px',
                               overflow: 'hidden',
                             }}
                           >
@@ -761,18 +1022,26 @@ export default function CourseDetailPage() {
                                 width: `${bar.pct}%`,
                                 height: '100%',
                                 backgroundColor: '#D4FB20',
-                                borderRadius: '9999px',
+                                borderRadius: '24px',
                               }}
                             />
                           </div>
                           <div style={{ display: 'flex', gap: '2px' }}>
                             {[...Array(5)].map((_, i) => (
-                              <span key={i} style={{ color: '#242528', fontSize: '12px' }}>
+                              <span key={i} style={{ color: '#4B4C53', fontSize: '14px' }}>
                                 ★
                               </span>
                             ))}
                           </div>
-                          <span style={{ fontSize: '12px', color: '#666973', width: '30px', textAlign: 'right' }}>
+                          <span
+                            style={{
+                              fontFamily: 'var(--font-body)',
+                              fontSize: '14px',
+                              color: '#4B4C53',
+                              width: '32px',
+                              textAlign: 'right',
+                            }}
+                          >
                             {bar.count}
                           </span>
                         </div>
@@ -780,32 +1049,49 @@ export default function CourseDetailPage() {
                     </div>
                   </div>
 
-                  <h4 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '20px' }}>Individual Reviews:</h4>
+                  <h4
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '20px',
+                      lineHeight: '24px',
+                      fontWeight: 600,
+                      letterSpacing: '-0.2px',
+                      color: '#242528',
+                      margin: 0,
+                    }}
+                  >
+                    Individual Reviews:
+                  </h4>
 
-                  {/* Rating Filters */}
-                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '28px' }}>
-                    {['All rating', '★ 5', '★ 4', '★ 3', '★ 2', '★ 1'].map((r) => (
-                      <button
-                        key={r}
-                        onClick={() => setSelectedRatingFilter(r)}
-                        style={{
-                          backgroundColor: selectedRatingFilter === r ? '#D4FB20' : '#F5F5F6',
-                          color: '#242528',
-                          fontSize: '13px',
-                          fontWeight: selectedRatingFilter === r ? 600 : 500,
-                          padding: '8px 18px',
-                          borderRadius: '9999px',
-                          border: 'none',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        {r}
-                      </button>
-                    ))}
+                  {/* Rating Filters: 48px height, 24px radius, 12px 16px padding */}
+                  <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                    {['All', '★ 5', '★ 4', '★ 3', '★ 2', '★ 1'].map((r) => {
+                      const isActive = selectedRatingFilter === r || (selectedRatingFilter === 'All' && r === 'All');
+                      return (
+                        <button
+                          key={r}
+                          onClick={() => setSelectedRatingFilter(r)}
+                          style={{
+                            backgroundColor: isActive ? '#D4FB20' : '#FFFFFF',
+                            color: '#242528',
+                            fontFamily: 'var(--font-body)',
+                            fontSize: '16px',
+                            fontWeight: 500,
+                            padding: '12px 16px',
+                            height: '48px',
+                            borderRadius: '24px',
+                            border: '1px solid #CED0D3',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {r}
+                        </button>
+                      );
+                    })}
                   </div>
 
-                  {/* Reviews List */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                  {/* Reviews List: 24px radius, 1px solid #CED0D3, 40px padding */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     {[
                       {
                         name: 'PurePearl Studio',
@@ -819,7 +1105,7 @@ export default function CourseDetailPage() {
                         role: 'UI/UX Designer',
                         avatar: '/images/reviewer-albert.png',
                         time: 'a year ago',
-                        text: 'This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I\'ve learned!',
+                        text: "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!",
                       },
                       {
                         name: 'Cody Fisher',
@@ -839,10 +1125,13 @@ export default function CourseDetailPage() {
                       <div
                         key={idx}
                         style={{
-                          border: '1px solid #E5E6E8',
-                          borderRadius: '16px',
-                          padding: '24px',
+                          border: '1px solid #CED0D3',
+                          borderRadius: '24px',
+                          padding: '40px',
                           backgroundColor: '#FFFFFF',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '24px',
                         }}
                       >
                         <div
@@ -850,15 +1139,14 @@ export default function CourseDetailPage() {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
-                            marginBottom: '12px',
                           }}
                         >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                             <div
                               style={{
                                 position: 'relative',
-                                width: '42px',
-                                height: '42px',
+                                width: '48px',
+                                height: '48px',
                                 borderRadius: '50%',
                                 overflow: 'hidden',
                                 backgroundColor: '#F5F5F6',
@@ -867,23 +1155,50 @@ export default function CourseDetailPage() {
                               <Image src={rev.avatar} alt={rev.name} fill style={{ objectFit: 'cover' }} />
                             </div>
                             <div>
-                              <div style={{ fontSize: '15px', fontWeight: 700, color: '#242528' }}>{rev.name}</div>
-                              <div style={{ fontSize: '12px', color: '#666973' }}>{rev.role}</div>
+                              <div
+                                style={{
+                                  fontFamily: 'var(--font-heading)',
+                                  fontSize: '20px',
+                                  lineHeight: '24px',
+                                  fontWeight: 600,
+                                  color: '#242528',
+                                }}
+                              >
+                                {rev.name}
+                              </div>
+                              <div
+                                style={{
+                                  fontFamily: 'var(--font-body)',
+                                  fontSize: '16px',
+                                  color: '#4B4C53',
+                                }}
+                              >
+                                {rev.role}
+                              </div>
                             </div>
                           </div>
-                          <div style={{ fontSize: '12px', color: '#82868E' }}>{rev.time}</div>
+                          <div
+                            style={{
+                              fontFamily: 'var(--font-body)',
+                              fontSize: '14px',
+                              color: '#82868E',
+                            }}
+                          >
+                            {rev.time}
+                          </div>
                         </div>
 
-                        {/* Stars */}
-                        <div style={{ display: 'flex', gap: '2px', marginBottom: '12px' }}>
-                          {[...Array(5)].map((_, i) => (
-                            <span key={i} style={{ color: '#242528', fontSize: '14px' }}>
-                              ★
-                            </span>
-                          ))}
-                        </div>
-
-                        <p style={{ fontSize: '14px', lineHeight: '22px', color: '#4B4C53' }}>{rev.text}</p>
+                        <p
+                          style={{
+                            fontFamily: 'var(--font-body)',
+                            fontSize: '16px',
+                            lineHeight: '26px',
+                            color: '#4B4C53',
+                            margin: 0,
+                          }}
+                        >
+                          {rev.text}
+                        </p>
                       </div>
                     ))}
                   </div>

@@ -66,80 +66,106 @@ function CoursesContent() {
       <section
         className="blue-grid-bg"
         style={{
-          paddingBottom: '60px',
+          minHeight: '360px',
           color: '#FFFFFF',
           position: 'relative',
+          paddingBottom: '50px',
         }}
       >
         <Header variant="light" />
 
-        <div className="container" style={{ textAlign: 'center', paddingTop: '30px' }}>
+        <div className="container" style={{ textAlign: 'center', paddingTop: '20px', maxWidth: '1200px' }}>
           <h1
             style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(32px, 4vw, 44px)',
-              fontWeight: 700,
+              fontSize: '36px',
+              lineHeight: '43.2px',
+              fontWeight: 600,
+              letterSpacing: '-0.36px',
+              color: '#F5F5F6',
               marginBottom: '32px',
             }}
           >
             Find Your Next Course
           </h1>
 
-          {/* Search bar with category dropdown */}
+          {/* Search bar with category dropdown - TWO SEPARATE PILLS in Figma */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '9999px',
-              padding: '6px 8px 6px 20px',
-              maxWidth: '560px',
+              justifyContent: 'center',
+              gap: '16px',
+              maxWidth: '624px',
               margin: '0 auto',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+              flexWrap: 'wrap',
             }}
           >
-            <div style={{ color: '#82868E', display: 'flex', alignItems: 'center', marginRight: '10px' }}>
-              <SearchIcon size={20} color="#82868E" />
-            </div>
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontSize: '15px',
-                color: '#242528',
-                backgroundColor: 'transparent',
-              }}
-            />
-            {/* Courses selector */}
+            {/* Search Input Pill */}
             <div
               style={{
+                flex: '1 1 340px',
+                height: '52px',
+                backgroundColor: '#FFFFFF',
+                borderRadius: '24px',
+                padding: '12px 24px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '8px',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+              }}
+            >
+              <div style={{ color: '#82868E', display: 'flex', alignItems: 'center' }}>
+                <SearchIcon size={24} color="#82868E" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  flex: 1,
+                  border: 'none',
+                  outline: 'none',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  lineHeight: '28.8px',
+                  color: '#242528',
+                  backgroundColor: 'transparent',
+                }}
+              />
+            </div>
+
+            {/* Courses selector Pill */}
+            <div
+              style={{
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
                 backgroundColor: '#D4FB20',
                 color: '#242528',
-                fontWeight: 600,
-                fontSize: '13px',
-                padding: '10px 18px',
-                borderRadius: '9999px',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 500,
+                fontSize: '18px',
+                lineHeight: '21.6px',
+                padding: '12px 24px',
+                borderRadius: '24px',
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
               }}
             >
               <span>Courses</span>
-              <ChevronDown size={14} />
+              <ChevronDown size={18} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Filter & Course Catalog */}
-      <section style={{ padding: '40px 0 80px' }}>
-        <div className="container">
+      <section style={{ padding: '72px 0 80px' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {/* Top Filter Bar */}
           <div
             style={{
@@ -152,23 +178,27 @@ function CoursesContent() {
             }}
           >
             {/* Left Filter Buttons */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <button
                 className="btn-secondary"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <FilterIcon size={16} />
+                <FilterIcon size={20} />
                 <span>Filter</span>
               </button>
 
@@ -178,17 +208,21 @@ function CoursesContent() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: selectedLevel !== 'All' ? '1px solid #D4FB20' : '1px solid #CED0D3',
                   backgroundColor: selectedLevel !== 'All' ? '#FDFFE4' : '#FFFFFF',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
+                  cursor: 'pointer',
                 }}
               >
-                <SignalCellularIcon size={16} color="#242528" />
+                <SignalCellularIcon size={20} color="#4B4C53" />
                 <span>Level {selectedLevel !== 'All' ? `(${selectedLevel})` : ''}</span>
               </button>
 
@@ -197,17 +231,21 @@ function CoursesContent() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <CategoryFilterIcon size={16} />
+                <CategoryFilterIcon size={20} />
                 <span>Category</span>
               </button>
             </div>
@@ -219,17 +257,21 @@ function CoursesContent() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
+                  gap: '4px',
+                  padding: '12px 16px',
+                  height: '48px',
+                  borderRadius: '24px',
                   border: '1px solid #CED0D3',
-                  fontSize: '14px',
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  lineHeight: '19.2px',
                   fontWeight: 500,
-                  color: '#242528',
+                  color: '#4B4C53',
                   backgroundColor: '#FFFFFF',
+                  cursor: 'pointer',
                 }}
               >
-                <SortIcon size={16} />
+                <SortIcon size={20} />
                 <span>{sortBy}</span>
               </button>
             </div>
@@ -239,7 +281,7 @@ function CoursesContent() {
           <div
             style={{
               display: 'flex',
-              gap: '10px',
+              gap: '16px',
               flexWrap: 'wrap',
               marginBottom: '40px',
             }}
@@ -252,11 +294,14 @@ function CoursesContent() {
                   onClick={() => setActiveCategory(cat)}
                   style={{
                     backgroundColor: active ? '#D4FB20' : '#F5F5F6',
-                    color: '#242528',
-                    fontSize: '13px',
-                    fontWeight: active ? 600 : 500,
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
+                    color: active ? '#242528' : '#4B4C53',
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '19.2px',
+                    fontWeight: 500,
+                    padding: '12px 16px',
+                    height: '43px',
+                    borderRadius: '24px',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease',
@@ -268,13 +313,13 @@ function CoursesContent() {
             })}
           </div>
 
-          {/* Courses Grid */}
+          {/* Courses Grid: exactly 3 columns matching Frame 8 */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '28px',
-              marginBottom: '60px',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))',
+              gap: '40px',
+              marginBottom: '72px',
             }}
           >
             {filtered.slice(0, 9).map((course, idx) => (
@@ -282,22 +327,22 @@ function CoursesContent() {
             ))}
           </div>
 
-          {/* Pagination */}
+          {/* Pagination: 56x48 prev/next buttons, Poppins 600 20px numbers, gap 24px */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '12px',
+              gap: '24px',
             }}
           >
             <button
               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
               style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
+                width: '56px',
+                height: '48px',
+                borderRadius: '24px',
                 border: '1px solid #CED0D3',
                 backgroundColor: '#FFFFFF',
                 display: 'flex',
@@ -308,7 +353,7 @@ function CoursesContent() {
               }}
               aria-label="Previous page"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={20} />
             </button>
 
             {[1, 2, 3, 4, 5].map((page) => {
@@ -318,16 +363,18 @@ function CoursesContent() {
                   key={page}
                   onClick={() => setCurrentPage(page)}
                   style={{
-                    width: '36px',
-                    height: '36px',
-                    borderRadius: '50%',
+                    padding: '0 8px',
+                    height: '48px',
                     border: 'none',
-                    backgroundColor: isActive ? '#F5F5F6' : 'transparent',
-                    color: '#242528',
-                    fontWeight: isActive ? 700 : 500,
-                    fontSize: '14px',
+                    backgroundColor: 'transparent',
+                    color: isActive ? '#CED0D3' : '#242528',
+                    fontFamily: 'var(--font-heading)',
+                    fontWeight: 600,
+                    fontSize: '20px',
+                    lineHeight: '28px',
+                    letterSpacing: '-0.2px',
                     cursor: 'pointer',
-                    transition: 'background-color 0.15s',
+                    transition: 'color 0.15s',
                   }}
                 >
                   {page}
@@ -339,9 +386,9 @@ function CoursesContent() {
               onClick={() => setCurrentPage(Math.min(5, currentPage + 1))}
               disabled={currentPage === 5}
               style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
+                width: '56px',
+                height: '48px',
+                borderRadius: '24px',
                 border: '1px solid #CED0D3',
                 backgroundColor: '#FFFFFF',
                 display: 'flex',
@@ -352,7 +399,7 @@ function CoursesContent() {
               }}
               aria-label="Next page"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>

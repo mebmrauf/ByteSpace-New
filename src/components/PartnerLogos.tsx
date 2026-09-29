@@ -6,36 +6,38 @@ export const PartnerLogos: React.FC = () => {
     <section
       style={{
         backgroundColor: '#F5F5F6',
-        padding: '36px 0',
+        padding: '80px 0',
         width: '100%',
-        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxSizing: 'border-box',
       }}
     >
       <div
-        className="container"
         style={{
+          width: '100%',
+          maxWidth: '1132px',
+          padding: '0 24px',
+          boxSizing: 'border-box',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
-        <div
+        <Image
+          src="/icons/logo_1_1708_Logo_Partner.svg"
+          alt="Trusted partners and logos"
+          width={1132}
+          height={42}
           style={{
-            position: 'relative',
             width: '100%',
+            height: 'auto',
             maxWidth: '1132px',
-            height: '42px',
-            opacity: 0.85,
+            display: 'block',
           }}
-        >
-          <Image
-            src="/icons/logo_1_1708_Logo_Partner.svg"
-            alt="Trusted partners and logos"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-          />
-        </div>
+          priority
+        />
       </div>
     </section>
   );

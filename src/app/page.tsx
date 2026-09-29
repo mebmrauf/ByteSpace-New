@@ -40,275 +40,153 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 1. HERO SECTION                                              */}
       {/* ============================================================ */}
-      <section
-        className="blue-grid-bg"
-        style={{
-          position: 'relative',
-          paddingBottom: '80px',
-          overflow: 'hidden',
-          color: '#FFFFFF',
-        }}
-      >
+      <section className="hero-section blue-grid-bg">
         <Header variant="light" />
 
-        {/* Floating Decorative 3D Shapes */}
-        <div className="floating-shapes-hero">
-          <div
-            style={{
-              position: 'absolute',
-              top: '120px',
-              left: '3%',
-              width: '120px',
-              height: '120px',
-              pointerEvents: 'none',
-              opacity: 0.95,
-            }}
-            className="float-slow"
-          >
-            <Image src="/shapes/shape-zigzag.png" alt="3D Zigzag" fill style={{ objectFit: 'contain' }} />
-          </div>
+        {/* 1440px Hero Canvas - Pixel Perfect Figma Artboard */}
+        <div className="hero-canvas">
+          {/* Hero Header Content (Text + Search) */}
+          <div className="hero-header-content">
+            <h1 className="hero-title">
+              Get Access to Hundreds Courses Available
+            </h1>
 
-          <div
-            style={{
-              position: 'absolute',
-              top: '240px',
-              left: '7%',
-              width: '90px',
-              height: '90px',
-              pointerEvents: 'none',
-              opacity: 0.9,
-            }}
-            className="float-reverse"
-          >
-            <Image src="/shapes/shape-torus.png" alt="3D Torus" fill style={{ objectFit: 'contain' }} />
-          </div>
+            <p className="hero-subtitle">
+              Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
+            </p>
 
-          <div
-            style={{
-              position: 'absolute',
-              top: '100px',
-              right: '4%',
-              width: '130px',
-              height: '130px',
-              pointerEvents: 'none',
-              opacity: 0.95,
-            }}
-            className="float-slow"
-          >
-            <Image src="/shapes/cone-1.png" alt="3D Cone" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          <div
-            style={{
-              position: 'absolute',
-              top: '260px',
-              right: '8%',
-              width: '100px',
-              height: '100px',
-              pointerEvents: 'none',
-              opacity: 0.9,
-            }}
-            className="float-reverse"
-          >
-            <Image src="/shapes/shape-wedge.png" alt="3D Wedge" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '100px',
-              left: '4%',
-              width: '110px',
-              height: '110px',
-              pointerEvents: 'none',
-              opacity: 0.9,
-            }}
-            className="float-slow"
-          >
-            <Image src="/shapes/cone-2.png" alt="3D Cone" fill style={{ objectFit: 'contain' }} />
-          </div>
-
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '80px',
-              right: '5%',
-              width: '110px',
-              height: '110px',
-              pointerEvents: 'none',
-              opacity: 0.9,
-            }}
-            className="float-reverse"
-          >
-            <Image src="/shapes/shape-cylinder.png" alt="3D Cylinder" fill style={{ objectFit: 'contain' }} />
-          </div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '40px' }}>
-          <h1
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(36px, 5vw, 56px)',
-              fontWeight: 700,
-              lineHeight: 1.15,
-              maxWidth: '820px',
-              margin: '0 auto',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Get Access to Hundreds Courses Available
-          </h1>
-
-          <p
-            style={{
-              fontSize: '16px',
-              lineHeight: '26px',
-              color: '#F5F5F6',
-              maxWidth: '680px',
-              margin: '18px auto 36px',
-              opacity: 0.92,
-            }}
-          >
-            Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
-          </p>
-
-          {/* Search Bar */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (searchQuery) window.location.href = `/courses?q=${encodeURIComponent(searchQuery)}`;
-            }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              backgroundColor: '#FFFFFF',
-              borderRadius: '9999px',
-              padding: '6px 6px 6px 20px',
-              maxWidth: '520px',
-              margin: '0 auto 60px',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-            }}
-          >
-            <div style={{ color: '#82868E', display: 'flex', alignItems: 'center', marginRight: '10px' }}>
-              <SearchIcon size={20} color="#82868E" />
-            </div>
-            <input
-              type="text"
-              placeholder="Course, topic, creator"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{
-                flex: 1,
-                border: 'none',
-                outline: 'none',
-                fontSize: '15px',
-                color: '#242528',
-                backgroundColor: 'transparent',
+            {/* Figma-exact 2-pill Search Bar */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (searchQuery) window.location.href = `/courses?q=${encodeURIComponent(searchQuery)}`;
               }}
-            />
-            <button
-              type="submit"
-              style={{
-                backgroundColor: '#D4FB20',
-                color: '#242528',
-                fontWeight: 600,
-                fontSize: '15px',
-                padding: '12px 28px',
-                borderRadius: '9999px',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s',
-              }}
+              className="hero-search-form"
             >
-              Search
-            </button>
-          </form>
+              <div className="hero-search-input-box">
+                <SearchIcon size={20} color="#82868E" />
+                <input
+                  type="text"
+                  placeholder="Course, topic, creator"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="hero-search-input"
+                />
+              </div>
+              <button type="submit" className="hero-search-button">
+                Search
+              </button>
+            </form>
+          </div>
 
-          {/* Hero Image & Overlapping Cards Composition */}
-          <div
-            className="hero-composition"
-            style={{
-              position: 'relative',
-              maxWidth: '620px',
-              margin: '0 auto',
-              height: '460px',
-            }}
-          >
-            {/* Green Circular Background Disk */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '420px',
-                height: '420px',
-                borderRadius: '50%',
-                backgroundColor: '#D4FB20',
-                zIndex: 1,
-              }}
-            />
+          {/* Stage Group (Green Ring, Student Photo, 3 Floating Cards) */}
+          <div className="hero-stage-group">
+            {/* Ellipse 7: Hollow Green Ring (Figma id 1:1866) */}
+            <div className="hero-ellipse-ring" aria-hidden="true" />
 
-            {/* Student Photo */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '480px',
-                height: '450px',
-                zIndex: 2,
-              }}
-            >
+            {/* Student Photo (Figma id 1:1796) */}
+            <div className="hero-student-wrapper">
               <Image
                 src="/images/hero-student.png"
                 alt="Student learning online with ByteSpace"
-                fill
-                style={{ objectFit: 'contain' }}
+                width={578}
+                height={541}
                 priority
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
               />
             </div>
 
-            {/* Floating Card: UI/UX Design (Top-Left) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '60px',
-                left: '-40px',
-                zIndex: 3,
-              }}
-              className="float-slow"
-            >
+            {/* Floating Card: UI/UX Design (Figma id 46:126) */}
+            <div className="hero-card-uiux float-slow">
               <CardUIUXDesign />
             </div>
 
-            {/* Floating Card: Learning Progress 55% (Top-Right) */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '70px',
-                right: '-40px',
-                zIndex: 3,
-              }}
-              className="float-reverse"
-            >
+            {/* Floating Card: Learning Progress 55% (Figma id 1:1797) */}
+            <div className="hero-card-progress float-reverse">
               <CardLearningProgress />
             </div>
 
-            {/* Floating Card: Happy Students (Bottom-Left) */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '40px',
-                left: '-30px',
-                zIndex: 3,
-              }}
-              className="float-slow"
-            >
+            {/* Floating Card: Happy Students (Figma id 1:1821) */}
+            <div className="hero-card-students float-slow">
               <CardHappyStudents />
             </div>
+          </div>
+
+          {/* 3D Ornaments (Figma id 46:79) */}
+          {/* Shape 1: Large Lime Coil (46:90) */}
+          <div className="hero-shape hero-shape-coil-lime float-slow" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-coil-lime.png"
+              alt=""
+              width={385}
+              height={385}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Shape 2: Small White Coil (46:95) */}
+          <div className="hero-shape hero-shape-coil-white float-reverse" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-coil-white.png"
+              alt=""
+              width={175}
+              height={175}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Shape 3: White Donut/Torus (46:105) */}
+          <div className="hero-shape hero-shape-torus-white float-slow" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-torus-white.png"
+              alt=""
+              width={342}
+              height={342}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Shape 4: Large Lime Cylinder (46:110) */}
+          <div className="hero-shape hero-shape-cylinder-lime float-slow" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-cylinder-lime.png"
+              alt=""
+              width={370}
+              height={370}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Shape 5: White Pyramid/Cone (46:80) */}
+          <div className="hero-shape hero-shape-cone-white float-reverse" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-cone-white.png"
+              alt=""
+              width={188}
+              height={188}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
+          </div>
+
+          {/* Shape 6: White Upright Spring (46:85) */}
+          <div className="hero-shape hero-shape-spring-white float-slow" aria-hidden="true">
+            <Image
+              src="/shapes/hero-shape-spring-white.png"
+              alt=""
+              width={330}
+              height={330}
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              priority
+            />
           </div>
         </div>
       </section>
@@ -319,18 +197,21 @@ export default function HomePage() {
       <PartnerLogos />
 
       {/* ============================================================ */}
-      {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS                  */}
+      {/* 3. DISCOVER YOUR PASSION, BUILD YOUR SKILLS (Frame 3, 12:101)*/}
       {/* ============================================================ */}
       <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <h2
               style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(28px, 4vw, 38px)',
-                fontWeight: 700,
-                color: '#242528',
-                marginBottom: '14px',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: 'clamp(32px, 3.5vw, 44px)',
+                fontWeight: 600,
+                lineHeight: '52.8px',
+                letterSpacing: '-0.44px',
+                color: '#040819',
+                maxWidth: '588px',
+                margin: '0 auto 16px',
               }}
             >
               Discover Your Passion,
@@ -339,27 +220,28 @@ export default function HomePage() {
             </h2>
             <p
               style={{
-                fontSize: '15px',
-                lineHeight: '24px',
-                color: '#666973',
-                maxWidth: '720px',
+                fontFamily: 'Satoshi, sans-serif',
+                fontSize: '18px',
+                fontWeight: 400,
+                lineHeight: '28.8px',
+                color: '#82868E',
+                maxWidth: '920px',
                 margin: '0 auto',
               }}
             >
-              At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across
-              different fields, from technology to the arts, and make a difference in your career and life.
+              At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across<br className="desktop-break" /> different fields, from technology to the arts, and make a difference in your career and life.
             </p>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills (Tab_Categories, 21:33) */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '10px',
+              gap: '16px',
               justifyContent: 'center',
-              maxWidth: '1000px',
-              margin: '0 auto 48px',
+              maxWidth: '1086px',
+              margin: '0 auto 56px',
             }}
           >
             {CATEGORIES.map((cat) => {
@@ -370,11 +252,13 @@ export default function HomePage() {
                   onClick={() => setSelectedCategory(cat)}
                   style={{
                     backgroundColor: isActive ? '#D4FB20' : '#F5F5F6',
-                    color: '#242528',
-                    fontSize: '13px',
-                    fontWeight: isActive ? 600 : 500,
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
+                    color: isActive ? '#242528' : '#4B4C53',
+                    fontFamily: 'Satoshi, sans-serif',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    lineHeight: '19.2px',
+                    padding: '12px 16px',
+                    borderRadius: '24px',
                     transition: 'all 0.15s ease',
                     border: 'none',
                     cursor: 'pointer',
@@ -386,13 +270,15 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* Course Cards Grid */}
+          {/* Course Cards Grid (Frame 8, 33:683) */}
           {displayCourses.length > 0 ? (
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-                gap: '28px',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                gap: '40px',
+                maxWidth: '1200px',
+                margin: '0 auto',
               }}
             >
               {displayCourses.map((course) => (
@@ -404,8 +290,9 @@ export default function HomePage() {
               style={{
                 textAlign: 'center',
                 padding: '60px 24px',
-                color: '#666973',
-                fontSize: '15px',
+                color: '#82868E',
+                fontFamily: 'Satoshi, sans-serif',
+                fontSize: '18px',
               }}
             >
               No courses found for &quot;{selectedCategory}&quot;.
@@ -415,45 +302,41 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 4. DIVERSE LEARNING PATHS                                    */}
+      {/* 4. DIVERSE LEARNING PATHS (Frame 9 & Frame 10)               */}
       {/* ============================================================ */}
       <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '68px' }}>
             <h2
               style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(28px, 4vw, 38px)',
-                fontWeight: 700,
-                color: '#242528',
-                marginBottom: '14px',
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: 'clamp(28px, 3vw, 36px)',
+                fontWeight: 600,
+                lineHeight: '43.2px',
+                letterSpacing: '-0.36px',
+                color: '#040819',
+                marginBottom: '16px',
               }}
             >
               Explore Diverse Learning Paths at Bytespace
             </h2>
             <p
               style={{
-                fontSize: '15px',
-                lineHeight: '24px',
-                color: '#666973',
-                maxWidth: '740px',
+                fontFamily: 'Satoshi, sans-serif',
+                fontSize: '18px',
+                fontWeight: 400,
+                lineHeight: '28.8px',
+                color: '#82868E',
+                maxWidth: '920px',
                 margin: '0 auto',
               }}
             >
-              At Bytespace, we believe in empowering individuals through knowledge. Our diverse range of courses spans
-              various fields, ensuring there&apos;s something for everyone. Unleash your potential and explore our carefully
-              curated categories.
+              At Bytespace, we believe in empowering individuals through knowledge. Our diverse range of courses spans various<br className="desktop-break" /> fields, ensuring there&apos;s something for everyone. Unleash your potential and explore our carefully curated categories.
             </p>
           </div>
 
-          {/* 6 Category Cards */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-              gap: '20px',
-            }}
-          >
+          {/* 6 Category Cards (Frame 10, 34:725) */}
+          <div className="category-cards-grid">
             {LEARNING_PATHS.map((item) => (
               <CategoryCard key={item.id} id={item.id} name={item.name} />
             ))}
@@ -478,11 +361,12 @@ export default function HomePage() {
             <div>
               <h2
                 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(28px, 3.5vw, 40px)',
-                  fontWeight: 700,
-                  color: '#242528',
-                  lineHeight: 1.2,
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: 'clamp(32px, 3.5vw, 44px)',
+                  fontWeight: 600,
+                  color: '#040819',
+                  lineHeight: '52.8px',
+                  letterSpacing: '-0.44px',
                   marginBottom: '20px',
                 }}
               >
@@ -491,9 +375,10 @@ export default function HomePage() {
 
               <p
                 style={{
-                  fontSize: '15px',
-                  lineHeight: '25px',
-                  color: '#666973',
+                  fontFamily: 'Satoshi, sans-serif',
+                  fontSize: '18px',
+                  lineHeight: '28.8px',
+                  color: '#82868E',
                   marginBottom: '40px',
                 }}
               >
@@ -513,49 +398,49 @@ export default function HomePage() {
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-heading)',
+                      fontFamily: 'Poppins, sans-serif',
                       fontSize: '36px',
-                      fontWeight: 700,
-                      color: '#003BE2',
-                      lineHeight: 1,
+                      fontWeight: 600,
+                      color: '#040819',
+                      lineHeight: '43.2px',
                       marginBottom: '6px',
                     }}
                   >
                     12K
                   </div>
-                  <div style={{ fontSize: '14px', color: '#666973' }}>Students</div>
+                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Students</div>
                 </div>
 
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-heading)',
+                      fontFamily: 'Poppins, sans-serif',
                       fontSize: '36px',
-                      fontWeight: 700,
-                      color: '#003BE2',
-                      lineHeight: 1,
+                      fontWeight: 600,
+                      color: '#040819',
+                      lineHeight: '43.2px',
                       marginBottom: '6px',
                     }}
                   >
                     70+
                   </div>
-                  <div style={{ fontSize: '14px', color: '#666973' }}>Courses</div>
+                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Courses</div>
                 </div>
 
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-heading)',
+                      fontFamily: 'Poppins, sans-serif',
                       fontSize: '36px',
-                      fontWeight: 700,
-                      color: '#003BE2',
-                      lineHeight: 1,
+                      fontWeight: 600,
+                      color: '#040819',
+                      lineHeight: '43.2px',
                       marginBottom: '6px',
                     }}
                   >
                     16
                   </div>
-                  <div style={{ fontSize: '14px', color: '#666973' }}>Creators</div>
+                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Creators</div>
                 </div>
               </div>
             </div>
@@ -736,11 +621,12 @@ export default function HomePage() {
             <div>
               <h2
                 style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: 'clamp(28px, 3.5vw, 40px)',
-                  fontWeight: 700,
-                  color: '#242528',
-                  lineHeight: 1.2,
+                  fontFamily: 'Poppins, sans-serif',
+                  fontSize: 'clamp(32px, 3.5vw, 44px)',
+                  fontWeight: 600,
+                  color: '#040819',
+                  lineHeight: '52.8px',
+                  letterSpacing: '-0.44px',
                   marginBottom: '18px',
                 }}
               >
@@ -751,9 +637,10 @@ export default function HomePage() {
 
               <p
                 style={{
-                  fontSize: '15px',
-                  lineHeight: '25px',
-                  color: '#666973',
+                  fontFamily: 'Satoshi, sans-serif',
+                  fontSize: '18px',
+                  lineHeight: '28px',
+                  color: '#82868E',
                   marginBottom: '32px',
                 }}
               >
@@ -771,7 +658,7 @@ export default function HomePage() {
                 ].map((item, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <CheckCircleIcon size={22} color="#0445FF" />
-                    <span style={{ fontSize: '15px', fontWeight: 600, color: '#242528' }}>{item}</span>
+                    <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, color: '#040819' }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -853,11 +740,12 @@ export default function HomePage() {
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h2
             style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(28px, 4vw, 42px)',
-              fontWeight: 700,
-              lineHeight: 1.25,
-              maxWidth: '780px',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: 'clamp(32px, 3.5vw, 44px)',
+              fontWeight: 600,
+              lineHeight: '52.8px',
+              letterSpacing: '-0.44px',
+              maxWidth: '820px',
               margin: '0 auto 16px',
             }}
           >
@@ -866,12 +754,13 @@ export default function HomePage() {
 
           <p
             style={{
-              fontSize: '15px',
-              lineHeight: '26px',
+              fontFamily: 'Satoshi, sans-serif',
+              fontSize: '18px',
+              lineHeight: '28.8px',
               color: '#F5F5F6',
-              maxWidth: '760px',
+              maxWidth: '820px',
               margin: '0 auto 36px',
-              opacity: 0.92,
+              opacity: 0.95,
             }}
           >
             Experience the collaboration of numerous creators and an expanding selection of courses. Register now and
@@ -887,8 +776,10 @@ export default function HomePage() {
               justifyContent: 'center',
               backgroundColor: '#D4FB20',
               color: '#242528',
-              fontSize: '15px',
-              fontWeight: 600,
+              fontFamily: 'Satoshi, sans-serif',
+              fontSize: '18px',
+              fontWeight: 500,
+              lineHeight: '21.6px',
               padding: '14px 36px',
               borderRadius: '9999px',
               transition: 'all 0.2s ease',
@@ -938,11 +829,12 @@ export default function HomePage() {
           >
             <h2
               style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'clamp(28px, 4vw, 38px)',
-                fontWeight: 700,
-                color: '#242528',
-                lineHeight: 1.25,
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: 'clamp(32px, 3.5vw, 44px)',
+                fontWeight: 600,
+                color: '#040819',
+                lineHeight: '52.8px',
+                letterSpacing: '-0.44px',
               }}
             >
               Discover What Our
@@ -952,9 +844,10 @@ export default function HomePage() {
 
             <p
               style={{
-                fontSize: '15px',
-                lineHeight: '24px',
-                color: '#666973',
+                fontFamily: 'Satoshi, sans-serif',
+                fontSize: '18px',
+                lineHeight: '28.8px',
+                color: '#82868E',
               }}
             >
               At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly
