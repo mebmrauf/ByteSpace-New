@@ -14,8 +14,6 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
   const pathname = usePathname();
 
   const isLight = variant === 'light';
-  const defaultTextColor = isLight ? 'rgba(255, 255, 255, 0.85)' : '#585A62';
-  const activeTextColor = isLight ? '#D4FB20' : '#003BE2';
   const textColor = isLight ? '#F5F5F6' : '#242528';
 
   const isHomeActive = pathname === '/';
@@ -26,40 +24,55 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
     <header
       style={{
         width: '100%',
-        padding: '24px 0',
+        height: '120px',
         zIndex: 50,
         position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        boxSizing: 'border-box',
+        backgroundColor: 'transparent',
       }}
+      className="site-header"
     >
       <div
-        className="container"
         style={{
+          width: '1440px',
+          maxWidth: '100%',
+          margin: '0',
+          padding: '0 120px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          height: '100%',
+          boxSizing: 'border-box',
         }}
+        className="header-inner"
       >
-        {/* Brand Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <ByteSpaceLogo variant={isLight ? 'light' : 'dark'} width={160} height={32} />
+        {/* Brand Logo (171px x 37px per Figma id 1:1787) */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <ByteSpaceLogo variant={isLight ? 'light' : 'dark'} width={171} height={37} />
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links (gap: 24px per Figma id 1:1779) */}
         <nav
           style={{
             display: 'flex',
-            alignItems: 'center',
-            gap: '32px',
+            alignItems: 'flex-start',
+            gap: '24px',
+            height: '26px',
           }}
           className="desktop-nav"
         >
           <Link
             href="/"
             style={{
+              fontFamily: 'Satoshi, sans-serif',
               fontSize: '16px',
-              fontWeight: isHomeActive ? 600 : 500,
-              color: isHomeActive ? activeTextColor : defaultTextColor,
-              transition: 'all 0.2s ease',
+              fontWeight: 500,
+              lineHeight: '19.2px',
+              color: textColor,
+              textDecoration: 'none',
+              transition: 'opacity 0.2s ease',
             }}
           >
             Home
@@ -67,10 +80,13 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/courses"
             style={{
+              fontFamily: 'Satoshi, sans-serif',
               fontSize: '16px',
-              fontWeight: isCoursesActive ? 600 : 400,
-              color: isCoursesActive ? activeTextColor : defaultTextColor,
-              transition: 'all 0.2s ease',
+              fontWeight: 400,
+              lineHeight: '25.6px',
+              color: textColor,
+              textDecoration: 'none',
+              transition: 'opacity 0.2s ease',
             }}
           >
             Courses
@@ -78,17 +94,20 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/creators/purepearl-studio"
             style={{
+              fontFamily: 'Satoshi, sans-serif',
               fontSize: '16px',
-              fontWeight: isCreatorsActive ? 600 : 400,
-              color: isCreatorsActive ? activeTextColor : defaultTextColor,
-              transition: 'all 0.2s ease',
+              fontWeight: 400,
+              lineHeight: '25.6px',
+              color: textColor,
+              textDecoration: 'none',
+              transition: 'opacity 0.2s ease',
             }}
           >
             Creators
           </Link>
         </nav>
 
-        {/* Right Action Buttons */}
+        {/* Right Action Items (gap: 24px per Figma id 1:1783) */}
         <div
           style={{
             display: 'flex',
@@ -100,9 +119,12 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/login"
             style={{
+              fontFamily: 'Satoshi, sans-serif',
               fontSize: '16px',
               fontWeight: 400,
+              lineHeight: '24px',
               color: textColor,
+              textDecoration: 'none',
               transition: 'opacity 0.2s',
             }}
           >
@@ -112,9 +134,12 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
           <Link
             href="/register"
             style={{
+              fontFamily: 'Satoshi, sans-serif',
               fontSize: '16px',
               fontWeight: 400,
+              lineHeight: '24px',
               color: textColor,
+              textDecoration: 'none',
               transition: 'opacity 0.2s',
             }}
           >
@@ -128,12 +153,14 @@ export const Header: React.FC<HeaderProps> = ({ variant = 'light' }) => {
               alignItems: 'center',
               justifyContent: 'center',
               color: textColor,
-              position: 'relative',
-              padding: '4px',
+              textDecoration: 'none',
+              width: '24px',
+              height: '24px',
+              transition: 'opacity 0.2s',
             }}
             aria-label="Cart"
           >
-            <ShoppingBagIcon size={22} color={textColor} />
+            <ShoppingBagIcon size={24} color={textColor} />
           </Link>
         </div>
 

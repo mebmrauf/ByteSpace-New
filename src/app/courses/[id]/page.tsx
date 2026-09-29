@@ -46,7 +46,7 @@ export default function CourseDetailPage() {
       >
         <Header variant="light" />
 
-        <div className="container" style={{ paddingTop: '20px', maxWidth: '1200px' }}>
+        <div className="header-inner" style={{ paddingTop: '20px', width: '1440px', maxWidth: '100%', margin: '0', padding: '0 120px' }}>
           {/* Top Title & Meta */}
           <div
             style={{

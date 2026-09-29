@@ -16,7 +16,7 @@ import {
   CardTotalRevenue,
   CardYearToDate,
 } from '@/components/FloatingCards';
-import { SearchIcon, CheckCircleIcon } from '@/components/Icons';
+import { SearchIcon, CheckCircleIcon, StarIcon, SignalCellularIcon } from '@/components/Icons';
 import { COURSES, CATEGORIES, LEARNING_PATHS } from '@/data/courses';
 import { TESTIMONIALS } from '@/data/testimonials';
 
@@ -229,45 +229,87 @@ export default function HomePage() {
                 margin: '0 auto',
               }}
             >
-              At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across<br className="desktop-break" /> different fields, from technology to the arts, and make a difference in your career and life.
+              At Bytespace Courses, we bring you closer to life-changing knowledge. Explore a variety of courses across different<br className="desktop-break" /> fields, from technology to the arts, and make a difference in your career and life.
             </p>
           </div>
 
-          {/* Category Filter Pills (Tab_Categories, 21:33) */}
+          {/* Category Filter Pills (Tab_Categories, Frame 6, Frame 7) */}
           <div
             style={{
               display: 'flex',
-              flexWrap: 'wrap',
+              flexDirection: 'column',
               gap: '16px',
-              justifyContent: 'center',
+              alignItems: 'center',
               maxWidth: '1086px',
               margin: '0 auto 56px',
             }}
           >
-            {CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  style={{
-                    backgroundColor: isActive ? '#D4FB20' : '#F5F5F6',
-                    color: isActive ? '#242528' : '#4B4C53',
-                    fontFamily: 'Satoshi, sans-serif',
-                    fontSize: '16px',
-                    fontWeight: 500,
-                    lineHeight: '19.2px',
-                    padding: '12px 16px',
-                    borderRadius: '24px',
-                    transition: 'all 0.15s ease',
-                    border: 'none',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {cat}
-                </button>
-              );
-            })}
+            {[
+              ['Featured', 'Music', 'Drawing & Painting', 'Marketing', 'Animation', 'Social Media', 'UI/UX Design', 'Creative Marketing'],
+              ['Digital Illustration', 'Film & Video', 'Crafts', 'Freelance & Entrepreneurship', 'Graphic Design', 'Photography'],
+              ['Productivity', 'Web Development', 'Data Science', 'Cooking', '+ More'],
+            ].map((row, rowIdx) => (
+              <div
+                key={rowIdx}
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '16px',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                {row.map((cat) => {
+                  if (cat === '+ More') {
+                    return (
+                      <Link
+                        key={cat}
+                        href="/courses"
+                        style={{
+                          backgroundColor: 'transparent',
+                          color: '#003BE2',
+                          fontFamily: 'Satoshi, sans-serif',
+                          fontSize: '16px',
+                          fontWeight: 500,
+                          lineHeight: '19.2px',
+                          padding: '12px 16px',
+                          border: 'none',
+                          cursor: 'pointer',
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                        }}
+                      >
+                        + More
+                      </Link>
+                    );
+                  }
+
+                  const isActive = selectedCategory === cat;
+                  return (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      style={{
+                        backgroundColor: isActive ? '#D4FB20' : '#F5F5F6',
+                        color: isActive ? '#242528' : '#4B4C53',
+                        fontFamily: 'Satoshi, sans-serif',
+                        fontSize: '16px',
+                        fontWeight: 500,
+                        lineHeight: '19.2px',
+                        padding: '12px 16px',
+                        borderRadius: '24px',
+                        transition: 'all 0.15s ease',
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {cat}
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
           </div>
 
           {/* Course Cards Grid (Frame 8, 33:683) */}
@@ -345,427 +387,477 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 5. VALUE PROP 1: Professional Growth Starts Here!            */}
+      {/* 5 + 6. VALUE PROPS WRAPPER (shared gradient bg)              */}
       {/* ============================================================ */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FAFAFA' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-              gap: '64px',
-              alignItems: 'center',
-            }}
-          >
-            {/* Left Column: Text & Stats */}
-            <div>
-              <h2
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: 'clamp(32px, 3.5vw, 44px)',
-                  fontWeight: 600,
-                  color: '#040819',
-                  lineHeight: '52.8px',
-                  letterSpacing: '-0.44px',
-                  marginBottom: '20px',
-                }}
-              >
-                Your Path to Professional Growth Starts Here!
-              </h2>
-
-              <p
-                style={{
-                  fontFamily: 'Satoshi, sans-serif',
-                  fontSize: '18px',
-                  lineHeight: '28.8px',
-                  color: '#82868E',
-                  marginBottom: '40px',
-                }}
-              >
-                Explore our curated selection of courses tailored to enhance your capabilities and accelerate your
-                career journey. Whether you are looking to sharpen specific skills, gain industry expertise, or embark on a
-                new career path entirely, we have the resources you need.
-              </p>
-
-              {/* Stats Counters */}
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '40px',
-                }}
-              >
-                <div>
-                  <div
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: '36px',
-                      fontWeight: 600,
-                      color: '#040819',
-                      lineHeight: '43.2px',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    12K
-                  </div>
-                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Students</div>
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: '36px',
-                      fontWeight: 600,
-                      color: '#040819',
-                      lineHeight: '43.2px',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    70+
-                  </div>
-                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Courses</div>
-                </div>
-
-                <div>
-                  <div
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      fontSize: '36px',
-                      fontWeight: 600,
-                      color: '#040819',
-                      lineHeight: '43.2px',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    16
-                  </div>
-                  <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', color: '#82868E' }}>Creators</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column: Visual Composition with Cards */}
+      <div
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          backgroundColor: '#FAFAFA',
+          backgroundImage: "url('/images/bg-sections-5-6.webp')",
+          backgroundPosition: 'center top',
+          backgroundSize: '100% 100%',
+          backgroundRepeat: 'no-repeat',
+          padding: '120px 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1258px',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '72px',
+          }}
+          className="value-props-container"
+        >
+          {/* ── Section 5: Professional Growth ── */}
+          <section>
             <div
               style={{
-                position: 'relative',
-                height: '420px',
-                display: 'flex',
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '63px',
                 alignItems: 'center',
-                justifyContent: 'center',
               }}
+              className="value-prop-grid"
             >
-              {/* Decorative 3D Zigzag behind */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '40px',
-                  right: '10px',
-                  width: '120px',
-                  height: '120px',
-                  zIndex: 1,
-                }}
-              >
-                <Image src="/shapes/shape-zigzag.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
+              {/* Left Column: Text & Stats */}
+              <div style={{ maxWidth: '574px' }}>
+                <h2
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: 'clamp(28px, 3.5vw, 44px)',
+                    fontWeight: 600,
+                    color: '#242528',
+                    lineHeight: '52.8px',
+                    letterSpacing: '-0.44px',
+                    marginBottom: '40px',
+                  }}
+                >
+                  Your Path to Professional Growth Starts Here!
+                </h2>
+
+                <p
+                  style={{
+                    fontFamily: 'Satoshi, sans-serif',
+                    fontSize: '18px',
+                    lineHeight: '28.8px',
+                    color: '#4B4C53',
+                    maxWidth: '477px',
+                    marginBottom: '40px',
+                  }}
+                >
+                  Explore our curated selection of courses tailored to enhance your capabilities and accelerate your
+                  career journey. Whether you are looking to sharpen specific skills, gain industry expertise, or embark on a
+                  new career path entirely, we have the resources you need.
+                </p>
+
+                {/* Stats Counters - gap:56px per Figma */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '56px' }}>
+                  {[
+                    { value: '12K', label: 'Students' },
+                    { value: '70+', label: 'Courses' },
+                    { value: '16', label: 'Creators' },
+                  ].map(({ value, label }) => (
+                    <div key={label}>
+                      <div
+                        style={{
+                          fontFamily: 'Poppins, sans-serif',
+                          fontSize: '36px',
+                          fontWeight: 500,
+                          color: '#003BE2',
+                          lineHeight: '44px',
+                          letterSpacing: '-0.36px',
+                        }}
+                      >
+                        {value}
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: 'Satoshi, sans-serif',
+                          fontSize: '18px',
+                          fontWeight: 400,
+                          lineHeight: '28.8px',
+                          color: '#4B4C53',
+                        }}
+                      >
+                        {label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Main Student Image */}
+              {/* Right Column: Visual Composition (Frame 11, 621x552) */}
               <div
                 style={{
                   position: 'relative',
-                  width: '380px',
-                  height: '380px',
-                  zIndex: 2,
+                  height: '552px',
+                  width: '100%',
+                  maxWidth: '621px',
                 }}
               >
-                <Image
-                  src="/images/hero-student.png"
-                  alt="Professional Growth"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-
-              {/* Overlay Snippet Card: Learn Figma */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '40px',
-                  left: '10px',
-                  zIndex: 3,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  padding: '14px',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                  maxWidth: '220px',
-                }}
-              >
-                <div style={{ position: 'relative', width: '100%', height: '80px', borderRadius: '8px', overflow: 'hidden', marginBottom: '8px' }}>
-                  <Image src="/courses/course-figma.png" alt="Course" fill style={{ objectFit: 'cover' }} />
+                {/* Course Card (top-left, 373x384 at x:0 y:0) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '373px',
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: '24px',
+                    border: '1px solid #CED0D3',
+                    padding: '16px',
+                    boxSizing: 'border-box',
+                    zIndex: 1,
+                  }}
+                >
+                  <div style={{ position: 'relative', width: '100%', height: '195px', borderRadius: '12px', overflow: 'hidden', backgroundColor: '#443131' }}>
+                    <Image src="/courses/course-figma.png" alt="Course" fill style={{ objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', bottom: '12px', left: '12px', display: 'flex', gap: '12px' }}>
+                      <span style={{ backgroundColor: 'rgba(246,246,246,0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>17 Lessons</span>
+                      <span style={{ backgroundColor: 'rgba(246,246,246,0.85)', backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', color: '#4F4F4F', fontSize: '12px', fontWeight: 500, lineHeight: '20px', padding: '6px 12px', borderRadius: '24px', fontFamily: 'Satoshi, sans-serif' }}>2 hours 16 mins</span>
+                    </div>
+                  </div>
+                  <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                      <div>
+                        <div style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, color: '#000000', lineHeight: '28px' }}>Learn Figma from Basic</div>
+                        <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px' }}>by purepearl studio</div>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, color: '#4F4F4F', flexShrink: 0 }}>
+                        <span>4.5</span>
+                        <StarIcon size={16} color="#D4FB20" />
+                      </div>
+                    </div>
+                    {/* Beginner badge + Avatars */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', backgroundColor: '#F5F5F6', borderRadius: '24px', padding: '6px 12px', fontFamily: 'Satoshi, sans-serif', fontSize: '12px', fontWeight: 500, color: '#4B4C53' }}>
+                        <SignalCellularIcon size={16} color="#4B4C53" />
+                        <span>Beginner</span>
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        {[
+                          '/images/student-stack-1.png',
+                          '/images/student-stack-2.png',
+                          '/images/student-stack-3.png',
+                          '/images/student-stack-4.png',
+                        ].map((src, i) => (
+                          <div
+                            key={i}
+                            style={{
+                              position: 'relative',
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '50%',
+                              overflow: 'hidden',
+                              marginLeft: i > 0 ? '-8px' : '0',
+                              border: '2px solid #FFFFFF',
+                              flexShrink: 0,
+                              zIndex: i + 1,
+                            }}
+                          >
+                            <Image src={src} alt="Student" fill sizes="32px" style={{ objectFit: 'cover' }} />
+                          </div>
+                        ))}
+                        <div
+                          style={{
+                            position: 'relative',
+                            width: '32px',
+                            height: '32px',
+                            borderRadius: '50%',
+                            backgroundColor: '#000000',
+                            border: '2px solid #FFFFFF',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginLeft: '-8px',
+                            flexShrink: 0,
+                            zIndex: 6,
+                            color: '#FFFFFF',
+                            fontFamily: 'Satoshi, sans-serif',
+                            fontSize: '12px',
+                            fontWeight: 500,
+                          }}
+                        >
+                          26+
+                        </div>
+                      </div>
+                    </div>
+                    {/* Price */}
+                    <div>
+                      <span style={{ fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, color: '#003BE2', lineHeight: '28px' }}>$25</span>
+                      <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', fontWeight: 400 }}>/lifetime</span>
+                    </div>
+                  </div>
                 </div>
-                <div style={{ fontSize: '13px', fontWeight: 700, color: '#242528' }}>Learn Figma from Basic</div>
-                <div style={{ fontSize: '11px', color: '#0445FF' }}>by purepearl studio</div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: 700, color: '#003BE2' }}>$25<span style={{ fontSize: '10px', color: '#82868E' }}>/lifetime</span></span>
-                </div>
-              </div>
 
-              {/* Overlay Progress Card */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '50px',
-                  right: '20px',
-                  zIndex: 3,
-                }}
-              >
-                <CardLearningProgress />
+                {/* Lime Coil shape (215x215, x:406 y:67) - placed OVER the learning progress card */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '67px',
+                    left: '406px',
+                    width: '215px',
+                    height: '215px',
+                    zIndex: 4,
+                    pointerEvents: 'none',
+                  }}
+                  className="float-slow"
+                >
+                  <Image src="/shapes/spring-sec5-exact.png" alt="" fill style={{ objectFit: 'contain' }} />
+                </div>
+
+                {/* Student person image (577x540, x:0 y:12) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '12px',
+                    left: '0px',
+                    width: '577px',
+                    height: '540px',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                  }}
+                >
+                  <Image
+                    src="/images/hero-student.png"
+                    alt="Student"
+                    width={577}
+                    height={540}
+                    priority
+                  />
+                </div>
+
+                {/* Learning Progress Card (232x138, x:345 y:213) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '213px',
+                    left: '345px',
+                    zIndex: 3,
+                  }}
+                >
+                  <CardLearningProgress />
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* ============================================================ */}
-      {/* 6. VALUE PROP 2: Create & Manage Courses Easily              */}
-      {/* ============================================================ */}
-      <section style={{ padding: '80px 0', backgroundColor: '#FFFFFF' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
-              gap: '64px',
-              alignItems: 'center',
-            }}
-          >
-            {/* Left Column: Creator Image + Revenue Cards */}
+          {/* ── Section 6: Create & Manage Courses ── */}
+          <section>
             <div
               style={{
-                position: 'relative',
-                height: '480px',
-                display: 'flex',
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '79px',
                 alignItems: 'center',
-                justifyContent: 'center',
               }}
+              className="value-prop-grid"
             >
-              {/* Decorative 3D Spiral */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '100px',
-                  right: '30px',
-                  width: '130px',
-                  height: '130px',
-                  zIndex: 1,
-                }}
-              >
-                <Image src="/shapes/shape-spiral.png" alt="Decoration" fill style={{ objectFit: 'contain' }} />
-              </div>
-
-              {/* Creator Woman */}
+              {/* Left Column: Creator Image + Revenue Cards (Frame 12, 541x596) */}
               <div
                 style={{
                   position: 'relative',
-                  width: '360px',
-                  height: '460px',
-                  zIndex: 2,
+                  height: '596px',
+                  width: '100%',
+                  maxWidth: '541px',
                 }}
               >
-                <Image
-                  src="/images/creator-woman.png"
-                  alt="Creator teaching"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
+                {/* Lime coil shape (215x215, x:305 y:114) - placed OVER creator woman shoulder */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '114px',
+                    left: '305px',
+                    width: '215px',
+                    height: '215px',
+                    zIndex: 3,
+                    pointerEvents: 'none',
+                  }}
+                  className="float-slow"
+                >
+                  <Image src="/shapes/spring-sec6-exact.png" alt="" fill style={{ objectFit: 'contain' }} />
+                </div>
+
+                {/* Total Revenue card (232x119, x:0 y:44) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '44px',
+                    left: '0px',
+                    zIndex: 1,
+                  }}
+                >
+                  <CardTotalRevenue />
+                </div>
+
+                {/* Year to Date card (134x135, x:0 y:194) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '194px',
+                    left: '0px',
+                    zIndex: 1,
+                  }}
+                >
+                  <CardYearToDate />
+                </div>
+
+                {/* Creator Woman image (435x596 at x:28 y:0) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '0px',
+                    left: '28px',
+                    width: '435px',
+                    height: '596px',
+                    zIndex: 2,
+                    pointerEvents: 'none',
+                  }}
+                >
+                  <Image
+                    src="/images/creator-woman.png"
+                    alt="Creator teaching"
+                    width={435}
+                    height={596}
+                    priority
+                  />
+                </div>
+
+                {/* Happy Students card (258x123, x:283 y:413) */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '413px',
+                    left: '283px',
+                    zIndex: 4,
+                  }}
+                >
+                  <CardHappyStudents />
+                </div>
               </div>
 
-              {/* Floating Card: Total Revenue */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '60px',
-                  left: '10px',
-                  zIndex: 3,
-                }}
-              >
-                <CardTotalRevenue />
-              </div>
+              {/* Right Column: Text & Features List */}
+              <div style={{ maxWidth: '580px' }}>
+                <h2
+                  style={{
+                    fontFamily: 'Poppins, sans-serif',
+                    fontSize: 'clamp(28px, 3.5vw, 44px)',
+                    fontWeight: 600,
+                    color: '#242528',
+                    lineHeight: '52.8px',
+                    letterSpacing: '-0.44px',
+                    marginBottom: '18px',
+                  }}
+                >
+                  Create & Manage
+                  <br />
+                  Courses Easily.
+                </h2>
 
-              {/* Floating Card: Year to Date */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '160px',
-                  left: '20px',
-                  zIndex: 3,
-                }}
-              >
-                <CardYearToDate />
-              </div>
+                <p
+                  style={{
+                    fontFamily: 'Satoshi, sans-serif',
+                    fontSize: '18px',
+                    lineHeight: '28.8px',
+                    color: '#4B4C53',
+                    maxWidth: '574px',
+                    marginBottom: '32px',
+                  }}
+                >
+                  <strong style={{ fontWeight: 700, color: '#242528' }}>ByteSpace</strong> supports individuals or entities in the creation, publication,{' '}
+                  and administration of educational courses.
+                </p>
 
-              {/* Floating Card: Happy Students */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: '40px',
-                  left: '40px',
-                  zIndex: 3,
-                }}
-              >
-                <CardHappyStudents />
+                {/* Checklist */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  {[
+                    'Share Your Expertise',
+                    'Monetize Your Passion',
+                    'Flexibility and Autonomy',
+                    'Build a Community',
+                  ].map((item, index) => (
+                    <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <CheckCircleIcon size={24} color="#003BE2" />
+                      <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, lineHeight: '21.6px', color: '#242528' }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-
-            {/* Right Column: Text & Features List */}
-            <div>
-              <h2
-                style={{
-                  fontFamily: 'Poppins, sans-serif',
-                  fontSize: 'clamp(32px, 3.5vw, 44px)',
-                  fontWeight: 600,
-                  color: '#040819',
-                  lineHeight: '52.8px',
-                  letterSpacing: '-0.44px',
-                  marginBottom: '18px',
-                }}
-              >
-                Create & Manage
-                <br />
-                Courses Easily.
-              </h2>
-
-              <p
-                style={{
-                  fontFamily: 'Satoshi, sans-serif',
-                  fontSize: '18px',
-                  lineHeight: '28px',
-                  color: '#82868E',
-                  marginBottom: '32px',
-                }}
-              >
-                <strong>ByteSpace</strong> supports individuals or entities in the creation, publication, and
-                administration of educational courses.
-              </p>
-
-              {/* Checklist */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  'Share Your Expertise',
-                  'Monetize Your Passion',
-                  'Flexibility and Autonomy',
-                  'Build a Community',
-                ].map((item, index) => (
-                  <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <CheckCircleIcon size={22} color="#0445FF" />
-                    <span style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '18px', fontWeight: 500, color: '#040819' }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
-      </section>
+      </div> {/* end gradient wrapper */}
 
       {/* ============================================================ */}
       {/* 7. CREATOR CTA BANNER                                        */}
       {/* ============================================================ */}
       <section
-        className="blue-grid-bg"
+        className="creator-cta-banner"
         style={{
-          padding: '90px 0',
           position: 'relative',
+          width: '100%',
+          minHeight: '488px',
+          height: '488px',
           overflow: 'hidden',
           color: '#FFFFFF',
           textAlign: 'center',
+          backgroundColor: '#003BE2',
+          backgroundImage: "url('/shapes/cta-bg-exact.png')",
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '100% 100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '24px 16px',
         }}
       >
-        {/* Floating 3D Shapes */}
         <div
           style={{
-            position: 'absolute',
-            top: '20px',
-            left: '3%',
-            width: '100px',
-            height: '100px',
-            pointerEvents: 'none',
+            position: 'relative',
+            zIndex: 10,
+            maxWidth: '964px',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '40px',
           }}
-          className="float-slow"
         >
-          <Image src="/shapes/cone-3.png" alt="Cone" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '20px',
-            left: '6%',
-            width: '110px',
-            height: '110px',
-            pointerEvents: 'none',
-          }}
-          className="float-reverse"
-        >
-          <Image src="/shapes/shape-zigzag.png" alt="Zigzag" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            top: '20px',
-            right: '4%',
-            width: '100px',
-            height: '100px',
-            pointerEvents: 'none',
-          }}
-          className="float-reverse"
-        >
-          <Image src="/shapes/shape-wedge.png" alt="Wedge" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '20px',
-            right: '5%',
-            width: '110px',
-            height: '110px',
-            pointerEvents: 'none',
-          }}
-          className="float-slow"
-        >
-          <Image src="/shapes/cone-1.png" alt="Cone" fill style={{ objectFit: 'contain' }} />
-        </div>
-
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <h2
             style={{
               fontFamily: 'Poppins, sans-serif',
-              fontSize: 'clamp(32px, 3.5vw, 44px)',
+              fontSize: 'clamp(28px, 3.5vw, 44px)',
               fontWeight: 600,
               lineHeight: '52.8px',
               letterSpacing: '-0.44px',
-              maxWidth: '820px',
-              margin: '0 auto 16px',
+              color: '#F5F5F6',
+              maxWidth: '710px',
+              margin: 0,
             }}
           >
-            Unlock Your Potential as a Creator with ByteSpace
+            Unlock Your Potential as a
+            <br />
+            Creator with ByteSpace
           </h2>
 
           <p
             style={{
               fontFamily: 'Satoshi, sans-serif',
               fontSize: '18px',
+              fontWeight: 400,
               lineHeight: '28.8px',
               color: '#F5F5F6',
-              maxWidth: '820px',
-              margin: '0 auto 36px',
-              opacity: 0.95,
+              maxWidth: '964px',
+              margin: 0,
             }}
           >
-            Experience the collaboration of numerous creators and an expanding selection of courses. Register now and
-            become a part of a community comprising over 10,000 local and international creators. Utilize our Course
-            Editor, and showcase your expertise by publishing your finest course on the ByteSpace Course Library.
+            Experience the collaboration of numerous creators and an expanding selection of courses. Register now and become a
+            <br className="desktop-break" /> part of a community comprising over 10,000 local and international creators. Utilize our Course Editor, and showcase your
+            <br className="desktop-break" /> expertise by publishing your finest course on the ByteSpace Course Library.
           </p>
 
           <Link
@@ -780,10 +872,12 @@ export default function HomePage() {
               fontSize: '18px',
               fontWeight: 500,
               lineHeight: '21.6px',
-              padding: '14px 36px',
-              borderRadius: '9999px',
-              transition: 'all 0.2s ease',
+              width: '172px',
+              height: '46px',
+              borderRadius: '24px',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
               textDecoration: 'none',
+              cursor: 'pointer',
             }}
           >
             Join as Creator
@@ -796,35 +890,38 @@ export default function HomePage() {
       {/* ============================================================ */}
       <section
         style={{
-          padding: '90px 0',
+          width: '100%',
           backgroundColor: '#FAFAFA',
+          backgroundImage: "url('/images/bg-testimonials.png')",
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '100% 100%',
+          padding: '74px 0 57px',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
-        {/* Soft Radial Ambient Glow */}
         <div
           style={{
-            position: 'absolute',
-            bottom: '-10%',
-            right: '-5%',
-            width: '600px',
-            height: '600px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(212, 251, 32, 0.25) 0%, rgba(212, 251, 32, 0) 70%)',
-            pointerEvents: 'none',
+            maxWidth: '1204px',
+            width: '100%',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '72px',
+            position: 'relative',
+            zIndex: 10,
           }}
-        />
-
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          className="testimonials-container"
+        >
           {/* Section Header: 2 Columns */}
           <div
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '40px',
-              marginBottom: '56px',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
               alignItems: 'flex-start',
+              gap: '43px',
             }}
           >
             <h2
@@ -832,9 +929,11 @@ export default function HomePage() {
                 fontFamily: 'Poppins, sans-serif',
                 fontSize: 'clamp(32px, 3.5vw, 44px)',
                 fontWeight: 600,
-                color: '#040819',
+                color: '#000000',
                 lineHeight: '52.8px',
                 letterSpacing: '-0.44px',
+                maxWidth: '577px',
+                margin: 0,
               }}
             >
               Discover What Our
@@ -846,23 +945,32 @@ export default function HomePage() {
               style={{
                 fontFamily: 'Satoshi, sans-serif',
                 fontSize: '18px',
+                fontWeight: 400,
                 lineHeight: '28.8px',
-                color: '#82868E',
+                color: '#4F4F4F',
+                maxWidth: '580px',
+                margin: 0,
               }}
             >
-              At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly
-              from those who have experienced the transformative journey of learning and creating on our platform. Explore
-              testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
+              At ByteSpace, our vibrant community of learners and creators is at the
+              <br className="desktop-break" /> heart of what we do. Hear directly from those who have experienced the
+              <br className="desktop-break" /> transformative journey of learning and creating on our platform. Explore
+              <br className="desktop-break" /> testimonials that reflect the diverse perspectives of enthusiastic learners
+              <br className="desktop-break" /> and accomplished creators.
             </p>
           </div>
 
-          {/* 3 Testimonials */}
+          {/* 3 Testimonials Grid */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(3, 374px)',
+              gap: '41px',
+              width: '100%',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
             }}
+            className="testimonials-grid"
           >
             {TESTIMONIALS.map((t) => (
               <TestimonialCard key={t.id} testimonial={t} />

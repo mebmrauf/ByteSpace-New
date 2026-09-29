@@ -31,7 +31,7 @@ A pixel-perfect rebuild of the ByteSpace Figma design system using **Next.js 15 
   - Body & UI: **Satoshi** (400 / 500 / 700)
   - Subtitles & Badges: **Inter**
 - **Grid Background**:
-  - Authentic 120px × 120px subtle blue grid at 12% opacity (`.blue-grid-bg`).
+  - Authentic 120px × 120px subtle blue grid at 12% opacity (`.blue-grid-bg`) starting cleanly from the header border.
 - **Assets**:
   - Organized directly in `public/courses/`, `public/images/`, `public/shapes/`, and `public/icons/`.
   - ByteSpace brand SVGs, partner logos, category icons, and badges.
