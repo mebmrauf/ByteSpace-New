@@ -491,6 +491,7 @@ export default function HomePage() {
 
               {/* Right Column: Visual Composition (Frame 11, 621x552) */}
               <div
+                className="career-visual-stage"
                 style={{
                   position: 'relative',
                   height: '552px',

@@ -289,13 +289,15 @@ function CoursesContent() {
 
           {/* Categories Pills: Exactly 1200px width, space-between matching 55:1819 */}
           <div
+            className="category-scroll-strip"
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
               alignItems: 'center',
               width: '100%',
+              gap: '12px',
               marginBottom: '77px',
               overflowX: 'auto',
+              paddingBottom: '8px',
             }}
           >
             {FILTER_CATEGORIES.map((cat) => {

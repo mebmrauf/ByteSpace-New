@@ -45,9 +45,9 @@ export default function CreatorProfilePage() {
       >
         <Header variant="light" />
 
-        <div className="header-inner" style={{ paddingTop: '52px', width: '1440px', maxWidth: '100%', margin: '0', padding: '0 120px', boxSizing: 'border-box' }}>
+        <div className="header-inner creator-profile-header-inner" style={{ paddingTop: '52px', width: '1440px', maxWidth: '100%', margin: '0 auto', boxSizing: 'border-box' }}>
           {/* Creator Profile Top Bar */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px', flexWrap: 'wrap' }}>
             <div
               style={{
                 position: 'relative',
@@ -62,17 +62,18 @@ export default function CreatorProfilePage() {
               <Image src="/images/creator-purepearl.png" alt="PurePearl Studio" fill sizes="96px" style={{ objectFit: 'cover' }} priority />
             </div>
 
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <div style={{ flex: '1 1 auto', minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '8px' }}>
                 <h1
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: '36px',
-                    lineHeight: '43.2px',
+                    fontSize: 'clamp(24px, 4vw, 36px)',
+                    lineHeight: '1.2',
                     fontWeight: 600,
                     letterSpacing: '-0.36px',
                     color: '#F5F5F6',
                     margin: 0,
+                    wordBreak: 'break-word',
                   }}
                 >
                   PurePearl Studio
@@ -92,6 +93,8 @@ export default function CreatorProfilePage() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     boxSizing: 'border-box',
+                    flexShrink: 0,
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   Creator
@@ -208,7 +211,7 @@ export default function CreatorProfilePage() {
       {/* 2. CREATOR COURSES CATALOG                                   */}
       {/* ============================================================ */}
       <section style={{ padding: '60px 0 80px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
+        <div className="creator-catalog-container">
           {/* Filter Bar: 48px height, 24px radius, 12px 16px padding */}
           <div
             style={{
@@ -319,6 +322,7 @@ export default function CreatorProfilePage() {
 
           {/* Courses Grid: exactly 3 columns of 373px with 40px gap */}
           <div
+            className="courses-grid"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 373px)',

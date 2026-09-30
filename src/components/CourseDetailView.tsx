@@ -84,13 +84,12 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
       {/* 1. BLUE GRID BACKGROUND BANNER (Top 895px)                  */}
       {/* ============================================================ */}
       <div
-        className="blue-grid-bg"
+        className="blue-grid-bg course-blue-banner"
         style={{
           position: 'absolute',
           top: 0,
           left: 0,
           right: 0,
-          height: '895px',
           zIndex: 0,
           pointerEvents: 'none',
         }}
@@ -123,20 +122,22 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
             gap: '24px',
             paddingTop: '20px',
             marginBottom: '48px',
+            flexWrap: 'wrap',
           }}
           className="course-hero-header"
         >
           {/* Left Title & Metadata */}
-          <div>
+          <div style={{ flex: '1 1 auto', minWidth: 0 }}>
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '36px',
-                lineHeight: '43.2px',
+                fontSize: 'clamp(24px, 4vw, 36px)',
+                lineHeight: '1.25',
                 fontWeight: 600,
                 letterSpacing: '-0.36px',
                 color: '#F5F5F6',
                 margin: '0 0 8px 0',
+                wordBreak: 'break-word',
               }}
             >
               Build Digital Asset: A Comprehensive Guide
@@ -144,12 +145,13 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
             <p
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '20px',
-                lineHeight: '24px',
+                fontSize: 'clamp(16px, 2.5vw, 20px)',
+                lineHeight: '1.3',
                 fontWeight: 600,
                 letterSpacing: '-0.2px',
                 color: '#F5F5F6',
                 margin: '0 0 24px 0',
+                wordBreak: 'break-word',
               }}
             >
               Unlock the Power of Digital Creation with Expert Guidance
@@ -173,6 +175,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
             {/* Badges Row (40px height, 24px radius, 8px 24px padding) */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
               <div
+                className="course-badge"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -194,6 +197,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
               </div>
 
               <div
+                className="course-badge"
                 onClick={() => handleTabChange('reviews')}
                 style={{
                   display: 'inline-flex',
@@ -225,6 +229,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
               </div>
 
               <div
+                className="course-badge"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -260,6 +265,8 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
             style={{
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
+              alignSelf: 'flex-start',
               gap: '8px',
               backgroundColor: '#D4FB20',
               color: '#242528',
@@ -269,11 +276,14 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
               fontWeight: 500,
               padding: '8px 24px',
               height: '40px',
+              width: 'fit-content',
+              maxWidth: 'fit-content',
               borderRadius: '24px',
               border: 'none',
               cursor: 'pointer',
               flexShrink: 0,
               boxSizing: 'border-box',
+              whiteSpace: 'nowrap',
             }}
           >
             <ShareIcon size={20} color="#242528" />
@@ -297,6 +307,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {/* Video Player Box (720x479px in Figma) */}
             <div
+              className="course-video-box"
               style={{
                 position: 'relative',
                 width: '100%',
@@ -310,7 +321,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                 src="/images/course-video-hero.png"
                 alt={course.title}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 18%' }}
                 priority
               />
               {/* Play Button Overlay (104x104px, 24px radius, 1px border #4F4F4F) */}
@@ -332,7 +343,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   justifyContent: 'center',
                   transition: 'transform 0.2s ease',
                 }}
-                className="play-btn-hover"
+                className="play-btn-hover course-video-play-btn"
               >
                 <PlayIcon size={60} />
               </div>
@@ -340,6 +351,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
 
             {/* Tabs Switcher: 43px height, 24px radius, 12px 16px padding */}
             <div
+              className="course-tabs-bar"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -471,6 +483,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   Sneak Peak
                 </h3>
                 <div
+                  className="sneak-peak-grid"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(4, 1fr)',
@@ -924,6 +937,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
 
                 {/* Rating Breakdown Card: border 1px solid #CED0D3, borderRadius 16px, padding 40px */}
                 <div
+                  className="rating-breakdown-card"
                   style={{
                     border: '1px solid #CED0D3',
                     borderRadius: '16px',
@@ -932,6 +946,9 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                     alignItems: 'center',
                     gap: '24px',
                     backgroundColor: '#FFFFFF',
+                    boxSizing: 'border-box',
+                    width: '100%',
+                    maxWidth: '100%',
                   }}
                 >
                   <div
@@ -973,18 +990,20 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   </div>
 
                   {/* Progress bars (5 stars down to 1 star) */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
                     {[
-                      { count: 720, width: 260.2 },
-                      { count: 120, width: 102.9 },
-                      { count: 21, width: 26.7 },
-                      { count: 12, width: 9.9 },
-                      { count: 16, width: 14.8 },
+                      { count: 720, percent: 92.2 },
+                      { count: 120, percent: 36.5 },
+                      { count: 21, percent: 9.5 },
+                      { count: 12, percent: 3.5 },
+                      { count: 16, percent: 5.2 },
                     ].map((bar, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <div key={idx} className="rating-bar-row" style={{ display: 'flex', alignItems: 'center', gap: '12px', minWidth: 0, width: '100%' }}>
                         <div
                           style={{
-                            width: '282px',
+                            flex: '1 1 60px',
+                            minWidth: '40px',
+                            maxWidth: '282px',
                             height: '8px',
                             backgroundColor: '#E5E6E8',
                             borderRadius: '24px',
@@ -993,26 +1012,27 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                         >
                           <div
                             style={{
-                              width: `${bar.width}px`,
+                              width: `${bar.percent}%`,
                               height: '100%',
                               backgroundColor: '#D4FB20',
                               borderRadius: '24px',
                             }}
                           />
                         </div>
-                        <div style={{ display: 'flex', gap: '4px' }}>
+                        <div className="rating-row-stars" style={{ display: 'flex', gap: '3px', flexShrink: 0 }}>
                           {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} size={20} color="#4B4C53" />
+                            <StarIcon key={i} size={18} color="#4B4C53" />
                           ))}
                         </div>
                         <span
                           style={{
                             fontFamily: 'var(--font-body)',
-                            fontSize: '16px',
-                            lineHeight: '25.6px',
+                            fontSize: '15px',
+                            lineHeight: '20px',
                             color: '#4B4C53',
-                            width: '40px',
+                            width: '36px',
                             textAlign: 'right',
+                            flexShrink: 0,
                           }}
                         >
                           {bar.count}
@@ -1069,7 +1089,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                 </div>
 
                 {/* Reviews List: 24px radius, 1px solid #CED0D3, 40px padding */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%' }}>
                   {[
                     {
                       name: 'PurePearl Studio',
@@ -1102,6 +1122,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   ].map((rev, idx) => (
                     <div
                       key={idx}
+                      className="course-review-card"
                       style={{
                         border: '1px solid #CED0D3',
                         borderRadius: '24px',
@@ -1110,17 +1131,22 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                         display: 'flex',
                         flexDirection: 'column',
                         gap: '24px',
+                        boxSizing: 'border-box',
+                        width: '100%',
                       }}
                     >
                       <div
+                        className="review-card-top"
                         style={{
                           display: 'flex',
                           alignItems: 'flex-start',
                           justifyContent: 'space-between',
+                          gap: '12px',
+                          flexWrap: 'wrap',
                         }}
                       >
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', minWidth: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
                             <div
                               style={{
                                 position: 'relative',
@@ -1134,7 +1160,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                             >
                               <Image src={rev.avatar} alt={rev.name} fill style={{ objectFit: 'cover' }} />
                             </div>
-                            <div>
+                            <div style={{ minWidth: 0 }}>
                               <div
                                 style={{
                                   fontFamily: 'var(--font-body)',
@@ -1142,6 +1168,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                                   lineHeight: '21.6px',
                                   fontWeight: 500,
                                   color: '#242528',
+                                  wordBreak: 'break-word',
                                 }}
                               >
                                 {rev.name}
@@ -1158,7 +1185,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                               </div>
                             </div>
                           </div>
-                          <div style={{ display: 'flex', gap: '4px' }}>
+                          <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                             {[...Array(5)].map((_, i) => (
                               <StarIcon key={i} size={20} color="#4B4C53" />
                             ))}
@@ -1170,6 +1197,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                             fontSize: '16px',
                             lineHeight: '24px',
                             color: '#4B4C53',
+                            flexShrink: 0,
                           }}
                         >
                           {rev.time}
@@ -1183,6 +1211,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                           lineHeight: '24px',
                           color: '#4B4C53',
                           margin: 0,
+                          wordBreak: 'break-word',
                         }}
                       >
                         {rev.text}
@@ -1210,6 +1239,8 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                       fontWeight: 500,
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
+                      maxWidth: '100%',
+                      boxSizing: 'border-box',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = '#D4FB20';
@@ -1239,6 +1270,8 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                       fontWeight: 500,
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
+                      maxWidth: '100%',
+                      boxSizing: 'border-box',
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = '#D4FB20';
@@ -1261,6 +1294,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
           {/* RIGHT COLUMN: Sticky Sidebar Card (412px in Figma)          */}
           {/* ============================================================ */}
           <div
+            className="course-sidebar-card"
             style={{
               backgroundColor: '#FFFFFF',
               color: '#242528',
