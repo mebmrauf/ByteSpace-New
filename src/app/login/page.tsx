@@ -81,6 +81,7 @@ export default function LoginPage() {
         {/* ============================================================ */}
         <Link
           href="/"
+          className="auth-logo"
           style={{
             position: 'absolute',
             left: '122px',
@@ -97,6 +98,7 @@ export default function LoginPage() {
         {/* Left Column Text (x = 122px, y = 120px)                      */}
         {/* ============================================================ */}
         <div
+          className="auth-left-text"
           style={{
             position: 'absolute',
             left: '122px',
@@ -135,6 +137,7 @@ export default function LoginPage() {
         {/* ============================================================ */}
         {/* Visual Stage: Overlapping Cards & 3D Shapes                  */}
         {/* ============================================================ */}
+        <div className="auth-decorative-stage">
 
         {/* 3D Shape: Lime Torus (x = 151px, y = 320px, 146x146px) */}
         <div
@@ -844,11 +847,13 @@ export default function LoginPage() {
             priority
           />
         </div>
+        </div>
 
         {/* ============================================================ */}
         {/* Right Column: Login Form Modal Card (x = 741px, y = 120px)   */}
         {/* ============================================================ */}
         <div
+          className="auth-form-card"
           style={{
             position: 'absolute',
             left: '741px',
@@ -1118,10 +1123,53 @@ export default function LoginPage() {
       </div>
 
       <style>{`
-        @media (max-width: 1439px) {
+        @media (min-width: 1024px) and (max-width: 1439px) {
           .auth-canvas {
             transform: scale(calc(100vw / 1440));
             transform-origin: top center;
+          }
+        }
+        @media (max-width: 1023px) {
+          .auth-canvas {
+            width: 100% !important;
+            min-height: 100vh !important;
+            height: auto !important;
+            transform: none !important;
+            padding: 32px 16px 64px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .auth-logo {
+            position: static !important;
+            margin-bottom: 24px !important;
+          }
+          .auth-left-text {
+            position: static !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            text-align: center !important;
+            margin-bottom: 24px !important;
+          }
+          .auth-decorative-stage {
+            display: none !important;
+          }
+          .auth-form-card {
+            position: static !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            height: auto !important;
+            margin: 0 auto !important;
+            padding: 36px 24px !important;
+          }
+          .auth-form-card form {
+            width: 100% !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .auth-form-card {
+            padding: 28px 16px !important;
+            border-radius: 16px !important;
           }
         }
       `}</style>
