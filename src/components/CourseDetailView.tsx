@@ -167,7 +167,20 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
               }}
             >
               by{' '}
-              <Link href="/creators/purepearl-studio" style={{ color: '#F1F4FE', textDecoration: 'none' }}>
+              <Link
+                href="/creators/purepearl-studio"
+                style={{
+                  color: '#D4FB20',
+                  textDecoration: 'none',
+                  transition: 'opacity 0.15s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.textDecoration = 'underline';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.textDecoration = 'none';
+                }}
+              >
                 purepearl studio
               </Link>
             </div>
@@ -1120,41 +1133,19 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
           >
             {/* 112 Lessons (24 hours) Preview */}
             <div>
-              <div
-                onClick={() => handleTabChange('lessons')}
+              <h3
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  cursor: 'pointer',
-                  marginBottom: '24px',
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '20px',
+                  lineHeight: '24px',
+                  fontWeight: 600,
+                  letterSpacing: '-0.2px',
+                  color: '#242528',
+                  margin: '0 0 24px 0',
                 }}
-                title="View full course lessons"
               >
-                <h3
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    fontSize: '20px',
-                    lineHeight: '24px',
-                    fontWeight: 600,
-                    letterSpacing: '-0.2px',
-                    color: '#242528',
-                    margin: 0,
-                    transition: 'color 0.15s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = '#003BE2';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = '#242528';
-                  }}
-                >
-                  112 Lessons (24 hours)
-                </h3>
-                <span style={{ fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 600, color: '#003BE2' }}>
-                  View all &rarr;
-                </span>
-              </div>
+                112 Lessons (24 hours)
+              </h3>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div
@@ -1163,30 +1154,19 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    gap: '8px',
                     cursor: 'pointer',
-                    padding: '6px 8px',
-                    margin: '-6px -8px',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.15s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#F5F5F6';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                   title="Open Module 1 in Course Lessons"
                 >
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '24px', flexShrink: 0 }}>
                       01
                     </span>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
-                      Introduction to Digital Assets
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '194px', flexShrink: 0 }}>
+                      Introduction to Digital<br />Assets
                     </span>
                   </div>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap', flexShrink: 0 }}>
                     12 mins
                   </span>
                 </div>
@@ -1197,30 +1177,19 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    gap: '8px',
                     cursor: 'pointer',
-                    padding: '6px 8px',
-                    margin: '-6px -8px',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.15s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#F5F5F6';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                   title="Open Module 2 in Course Lessons"
                 >
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '24px', flexShrink: 0 }}>
                       02
                     </span>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
-                      Design Principles for Impacts
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '194px', flexShrink: 0 }}>
+                      Design Principles for<br />Impacts
                     </span>
                   </div>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap', flexShrink: 0 }}>
                     21 mins
                   </span>
                 </div>
@@ -1231,58 +1200,44 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
-                    gap: '8px',
                     cursor: 'pointer',
-                    padding: '6px 8px',
-                    margin: '-6px -8px',
-                    borderRadius: '8px',
-                    transition: 'background-color 0.15s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#F5F5F6';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                   title="Open Module 3 in Course Lessons"
                 >
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '24px', flexShrink: 0 }}>
                       03
                     </span>
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528' }}>
-                      Advanced Techniques in Digital Creation
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '19.2px', fontWeight: 500, color: '#242528', width: '194px', flexShrink: 0 }}>
+                      Advanced Techniques in<br />Digital Creation
                     </span>
                   </div>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap' }}>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', lineHeight: '25.6px', color: '#003BE2', whiteSpace: 'nowrap', flexShrink: 0 }}>
                     16 mins
                   </span>
                 </div>
-              </div>
 
-              <div
-                onClick={() => handleTabChange('lessons')}
-                style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: '16px',
-                  lineHeight: '25.6px',
-                  color: '#4B4C53',
-                  marginTop: '12px',
-                  cursor: 'pointer',
-                  display: 'inline-block',
-                  transition: 'color 0.15s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#003BE2';
-                  e.currentTarget.style.textDecoration = 'underline';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#4B4C53';
-                  e.currentTarget.style.textDecoration = 'none';
-                }}
-                title="View all remaining lesson videos"
-              >
-                99 more videos &rarr;
+                <div
+                  onClick={() => handleTabChange('lessons')}
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    lineHeight: '25.6px',
+                    color: '#4B4C53',
+                    cursor: 'pointer',
+                    display: 'inline-block',
+                    transition: 'color 0.15s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = '#003BE2';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = '#4B4C53';
+                  }}
+                  title="View full course lessons"
+                >
+                  99 more videos
+                </div>
               </div>
             </div>
 
@@ -1297,7 +1252,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   margin: 0,
                 }}
               >
-                Ready to Dive In? Enroll Now and Start Building Your Digital Future!
+                Ready to Dive In? Enroll Now and Start<br />Building Your Digital Future!
               </p>
 
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
@@ -1438,7 +1393,7 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
                   margin: 0,
                 }}
               >
-                Ready to Dive In? Enroll Now and Start Building Your Digital Future!
+                Ready to Dive In? Enroll Now and Start<br />Building Your Digital Future!
               </p>
 
               <Link
