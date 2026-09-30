@@ -1,55 +1,57 @@
-# ByteSpace - Online Learning Platform
+## Overview
 
-A pixel-perfect rebuild of the ByteSpace Figma design system using **Next.js 15 (App Router)**, **React 19**, **TypeScript**, and **Vanilla CSS**.
+This is a multi-page web application developed with Next.js 15, React 19, TypeScript, and Vanilla CSS. It covers all key screens from the Figma file including the landing page, search/catalog, course details with lessons and reviews, creator profile, authentication flows, and a custom 404 page.
 
----
+## Pages Implemented
 
-## 🚀 Live Pages & Routes
+- Home (`/`): Landing page with floating hero cards, category list, popular courses, learning paths, testimonials, and footer.
+- Search Page (`/courses`): Course catalog with category filters, difficulty level filters, search bar, and course grid.
+- Course Details (`/courses/learn-figma-from-basic`): Main course page with video player preview, course info, and checkout sidebar.
+- Course Lessons (`/courses/learn-figma-from-basic/lessons`): Curriculum breakdown with expandable module accordions.
+- Course Reviews (`/courses/learn-figma-from-basic/reviews`): Course review summary, star rating filter, and individual reviews.
+- Creator Profile (`/creators/purepearl-studio`): Instructor page with bio, follower count, course listings, and an interactive follow button.
+- Login (`/login`): Sign-in page with social login buttons and card preview.
+- Register (`/register`): User registration form.
+- 404 Page (`/404` or any invalid URL): Custom not found page with a link back to home.
 
-| Route | Page | Description |
-|---|---|---|
-| `/` | **Home Page** | Hero with 3D floating shapes, student showcase, partner logos, top categories, popular courses, diverse learning paths, creator CTA, student testimonials, and footer. |
-| `/courses` | **Courses Catalog** | Search page with search bar, topic filters (Category, Beginner, Intermediate, etc.), category pills, course grid, and pagination. |
-| `/courses/[id]` | **Course Details** | Detailed course page with video player preview, instructor info, price / enroll box, and interactive **About**, **Lessons** (accordion modules), and **Reviews** tabs. |
-| `/creators/[id]` | **Creator Profile** | Instructor profile with avatar, banner, student & rating metrics, bio, social links, follow toggle, and creator's courses. |
-| `/login` | **Sign In** | Authentication page featuring left 3D floating card composition and right login form with social sign-in. |
-| `/register` | **Join Us / Register** | Registration page featuring 3D floating cards and complete user sign-up form. |
-| `/*` | **404 Not Found** | Custom 404 page featuring giant lime backdrop text, floating 3D shapes, and back-to-home navigation. |
+## Tech Stack
 
----
+- Framework: Next.js 15 (App Router)
+- Library: React 19
+- Language: TypeScript
+- Styling: Vanilla CSS with CSS variables (no Tailwind or external UI frameworks)
+- Fonts: Poppins (headings), Satoshi (body), Inter (subtitles)
 
-## 🎨 Design System & Visual Tokens
+## Getting Started
 
-- **Primary Colors**:
-  - Persian Blue: `#003BE2`
-  - Electric Lime: `#D4FB20`
-  - Neutral / Dark Charcoal: `#242528`
-  - Pure White: `#FFFFFF`
-  - Soft Neutral Gray: `#F5F5F6`
-- **Typography**:
-  - Headings: **Poppins** (600 / 700 / 800)
-  - Body & UI: **Satoshi** (400 / 500 / 700)
-  - Subtitles & Badges: **Inter**
-- **Grid Background**:
-  - Authentic 120px × 120px subtle blue grid at 12% opacity (`.blue-grid-bg`) starting cleanly from the header border.
-- **Assets**:
-  - Organized directly in `public/courses/`, `public/images/`, `public/shapes/`, and `public/icons/`.
-  - ByteSpace brand SVGs, partner logos, category icons, and badges.
+### Prerequisites
 
----
+Node.js 18.17 or higher.
 
-## 🛠️ Development & Production
+### Installation
 
 ```bash
-# Install dependencies
 npm install
+```
 
-# Run development server (http://localhost:3000)
+### Running Locally
+
+```bash
 npm run dev
+```
 
-# Build for production
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Building for Production
+
+```bash
 npm run build
-
-# Start production server
 npm run start
 ```
+
+## Notes
+
+- Responsive Design: Layouts are adapted for desktop (1440px), tablet (768px - 1024px), and mobile (under 768px with a mobile menu drawer).
+- Styling: Built with custom Vanilla CSS and CSS custom properties for colors, spacing, and typography. No external UI component libraries were used.
+- Icons: All icons are written as inline SVG components to avoid external icon font overhead.
+- Tab State: The course details page syncs its active tab (About, Lessons, Reviews) with browser history using pushState.
