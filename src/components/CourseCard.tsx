@@ -63,13 +63,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               gap: '12px',
             }}
           >
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                router.push(`/courses/${course.id}/lessons`);
-              }}
+            <span
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
                 backdropFilter: 'blur(8px)',
@@ -88,22 +82,10 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                 justifyContent: 'center',
                 whiteSpace: 'nowrap',
                 flexShrink: 0,
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(212, 251, 32, 0.9)';
-                e.currentTarget.style.color = '#242528';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(246, 246, 246, 0.6)';
-                e.currentTarget.style.color = '#4F4F4F';
-              }}
-              title={`View ${course.lessons} lessons for ${course.title}`}
             >
               {course.lessons} Lessons
-            </button>
+            </span>
             <span
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
@@ -127,13 +109,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
             >
               {course.duration}
             </span>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                router.push(`/courses/${course.id}/reviews`);
-              }}
+            <span
               style={{
                 backgroundColor: 'rgba(246, 246, 246, 0.6)',
                 backdropFilter: 'blur(8px)',
@@ -152,22 +128,10 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                 justifyContent: 'center',
                 whiteSpace: 'nowrap',
                 flexShrink: 0,
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(212, 251, 32, 0.9)';
-                e.currentTarget.style.color = '#242528';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'rgba(246, 246, 246, 0.6)';
-                e.currentTarget.style.color = '#4F4F4F';
-              }}
-              title={`View ${course.comments} reviews for ${course.title}`}
             >
               {course.comments} Comments
-            </button>
+            </span>
           </div>
         </div>
 
@@ -179,7 +143,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'space-between',
-              gap: '12px',
+              gap: '10px',
             }}
           >
             <div style={{ minWidth: 0, flex: 1 }}>
@@ -188,11 +152,15 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                   fontFamily: 'Poppins, sans-serif',
                   fontSize: '20px',
                   fontWeight: 600,
+                  letterSpacing: '-0.2px',
                   color: '#000000',
                   lineHeight: '24px',
                   whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
                   margin: 0,
                 }}
+                title={course.title}
               >
                 {course.title}
               </h3>
@@ -204,9 +172,32 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
                   fontWeight: 400,
                   lineHeight: '19.2px',
                   margin: 0,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
                 }}
               >
-                by {course.author}
+                by{' '}
+                <span
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    router.push('/creators/purepearl-studio');
+                  }}
+                  style={{
+                    color: '#003BE2',
+                    cursor: 'pointer',
+                    transition: 'opacity 0.15s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.textDecoration = 'underline';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.textDecoration = 'none';
+                  }}
+                >
+                  {course.author}
+                </span>
               </p>
             </div>
 
@@ -220,6 +211,9 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'flex-end',
+                gap: '0px',
+                width: '50px',
                 fontFamily: 'Satoshi, sans-serif',
                 fontSize: '18px',
                 fontWeight: 400,
@@ -230,7 +224,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
               }}
               title={`View reviews for ${course.title}`}
             >
-              <span>{course.rating.toFixed(1)}&nbsp;</span>
+              <span style={{ marginRight: '2px' }}>{course.rating.toFixed(1)}</span>
               <StarIcon size={24} color="#CED0D3" />
             </div>
           </div>

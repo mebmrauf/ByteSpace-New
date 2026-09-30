@@ -569,7 +569,9 @@ export default function HomePage() {
                         >
                           Learn Figma from Basic
                         </Link>
-                        <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px' }}>by purepearl studio</div>
+                        <div style={{ fontFamily: 'Satoshi, sans-serif', fontSize: '12px', color: '#4F4F4F', lineHeight: '20px' }}>
+                          by <Link href="/creators/purepearl-studio" style={{ color: '#003BE2', textDecoration: 'none' }}>purepearl studio</Link>
+                        </div>
                       </div>
                       <Link
                         href="/courses/learn-figma-from-basic/reviews"

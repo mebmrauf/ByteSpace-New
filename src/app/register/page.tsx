@@ -300,7 +300,7 @@ export default function RegisterPage() {
                     color: '#4F4F4F',
                   }}
                 >
-                  by purepearl studio
+                  by <span style={{ color: '#003BE2' }}>purepearl studio</span>
                 </div>
               </div>
 
@@ -572,7 +572,7 @@ export default function RegisterPage() {
                     color: '#4F4F4F',
                   }}
                 >
-                  by purepearl studio
+                  by <span style={{ color: '#003BE2' }}>purepearl studio</span>
                 </div>
               </div>
 
