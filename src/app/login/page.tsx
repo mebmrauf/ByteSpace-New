@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { LogoMark, StarIcon, SignalCellularIcon, FacebookIcon, GoogleIcon } from '@/components/Icons';
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -41,12 +43,12 @@ export default function LoginPage() {
           'bytespace_session',
           JSON.stringify({ name: found?.name || 'Designer', email: email.toLowerCase() })
         );
-        window.location.href = '/courses';
+        router.push('/courses');
       } else {
         setError('Invalid email or password.');
       }
     } catch {
-      window.location.href = '/courses';
+      router.push('/courses');
     }
   };
 

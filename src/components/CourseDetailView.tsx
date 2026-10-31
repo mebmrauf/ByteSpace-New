@@ -52,9 +52,9 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
   useEffect(() => {
     const onPopState = () => {
       const path = window.location.pathname;
-      if (path.endsWith('/reviews')) {
+      if (path.includes('/reviews')) {
         setActiveTab('reviews');
-      } else if (path.endsWith('/lessons')) {
+      } else if (path.includes('/lessons')) {
         setActiveTab('lessons');
       } else {
         setActiveTab('about');
@@ -67,13 +67,14 @@ function CourseDetailContent({ initialTab, defaultCourseId }: CourseDetailViewPr
   const handleTabChange = (tab: 'about' | 'lessons' | 'reviews') => {
     setActiveTab(tab);
     if (typeof window !== 'undefined') {
-      const baseCourseUrl = `/courses/${course.id}`;
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      const baseCourseUrl = `${basePath}/courses/${course.id}`;
       if (tab === 'reviews') {
-        window.history.pushState(null, '', `${baseCourseUrl}/reviews`);
+        window.history.pushState(null, '', `${baseCourseUrl}/reviews/`);
       } else if (tab === 'lessons') {
-        window.history.pushState(null, '', `${baseCourseUrl}/lessons`);
+        window.history.pushState(null, '', `${baseCourseUrl}/lessons/`);
       } else {
-        window.history.pushState(null, '', baseCourseUrl);
+        window.history.pushState(null, '', `${baseCourseUrl}/`);
       }
     }
   };

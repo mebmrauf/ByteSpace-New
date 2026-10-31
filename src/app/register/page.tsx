@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { LogoMark, StarIcon, SignalCellularIcon } from '@/components/Icons';
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,9 +41,9 @@ export default function RegisterPage() {
       users.push({ name: fullName.trim(), email: email.toLowerCase(), password });
       localStorage.setItem('bytespace_users', JSON.stringify(users));
       localStorage.setItem('bytespace_session', JSON.stringify({ name: fullName.trim(), email: email.toLowerCase() }));
-      window.location.href = '/courses';
+      router.push('/courses');
     } catch {
-      window.location.href = '/courses';
+      router.push('/courses');
     }
   };
 

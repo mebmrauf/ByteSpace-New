@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CourseCard } from '@/components/CourseCard';
@@ -21,6 +22,8 @@ import { COURSES, CATEGORIES, LEARNING_PATHS } from '@/data/courses';
 import { TESTIMONIALS } from '@/data/testimonials';
 
 export default function HomePage() {
+  const router = useRouter();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const [selectedCategory, setSelectedCategory] = useState('Featured');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -59,7 +62,7 @@ export default function HomePage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (searchQuery) window.location.href = `/courses?q=${encodeURIComponent(searchQuery)}`;
+                if (searchQuery) router.push(`/courses?q=${encodeURIComponent(searchQuery)}`);
               }}
               className="hero-search-form"
             >
@@ -394,7 +397,7 @@ export default function HomePage() {
           position: 'relative',
           overflow: 'hidden',
           backgroundColor: '#FAFAFA',
-          backgroundImage: "url('/images/bg-sections-5-6.webp')",
+          backgroundImage: `url('${basePath}/images/bg-sections-5-6.webp')`,
           backgroundPosition: 'center top',
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
@@ -867,7 +870,7 @@ export default function HomePage() {
           color: '#FFFFFF',
           textAlign: 'center',
           backgroundColor: '#003BE2',
-          backgroundImage: "url('/shapes/cta-bg-exact.png')",
+          backgroundImage: `url('${basePath}/shapes/cta-bg-exact.png')`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% 100%',
@@ -954,7 +957,7 @@ export default function HomePage() {
         style={{
           width: '100%',
           backgroundColor: '#FAFAFA',
-          backgroundImage: "url('/images/bg-testimonials.png')",
+          backgroundImage: `url('${basePath}/images/bg-testimonials.png')`,
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '100% 100%',
